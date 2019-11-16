@@ -272,7 +272,7 @@
 					<div class="ft-top-wrapper style">
 						<div class="row">
 							<div class="col-md-6 col-lg-3 ft-col">
-								<a href="index.html">
+								<a href="{% url 'index' %}">
 									<img src="{% static 'images/logo.png' %}" alt="">
 								</a>
 								<p class="style">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusan-tium doloremque laudantium, totam rem aperiam,</p>
@@ -349,10 +349,7 @@
 							</div>
 							<div class="col-md-6 col-lg-3 ft-col mt-51 pl-30">
 								<h6 class="mb-33">Find us</h6>
-								<!-- MAP -->
-								<div class="js-google-map" data-makericon="images/map-marker.png" data-makers='[["Royate", "Now that you visited our website,<br> how about checking out our office too?", 40.715681, -74.003427]]'>
-									<div class="map__holder js-map-holder map-holder" id="map"></div>
-								</div>
+
 							</div>
 						</div>
 					</div>
@@ -390,10 +387,6 @@
         <script src="{% static 'vendor/revolution-slider/js/revolution.extension.parallax.min.js' %}"></script>
         <script src="{% static 'vendor/revolution-slider/js/revolution.extension.slideanims.min.js' %}"></script>
         <script src="{% static 'vendor/revolution-slider/js/revolution.extension.video.min.js' %}"></script>
-
-        <!-- MAP JS-->
-		<script src="{% static 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAEmXgQ65zpsjsEAfNPP9mBAz-5zjnIZBw' %}"></script>
-		<script src="{% static 'js/theme-map.js' %}"></script>
 
 		<!-- CAROUSEL JS -->
 		<script src="{% static 'vendor/owl-carousel/js/owl.carousel.min.js' %}"></script>

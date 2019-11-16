@@ -4,11 +4,11 @@
 {% block stylesheet %}{% endblock %}
 {% block content %}
 
-	<body class="preload">
+	<body>
 
 		<main>
 			<!-- PAGE INFO -->
-			<section class="page-info set-bg" data-bg="images/page-info-bg-4.jpg">
+			<section class="page-info set-bg" data-bg="{% static 'images/page-info-bg-4.jpg' %}">
 				<div class="section-header">
 					<h1 class="text-white">Blog Single</h1>
 					<span>~ The things you want to find ~</span>
@@ -23,7 +23,7 @@
 							<div class="blog-single">
 								<div class="post">
 									<div class="post-thumb">
-										<img src="images/blog-standard-1.jpg" alt="">
+										<img src="{%static 'images/blog-standard-1.jpg"'%} alt="">
 										<div class="post-date">
 											<div class="inner">
 												<span class="date">20</span>
@@ -38,7 +38,7 @@
 										<div class="post-meta">
 											<div class="post-author">
 												<a href="#" class="thumb">
-													<img src="images/author-avatar-1.png" alt="">
+													<img src="{%static 'images/author-avatar-1.png'%}" alt="">
 												</a>
 												By
 												<a href="#" class="name">Andrea Silva</a>
@@ -58,16 +58,16 @@
 											<h6>Duis aute irure dolor in reprehenderit in voluptate velit.</h6>
 											<div class="grid">
 												<div class="image-holder">
-													<img src="images/blog-single-1.jpg" alt="">
+													<img src="{%static 'images/blog-single-1.jpg'%}" alt="">
 												</div>
 												<div class="image-holder">
-													<img src="images/blog-single-2.jpg" alt="">
+													<img src="{%static 'images/blog-single-2.jpg'%}" alt="">
 												</div>
 												<div class="image-holder">
-													<img src="images/blog-single-3.jpg" alt="">
+													<img src="{%static 'images/blog-single-3.jpg'%}" alt="">
 												</div>
 												<div class="image-holder">
-													<img src="images/blog-single-4.jpg" alt="">
+													<img src="{%static 'images/blog-single-4.jpg'%}" alt="">
 												</div>
 											</div>
 										</div>
@@ -98,7 +98,7 @@
 										<div class="author-board">
 											<div class="inner">
 												<a href="#">
-													<img src="images/author-board.png" alt="">
+													<img src="{%static 'images/author-board.png'%}" alt="">
 												</a>
 												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam</p>
 												<h6>
@@ -135,7 +135,7 @@
 											<div class="comments-group">
 												<div class="comments-item">
 													<a href="#" class="thumb">
-														<img src="images/user-1.png" alt="">
+														<img src="{%static 'images/user-1.png'%}" alt="">
 													</a>
 													<div class="comments-content">
 														<div class="heading">
@@ -157,7 +157,7 @@
 												<div class="comments-group">
 													<div class="comments-item">
 														<a href="#" class="thumb">
-															<img src="images/user-2.png" alt="">
+															<img src="{%static 'images/user-2.png'%}" alt="">
 														</a>
 														<div class="comments-content">
 															<div class="heading">
@@ -180,7 +180,7 @@
 											<div class="comments-group">
 												<div class="comments-item">
 													<a href="#" class="thumb">
-														<img src="images/user-3.png" alt="">
+														<img src="{%static 'images/user-3.png'%}" alt="">
 													</a>
 													<div class="comments-content">
 														<div class="heading">
@@ -224,12 +224,12 @@
 								<!-- PERSON -->
 								<div class="widgets widget_person">
 									<div class="inner">
-										<img src="images/widget-person.png" alt="">
+										<img src="{%static 'images/widget-person.png'%}" alt="">
 										<div class="widget-title">
 											<h6>Bryan Bennett</h6>
 											<span>Master Chef</span>
 										</div>
-										<img src="images/signature-3.png" alt="">
+										<img src="{%static 'images/signature-3.png'%}" alt="">
 									</div>
 								</div>
 								<!-- CATEGORIES -->
@@ -263,44 +263,11 @@
 									<div class="latest-post">
 										<div class="latest-post__item">
 											<a href="#" class="thumb">
-												<img src="images/latest-post-thumb-1.png" alt="">
+												<img src="{%static 'images/latest-post-thumb-1.png'%}" alt="">
 											</a>
 											<div class="heading">
 												<h6>
 													<a href="#">There many variations</a>
-												</h6>
-												<span>July 23, 2018</span>
-											</div>
-										</div>
-										<div class="latest-post__item">
-											<a href="#" class="thumb">
-												<img src="images/latest-post-thumb-2.png" alt="">
-											</a>
-											<div class="heading">
-												<h6>
-													<a href="#">All the Lorem Ipsum</a>
-												</h6>
-												<span>July 23, 2018</span>
-											</div>
-										</div>
-										<div class="latest-post__item">
-											<a href="#" class="thumb">
-												<img src="images/latest-post-thumb-3.png" alt="">
-											</a>
-											<div class="heading">
-												<h6>
-													<a href="#">The first line of Lorem</a>
-												</h6>
-												<span>July 23, 2018</span>
-											</div>
-										</div>
-										<div class="latest-post__item">
-											<a href="#" class="thumb">
-												<img src="images/latest-post-thumb-4.png" alt="">
-											</a>
-											<div class="heading">
-												<h6>
-													<a href="#">The standard chunk</a>
 												</h6>
 												<span>July 23, 2018</span>
 											</div>
@@ -315,32 +282,7 @@
 									<div class="row">
 										<div class="col-4 col-md-6 col-lg-4 col-holder">
 											<a href="#">
-												<img src="images/instagram-small-1.jpg" alt="">
-											</a>
-										</div>
-										<div class="col-4 col-md-6 col-lg-4 col-holder">
-											<a href="#">
-												<img src="images/instagram-small-2.jpg" alt="">
-											</a>
-										</div>
-										<div class="col-4 col-md-6 col-lg-4 col-holder">
-											<a href="#">
-												<img src="images/instagram-small-3.jpg" alt="">
-											</a>
-										</div>
-										<div class="col-4 col-md-6 col-lg-4 col-holder">
-											<a href="#">
-												<img src="images/instagram-small-4.jpg" alt="">
-											</a>
-										</div>
-										<div class="col-4 col-md-6 col-lg-4 col-holder">
-											<a href="#">
-												<img src="images/instagram-small-5.jpg" alt="">
-											</a>
-										</div>
-										<div class="col-4 col-md-6 col-lg-4 col-holder">
-											<a href="#">
-												<img src="images/instagram-small-6.jpg" alt="">
+												<img src="{%static 'images/instagram-small-1.jpg'%}" alt="">
 											</a>
 										</div>
 									</div>
@@ -362,7 +304,7 @@
 								<!-- BANNER -->
 								<div class="widgets widget_banner">
 									<a href="#">
-										<img src="images/widget-banner.jpg" alt="">
+										<img src="{%static 'images/widget-banner.jpg'%}" alt="">
 									</a>
 								</div>
 								<!-- SEARCH -->

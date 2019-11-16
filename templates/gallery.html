@@ -4,7 +4,7 @@
 {% block stylesheet %}{% endblock %}
 {% block content %}
 	
-	<body class="preload">
+	<body>
 
 		<main>
 			<!-- PAGE BREADCRUMB -->
@@ -17,13 +17,10 @@
 						<div class="col-md-auto">
 							<ul class="au-breadcrumb">
 								<li>
-									<a href="index.html">Home</a>
+									<a href="{% url 'index' %}">Home</a>
 								</li>
 								<li>
-									<a href="#">Gallery Portfolio Lists</a>
-								</li>
-								<li>
-									<a href="#">Four Columns</a>
+									<a href="#">Gallery</a>
 								</li>
 							</ul>
 						</div>
@@ -37,7 +34,7 @@
 					<div class="row">
 						<div class="col-md">
 							<a href="#" class="image-holder">
-								<img src="images/gallery-four-columns-1.jpg" alt="">
+								<img src="{%static 'images/gallery-four-columns-1.jpg'%}" alt="">
 								<div class="frame"></div>
 								<div class="inner">
 									<div class="info">
@@ -49,7 +46,7 @@
 						</div>
 						<div class="col-md">
 							<a href="#" class="image-holder">
-								<img src="images/gallery-four-columns-2.jpg" alt="">
+								<img src="{%static 'images/gallery-four-columns-2.jpg'%}" alt="">
 								<div class="frame"></div>
 								<div class="inner">
 									<div class="info">
@@ -61,7 +58,7 @@
 						</div>
 						<div class="col-md">
 							<a href="#" class="image-holder">
-								<img src="images/gallery-four-columns-3.jpg" alt="">
+								<img src="{%static 'images/gallery-four-columns-3.jpg'%}" alt="">
 								<div class="frame"></div>
 								<div class="inner">
 									<div class="info">
@@ -73,7 +70,7 @@
 						</div>
 						<div class="col-md">
 							<a href="#" class="image-holder">
-								<img src="images/gallery-four-columns-4.jpg" alt="">
+								<img src="{%static 'images/gallery-four-columns-4.jpg'%}" alt="">
 								<div class="frame"></div>
 								<div class="inner">
 									<div class="info">
@@ -84,152 +81,6 @@
 							</a>
 						</div>
 						<div class="w-100"></div>
-						<div class="col-md">
-							<a href="#" class="image-holder">
-								<img src="images/gallery-four-columns-5.jpg" alt="">
-								<div class="frame"></div>
-								<div class="inner">
-									<div class="info">
-										<h6>Aenean luctus</h6>
-										<span>Cake</span>
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="col-md">
-							<a href="#" class="image-holder">
-								<img src="images/gallery-four-columns-6.jpg" alt="">
-								<div class="frame"></div>
-								<div class="inner">
-									<div class="info">
-										<h6>Tristique eu </h6>
-										<span>Fruit</span>
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="col-md">
-							<a href="#" class="image-holder">
-								<img src="images/gallery-four-columns-7.jpg" alt="">
-								<div class="frame"></div>
-								<div class="inner">
-									<div class="info">
-										<h6>Vel faucibus </h6>
-										<span>Cake</span>
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="col-md">
-							<a href="#" class="image-holder">
-								<img src="images/gallery-four-columns-8.jpg" alt="">
-								<div class="frame"></div>
-								<div class="inner">
-									<div class="info">
-										<h6>Cras lobortis</h6>
-										<span>Food</span>
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="w-100"></div>
-						<div class="col-md">
-							<a href="#" class="image-holder">
-								<img src="images/gallery-four-columns-9.jpg" alt="">
-								<div class="frame"></div>
-								<div class="inner">
-									<div class="info">
-										<h6>Donec eros</h6>
-										<span>Food</span>
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="col-md">
-							<a href="#" class="image-holder mb-md-0">
-								<img src="images/gallery-four-columns-10.jpg" alt="">
-								<div class="frame"></div>
-								<div class="inner">
-									<div class="info">
-										<h6>Cras rutrum</h6>
-										<span>Cake</span>
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="col-md">
-							<a href="#" class="image-holder mb-md-0">
-								<img src="images/gallery-four-columns-11.jpg" alt="">
-								<div class="frame"></div>
-								<div class="inner">
-									<div class="info">
-										<h6>Etiam vulputate</h6>
-										<span>Food</span>
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="col-md">
-							<a href="#" class="image-holder mb-0">
-								<img src="images/gallery-four-columns-12.jpg" alt="">
-								<div class="frame"></div>
-								<div class="inner">
-									<div class="info">
-										<h6>Eget mi sem</h6>
-										<span>Cake</span>
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="w-100"></div>
-						<div class="col-md">
-							<a href="#" class="image-holder mb-0">
-								<img src="images/gallery-four-columns-13.jpg" alt="">
-								<div class="frame"></div>
-								<div class="inner">
-									<div class="info">
-										<h6>Curabitur vel</h6>
-										<span>Cake</span>
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="col-md">
-							<a href="#" class="image-holder mb-0">
-								<img src="images/gallery-four-columns-14.jpg" alt="">
-								<div class="frame"></div>
-								<div class="inner">
-									<div class="info">
-										<h6>Mauris euismod</h6>
-										<span>Fruit</span>
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="col-md">
-							<a href="#" class="image-holder mb-0">
-								<img src="images/gallery-four-columns-15.jpg" alt="">
-								<div class="frame"></div>
-								<div class="inner">
-									<div class="info">
-										<h6>Venenatis elit</h6>
-										<span>Cake</span>
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="col-md">
-							<a href="#" class="image-holder mb-0">
-								<img src="images/gallery-four-columns-16.jpg" alt="">
-								<div class="frame"></div>
-								<div class="inner">
-									<div class="info">
-										<h6>Vivamus feugiat</h6>
-										<span>Food</span>
-									</div>
-								</div>
-							</a>
-						</div>
 					</div>				
 				</div>
 			</section>

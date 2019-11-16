@@ -4,7 +4,7 @@
 {% block stylesheet %}{% endblock %}
 {% block content %}
 
-	<body class="preload">
+	<body>
 
 		<main>
 			<!-- PAGE BREADCRUMB -->
@@ -17,7 +17,7 @@
 						<div class="col-md-auto">
 							<ul class="au-breadcrumb">
 								<li>
-									<a href="index.html">Home</a>
+									<a href="{% url 'index' %}">Home</a>
 								</li>
 								<li>
 									<a href="shop-cart.html">My Account</a>
@@ -35,7 +35,7 @@
 						<div class="woocommerce-info-wrapper">
 							<div id="accordion">
 								<div class="woocommerce-info">
-									<img src="images/returning-customer.png" alt="">
+									<img src="{%static 'images/returning-customer.png'%}" alt="">
 									Returning customer?
 									<a href="#" data-toggle="collapse" data-target="#collapseOne" id="headingOne"> Click here to login</a>
 								</div>
@@ -63,7 +63,7 @@
 									</form>
 								</div>
 								<div class="woocommerce-info">
-									<img src="images/have-a-coupon.png" alt="">
+									<img src="{%static 'images/have-a-coupon.png'%}" alt="">
 									Have a coupon?
 									<a href="#" data-toggle="collapse" data-target="#collapseTwo" id="headingTwo"> Click here to enter your code</a>
 								</div>
@@ -188,7 +188,7 @@
 											    <tbody>
 											        <tr class="cart_item">
 											            <td class="product-name">
-											                <img src="images/check-out-1.jpg" alt="">
+											                <img src="{%static 'images/check-out-1.jpg'%}" alt="">
 											                <div class="review-wrap">
 											                	<span class="rv-titel">Best Brownies</span>
 															 	<span class="product-quantity">x1</span>
@@ -202,7 +202,7 @@
 											    	</tr>
 											        <tr class="cart_item">
 											            <td class="product-name">
-											                <img src="images/check-out-2.jpg" alt="">
+											                <img src="{%static 'images/check-out-2.jpg'%}" alt="">
 											                <div class="review-wrap">
 											                	<span class="rv-titel">Angela's Awesome</span>
 															 	<span class="product-quantity">x3</span>
@@ -263,7 +263,7 @@
 																<span class="checkmark"></span>
 															</label>
 															<div class="payment_box payment_method_cod">
-																<img src="images/paypal.png" alt="">
+																<img src="{%static 'images/paypal.png'%}" alt="">
 																<a href="#">What is paypal?</a>
 															</div>
 														</div>

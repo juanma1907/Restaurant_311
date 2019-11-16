@@ -4,11 +4,11 @@
 {% block stylesheet %}{% endblock %}
 {% block content %}
 
-	<body class="preload">
+	<body>
 
 		<main id="contact-us-page">
 			<!-- PAGE INFO -->
-			<section class="page-info set-bg" data-bg="images/page-info-bg-1.jpg">
+			<section class="page-info set-bg" data-bg="{% static 'images/page-info-bg-1.jpg' %}">
 				<div class="section-header">
 					<h1 class="text-white">Contact us</h1>
 					<span>~ More than you know ~</span>
@@ -41,15 +41,15 @@
 									</div>
 									<div class="col-md-6">
 										<div class="contact-us-col">
-											<h5>Barcelona</h5>
+											<h5>Dhaka</h5>
 											<div class="body">
 												<div class="address">
-													<span>184 Main Collins Street West 8007</span>
-													<span>Barselona 23765</span>
+													<span>Block#A, Bashundhara R/A</span>
+													<span>Dhaka-1212</span>
 												</div>
 												<div class="contact-info">
-													<a href="#">Email: kathryn-92@example.com</a>
-													<a href="tel:8494904283">Phone: (849) 490 4283</a>
+													<a href="#">Email: abdullah.2010bd@gmail.com</a>
+													<a href="tel:+8801710 608387">Phone: +8801710-608387</a>
 												</div>
 											</div>
 										</div>
@@ -90,11 +90,6 @@
 					</div>				
 				</div>
 			</section>
-
-			<!-- MAP -->
-			<div class="js-google-map" data-makericon="images/map-marker.png" data-makers='[["Royate", "Now that you visited our website,<br> how about checking out our office too?", 40.715681, -74.003427]]'>
-				<div class="map__holder js-map-holder map-holder" id="map"></div>
-			</div>
 		</main>
 
 {% endblock %}

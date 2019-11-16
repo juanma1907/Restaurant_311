@@ -8,7 +8,7 @@
 
 		<main>
 			<!-- PAGE INFO -->
-			<section class="page-info set-bg" data-bg="images/page-info-bg-5.jpg">
+			<section class="page-info set-bg" data-bg="{% static 'images/page-info-bg-5.jpg' %}">
 				<div class="section-header">
 					<h1 class="text-white">Shop single</h1>
 					<span>~ Delicious food ~</span>
@@ -23,18 +23,18 @@
 							<div class="woocommerce-product-gallery woocommerce-product-gallery--with-images">
 								<figure class="woocommerce-product-gallery__wrapper">
 						    		<div class="woocommerce-product-gallery__image">
-							    		<img id="zoom-image" class="attachment-shop_single size-shop_single wp-post-image" src="images/shop-single-medium-1.jpg" data-zoom-image="images/shop-single-big-1.jpg" alt="" />
+							    		<img id="zoom-image" class="attachment-shop_single size-shop_single wp-post-image" src="{% static 'images/shop-single-medium-1.jpg' %}" data-zoom-image="{% static 'images/shop-single-big-1.jpg' %}" alt="" />
 							    	</div>
 						    	</figure>
 								<div id="shop-single-thumb">
-									<a href="#" data-image="images/shop-single-medium-1.jpg" data-zoom-image="images/shop-single-big-1.jpg">
-										<img src='images/shop-single-small-1.jpg' alt="">
+									<a href="#" data-image="{% static 'images/shop-single-medium-1.jpg' %}" data-zoom-image="{% static 'images/shop-single-big-1.jpg' %}">
+										<img src="{%static 'images/shop-single-small-1.jpg'%}" alt="">
 									</a>
-									<a href="#" data-image="images/shop-single-medium-2.jpg" data-zoom-image="images/shop-single-big-2.jpg">
-										<img src='images/shop-single-small-2.jpg' alt="">
+									<a href="#" data-image="{% static 'images/shop-single-medium-2.jpg' %}" data-zoom-image="{% static 'images/shop-single-big-2.jpg' %}">
+										<img src="{%static 'images/shop-single-small-2.jpg'%}" alt="">
 									</a>
-									<a href="#" data-image="images/shop-single-medium-3.jpg" data-zoom-image="images/shop-single-big-3.jpg">
-										<img src='images/shop-single-small-3.jpg' alt="">
+									<a href="#" data-image="{% static 'images/shop-single-medium-3.jpg' %}" data-zoom-image="{% static 'images/shop-single-big-3.jpg' %}">
+										<img src="{%static 'images/shop-single-small-3.jpg'%}" alt="">
 									</a>
 								</div>
 							</div>
@@ -173,7 +173,7 @@
 								<div class="item">
 									<div class="thumb">
 										<a href="#" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
-											<img src="images/shop-list-4.jpg" alt="">
+											<img src="{%static 'images/shop-list-4.jpg'%}" alt="">
 										</a>
 										<a href="#" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add to cart</a>
 									</div>
@@ -191,87 +191,6 @@
 										<span class="price">
 											<span class="woocommerce-Price-amount amount">
 												<span class="woocommerce-Price-currencySymbol">$</span>28
-											</span>
-										</span>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-4 col-lg-3">
-								<div class="item">
-									<div class="thumb">
-										<a href="#" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
-											<img src="images/shop-list-11.jpg" alt="">
-										</a>
-										<a href="#" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add to cart</a>
-									</div>
-									<div class="info">
-										<h5 class="woocommerce-loop-product__title">
-											<a href="#">Fluffy Pancakes</a>
-										</h5>
-										<div class="star-rating">
-											<i class="zmdi zmdi-star"></i>
-											<i class="zmdi zmdi-star"></i>
-											<i class="zmdi zmdi-star"></i>
-											<i class="zmdi zmdi-star"></i>
-											<i class="zmdi zmdi-star-outline"></i>
-										</div>
-										<span class="price">
-											<span class="woocommerce-Price-amount amount">
-												<span class="woocommerce-Price-currencySymbol">$</span>25
-											</span>
-										</span>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-4 col-lg-3">
-								<div class="item">
-									<div class="thumb">
-										<a href="#" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
-											<img src="images/shop-list-6.jpg" alt="">
-										</a>
-										<a href="#" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add to cart</a>
-									</div>
-									<div class="info">
-										<h5 class="woocommerce-loop-product__title">
-											<a href="#">Baked Teriyaki Chicken</a>
-										</h5>
-										<div class="star-rating">
-											<i class="zmdi zmdi-star"></i>
-											<i class="zmdi zmdi-star"></i>
-											<i class="zmdi zmdi-star"></i>
-											<i class="zmdi zmdi-star"></i>
-											<i class="zmdi zmdi-star-outline"></i>
-										</div>
-										<span class="price">
-											<span class="woocommerce-Price-amount amount">
-												<span class="woocommerce-Price-currencySymbol">$</span>24
-											</span>
-										</span>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-4 col-lg-3">
-								<div class="item mb-0">
-									<div class="thumb">
-										<a href="#" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
-											<img src="images/shop-list-17.jpg" alt="">
-										</a>
-										<a href="#" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add to cart</a>
-									</div>
-									<div class="info">
-										<h5 class="woocommerce-loop-product__title">
-											<a href="#">Best Brownies</a>
-										</h5>
-										<div class="star-rating">
-											<i class="zmdi zmdi-star"></i>
-											<i class="zmdi zmdi-star"></i>
-											<i class="zmdi zmdi-star"></i>
-											<i class="zmdi zmdi-star"></i>
-											<i class="zmdi zmdi-star"></i>
-										</div>
-										<span class="price">
-											<span class="woocommerce-Price-amount amount">
-												<span class="woocommerce-Price-currencySymbol">$</span>27
 											</span>
 										</span>
 									</div>
