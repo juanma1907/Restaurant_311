@@ -1,0 +1,1353 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home {% endblock %}
+{% block stylesheet %}{% endblock %}
+{% block content %}
+	
+	<body class="preload">
+
+		<main>
+
+			<!-- SLIDE SHOW -->
+			<div class="rev_slider_wrapper">
+		        <div id="rev_slider_6" class="rev_slider" data-version="5.4.5">
+		            <ul> 
+		                <li data-transition="">
+		                    <img src="{% static 'images/slideshow-12.jpg' %}" class="rev-slidebg" alt="">
+							
+							<div class="tp-caption tp-resizeme caption-1" 
+					        data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"y:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+					        data-x="left" 
+					        data-y="middle" 
+					        data-voffset="['-50', '-33', '-33', '-153', '-205']"
+					        data-hoffset="['349','233', '213', '108', '38']" 
+					        data-width="['auto']"
+     						data-height="['auto']"
+     						data-type="image"
+					        >
+								<img src="{% static 'images/cooking.png' %}" alt=""
+								data-ww="['409px', '273px', '273px', '273px', '355px']"
+				        		data-hh="['176px', '117px', '117px', '117px', '152px']"
+								>
+							</div>
+
+							<div class="tp-caption tp-resizeme caption-2"
+					        data-frames='[{"delay":2000,"speed":2000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+					        data-x="left" 
+				            data-y="middle" 
+			                data-fontsize="['45', '30', '30', '30', '40']" 
+					        data-voffset="['72','48', '48', '-40', '-57']"
+					        data-hoffset="['160','107', '87', '42', '22']"
+			                data-lineheight="inherit" 
+			                data-width="['auto', 'auto', 'auto', '400', '400']" 
+			                data-whitespace="['nowrap', 'nowrap', 'nowrap', 'normal', 'normal']"
+			                data-textAlign='center'
+			                data-color="#666"
+					        >
+					        	Good food from celebrity chef
+							</div>
+
+							<div class="tp-caption tp-resizeme caption-3"
+					        data-frames='[{"delay":2500,"split":"chars","splitdelay":0.05,"speed":1500,"frame":"0","from":"x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+					        data-x="left" 
+				            data-y="middle" 
+			                data-fontsize="['28', '19', '19', '19', '25']" 
+					        data-voffset="['126','84', '84', '46', '74']"
+					        data-hoffset="['258','172', '152', '72', '22']"
+			                data-lineheight="inherit" 
+			                data-width="['auto', 'auto', 'auto', '350', '415']" 
+			                data-whitespace="['nowrap', 'nowrap', 'nowrap', 'normal', 'normal']"
+			                data-textAlign='center'
+			                data-color="#666666"
+					        >
+					        	Book your table to enjoy great food
+							</div>
+
+							<a href="reservation_v1.html" class="tp-caption tp-resizeme caption-4 au-btn au-btn--hover round" 
+							data-frames='[{"delay":3800,"speed":2000,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
+							data-x="left"
+							data-y="middle"
+							data-voffset="['236', '157', '157', '150', '198']"
+							data-hoffset="['478','300', '280', '175', '145']"
+							data-fontsize="['15', '15', '15',  '15', '20']" 
+							data-lineheight="inherit"
+							data-width="['152', '152', '152', '152', '165']" 
+							data-height="['42', '42', '42', '42', '55']" 
+						    data-color="#666"
+					        >
+								Book now
+							</a>
+
+							<div class="tp-caption tp-resizeme caption-pointer"
+					        data-frames='[{"delay":0,"speed":300,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]' 
+					        data-x="left" 
+				            data-y="middle" 
+			                data-fontsize="['25', '25', '25', '22', '22']" 
+			                data-hoffset="['80','40', '20', '40', '80']"
+			                data-voffset="['75','50', '50', '40', '80']"
+			                data-lineheight="inherit" 
+			                data-color="#cdaa7c"
+			                data-visibility='["on", "on", "on", "off"]'
+			                data-actions='[{
+								"event": "click", 
+								"action": "jumptoslide", 
+								"slide": "previous", 
+								"delay": "0"
+							}]'
+					        >
+				        		<span class="lnr lnr-arrow-left"></span>
+							</div>
+
+							<div class="tp-caption tp-resizeme caption-pointer"
+					        data-frames='[{"delay":0,"speed":300,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]' 
+					        data-x="right" 
+				            data-y="middle" 
+			                data-fontsize="['25', '25', '25', '22', '22']" 
+			                data-hoffset="['80','40', '20', '40', '80']"
+			                data-voffset="['75','50', '50', '40', '80']"
+			                data-lineheight="inherit" 
+			                data-color="#cdaa7c"
+			                data-visibility='["on", "on", "on", "off"]'
+			                data-actions='[{
+								"event": "click", 
+								"action": "jumptoslide", 
+								"slide": "next", 
+								"delay": "0"
+							}]'
+					        >
+				        		<span class="lnr lnr-arrow-right"></span>
+							</div>
+		                </li>
+					 	
+					 	<li data-transition="">
+		                    <img src="{% static 'images/slideshow-16.jpg' %}" class="rev-slidebg" alt=""
+		                    >
+
+		                    <div class="tp-caption tp-resizeme caption-1" 
+					        data-frames='[{"delay":1000,"speed":1000,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+					        data-x="left" 
+					        data-y="middle" 
+					        data-voffset="['-95', '-100', '-87', '-100', '-227']"
+					        data-hoffset="['308','180', '150', '113', '100']" 
+					        data-width="['auto']"
+     						data-height="['auto']"
+     						data-type="image"
+					        >
+								<img src="{% static 'images/taste-of-nature.png' %}" alt=""
+								data-ww="['327px', '297px', '297px', '223px', '297px']"
+				        		data-hh="['51px', '46px', '46px', '35px', '46px']"
+								>
+							</div>
+
+							<div class="tp-caption tp-resizeme caption-2"
+					        data-frames='[{"delay":2000,"speed":1500,"frame":"0","from":"z:0;rX:0;rY:0;rZ:0;sX:0.8;sY:0.8;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+					        data-x="left" 
+				            data-y="middle" 
+			                data-fontsize="['22', '20', '20', '15', '25']" 
+					        data-voffset="['-27','-39', '-26', '-55', '-166']"
+					        data-hoffset="['363','230', '200', '150', '150']"
+			                data-lineheight="inherit" 
+			                data-color="#333"
+					        >
+					        	since
+							</div>
+
+							<div class="tp-caption tp-resizeme" 
+					        data-frames='[{"delay":2500,"speed":1500,"frame":"0","from":"z:0;rX:0;rY:0;rZ:0;sX:0.8;sY:0.8;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+					        data-x="left" 
+					        data-y="middle" 
+					        data-voffset="['-36', '-47', '-34', '-61', '-174']"
+					        data-hoffset="['459','317', '287', '216', '245']" 
+					        data-width="['auto']"
+     						data-height="['auto']"
+     						data-type="image"
+					        >
+								<img src="{% static 'images/coffee.png' %}" alt=""
+								data-ww="['26px', '24px', '24px', '18px', '24px']"
+				        		data-hh="['49px', '45px', '45px', '34px', '45px']"
+								>
+							</div>
+
+							<div class="tp-caption tp-resizeme caption-2"
+					        data-frames='[{"delay":3000,"speed":1500,"frame":"0","from":"z:0;rX:0;rY:0;rZ:0;sX:0.8;sY:0.8;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+					        data-x="left" 
+				            data-y="middle" 
+			                data-fontsize="['22', '20', '20', '15', '25']" 
+					        data-voffset="['-27','-39', '-26', '-55', '-166']"
+					        data-hoffset="['515','368', '338', '254', '288']"
+			                data-lineheight="inherit" 
+			                data-color="#333"
+					        >
+					        	1974
+							</div>
+
+							<div class="tp-caption tp-resizeme" 
+					        data-frames='[{"delay":3200,"speed":1500,"frame":"0","from":"z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+					        data-x="left" 
+					        data-y="middle" 
+					        data-voffset="['84', '62', '75', '21', '-65']"
+					        data-hoffset="['218','98', '68', '51', '18']" 
+					        data-width="['auto']"
+     						data-height="['auto']"
+     						data-type="image"
+					        >
+								<img src="{% static 'images/coffee-brek.png' %}" alt=""
+								data-ww="['500px', '455px', '455px', '342px', '455px']"
+				        		data-hh="['119px', '108px', '108px', '81px', '108px']"
+								>
+							</div>
+
+							<div class="tp-caption tp-resizeme caption-3"
+					        data-frames='[{"delay":3800,"speed":1500,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
+					        data-x="left" 
+				            data-y="middle" 
+			                data-fontsize="['30', '25', '25', '19', '30']" 
+					        data-voffset="['178','148', '161', '86', '21']"
+					        data-hoffset="['281','155', '125', '94', '75']"
+			                data-lineheight="inherit" 
+			                data-color="#666"
+					        >	
+					        	<img src="{% static 'images/muffins-before.png' %}" alt="">
+					        	<span>muffins & coffee</span>
+					        	<img src="{% static 'images/muffins-after.png' %}" alt="">
+							</div>
+
+							<div class="tp-caption tp-resizeme" 
+					        data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"y:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+					        data-x="right" 
+					        data-y="bottom" 
+					        data-hoffset="['88', '78', '78', '8', '-20']"
+					        data-voffset="['33', '48', '73', '73', '53']"
+					        data-width="['auto']"
+     						data-height="['auto']"
+     						data-type="image"
+					        >
+								<img src="{% static 'images/slideshow-23.png' %}" alt=""
+								data-ww="['965', '665', '515', '515', '415']"
+				        		data-hh="['647', '445.8', '345.3', '345.3', '278.2']"
+								>
+							</div>
+
+		                    <div class="tp-caption tp-resizeme caption-pointer"
+					        data-frames='[{"delay":0,"speed":300,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]' 
+					        data-x="left" 
+				            data-y="middle" 
+			                data-fontsize="['25', '25', '25', '22', '22']" 
+			                data-hoffset="['80','40', '20', '40', '80']"
+			                data-voffset="['75','50', '50', '40', '80']"
+			                data-lineheight="inherit" 
+			                data-color="#cdaa7c"
+			                data-visibility='["on", "on", "on", "off"]'
+			                data-actions='[{
+								"event": "click", 
+								"action": "jumptoslide", 
+								"slide": "previous", 
+								"delay": "0"
+							}]'
+					        >
+				        		<span class="lnr lnr-arrow-left"></span>
+							</div>
+
+							<div class="tp-caption tp-resizeme caption-pointer"
+					        data-frames='[{"delay":0,"speed":300,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]' 
+					        data-x="right" 
+				            data-y="middle" 
+			                data-fontsize="['25', '25', '25', '22', '22']" 
+			                data-hoffset="['80','40', '20', '40', '80']"
+			                data-voffset="['75','50', '50', '40', '80']"
+			                data-lineheight="inherit" 
+			                data-color="#cdaa7c"
+			                data-visibility='["on", "on", "on", "off"]'
+			                data-actions='[{
+								"event": "click", 
+								"action": "jumptoslide", 
+								"slide": "next", 
+								"delay": "0"
+							}]'
+					        >
+				        		<span class="lnr lnr-arrow-right"></span>
+							</div>
+		                </li>
+
+		                <li data-transition="">
+		                    <img src="{% static 'images/slideshow-16.jpg' %}" class="rev-slidebg" alt="">
+							
+		                    <div class="tp-caption tp-resizeme caption-1" 
+				       		data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"y:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+					        data-x="left" 
+					        data-y="middle" 
+					        data-voffset="['-36', '-66', '-86', '-131', '-146']"
+					        data-hoffset="['269','109', '109', '54', '44']" 
+					        data-width="['auto']"
+     						data-height="['auto']"
+     						data-type="image"
+					        >
+								<img src="{% static 'images/stacked-chocolate.png' %}" alt=""
+								data-ww="['473px', '473px', '400px', '400px', '473px']"
+				        		data-hh="['60px', '60px', '50.7px', '50.7px', '60px']"
+								>
+							</div>
+
+							<div class="tp-caption tp-resizeme caption-2"
+					        data-frames='[{"delay":2000,"speed":1500,"frame":"0","from":"x:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+					        data-x="left" 
+				            data-y="middle" 
+			                data-fontsize="['15', '14', '14', '14', '25']" 
+					        data-voffset="['80','50', '30', '-15', '-30']"
+					        data-hoffset="['271','111', '111', '56', '46']"
+					        data-width="['605', '525', '490', '400', '350']"
+					        data-height="['auto', 'auto', 'auto', 'auto', '124']" 
+					        data-whitespace="normal" 
+			                data-lineheight="['inherit', 'inherit', 'inherit', 'inherit', '31']" 
+			                data-color="#666"
+					        >
+					        	At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occae-cati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. 
+							</div>
+
+							<a href="#" class="tp-caption tp-resizeme caption-3 au-btn au-btn--hover round" 
+							data-frames='[{"delay":3000,"speed":2000,"frame":"0","from":"z:0;rX:0;rY:0;rZ:0;sX:0.8;sY:0.8;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+							data-x="left"
+							data-y="middle"
+							data-voffset="['206', '176', '156', '111', '100']"
+							data-hoffset="['271','111', '111', '56', '46']"
+							data-fontsize="['15', '15', '15',  '15', '20']" 
+							data-lineheight="inherit"
+							data-width="['152', '152', '152', '152', '165']" 
+							data-height="['42', '42', '42', '42', '55']" 
+						    data-color="#666"
+					        >
+								Read more
+							</a>
+
+							<div class="tp-caption tp-resizeme" 
+					        data-frames='[{"delay":500,"speed":1500,"frame":"0","from":"y:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+					        data-x="right" 
+					        data-y="bottom" 
+					        data-hoffset="['61', '61', '41', '11', '11']"
+					        data-voffset="['42', '42', '102', '102', '122']"
+					        data-width="['auto']"
+     						data-height="['auto']"
+     						data-type="image"
+					        >
+								<img src="{% static 'images/slideshow-24.png' %}" alt=""
+								data-ww="['1082', '682', '532', '532', '432']"
+				        		data-hh="['622', '392', '305.8', '305.8', '248.3']"
+								>
+							</div>
+
+							<div class="tp-caption tp-resizeme caption-pointer"
+					        data-frames='[{"delay":0,"speed":300,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]' 
+					        data-x="left" 
+				            data-y="middle" 
+			                data-fontsize="['25', '25', '25', '22', '22']" 
+			                data-hoffset="['80','40', '20', '40', '80']"
+			                data-voffset="['75','40', '20', '40', '80']"
+			                data-lineheight="inherit" 
+			                data-color="#cdaa7c"
+			                data-visibility='["on", "on", "on", "off"]'
+			                data-actions='[{
+								"event": "click", 
+								"action": "jumptoslide", 
+								"slide": "previous", 
+								"delay": "0"
+							}]'
+					        >
+				        		<span class="lnr lnr-arrow-left"></span>
+							</div>
+
+							<div class="tp-caption tp-resizeme caption-pointer"
+					        data-frames='[{"delay":0,"speed":300,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]' 
+					        data-x="right" 
+				            data-y="middle" 
+			                data-fontsize="['25', '25', '25', '22', '22']" 
+			                data-hoffset="['80','40', '20', '40', '80']"
+			                data-voffset="['75','40', '20', '40', '80']"
+			                data-lineheight="inherit" 
+			                data-color="#cdaa7c"
+			                data-visibility='["on", "on", "on", "off"]'
+			                data-actions='[{
+								"event": "click", 
+								"action": "jumptoslide", 
+								"slide": "next", 
+								"delay": "0"
+							}]'
+					        >
+				        		<span class="lnr lnr-arrow-right"></span>
+							</div>
+		                </li>
+		            </ul>
+		        </div>
+		    </div>
+
+		    <!-- SPECIALITIES -->
+		    <section class="section-primary special-slider pb-0">
+		    	<div class="container-fluid">
+		    		<div class="section-header">
+						<h2>Specialties of the day</h2>
+						<span>~ Delicious foods ~</span>
+					</div>		
+					<!-- OWL-CAROUSEL -->
+					<div class="owl-carousel owl-theme style" id="special-carousel-fixed">
+					    <div class="item">
+					    	<div class="special-item item-box">
+								<a href="shop-single.html" class="thumb">
+									<img src="{% static 'images/speciality-4.png' %}" alt="">
+								</a>
+								<div class="item-info">
+									<h5>
+										<a href="shop-single.html" class="bold-color">Salat banana flower</a>
+									</h5>
+									<div class="change">
+										<div class="buy">
+											<div class="star-rating">
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star"></i>
+											</div>
+											<span class="price bold-color">
+												<span>$</span>40
+											</span>
+										</div>
+										<button class="au-btn btn-cart round has-bd bd-999 au-btn--hover">Add to cart</button>
+									</div>
+								</div>
+							</div>
+					    </div>
+					    <div class="item">
+					    	<div class="special-item item-box">
+								<a href="shop-single.html" class="thumb">
+									<img src="{% static 'images/speciality-5.png' %}" alt="">
+								</a>
+								<div class="item-info">
+									<h5>
+										<a href="shop-single.html" class="bold-color">Bacon coil baked Australian</a>
+									</h5>
+									<div class="change">
+										<div class="buy">
+											<div class="star-rating">
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star-outline"></i>
+											</div>
+											<span class="price bold-color">
+												<span>$</span>165
+											</span>
+										</div>
+										<button class="au-btn btn-cart round has-bd bd-999 au-btn--hover">Add to cart</button>
+									</div>
+								</div>
+							</div>
+					    </div>
+					    <div class="item">
+					    	<div class="special-item item-box">
+								<a href="shop-single.html" class="thumb">
+									<img src="{% static 'images/speciality-6.png' %}" alt="">
+								</a>
+								<div class="item-info">
+									<h5>
+										<a href="shop-single.html" class="bold-color">Beef steak with red wine sauce</a>
+									</h5>
+									<div class="change">
+										<div class="buy">
+											<div class="star-rating">
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star"></i>
+											</div>
+											<span class="price bold-color">
+												<span>$</span>32
+											</span>
+										</div>
+										<button class="au-btn btn-cart round has-bd bd-999 au-btn--hover">Add to cart</button>
+									</div>
+									
+								</div>
+							</div>
+					    </div>
+					    <div class="item">
+					    	<div class="special-item item-box">
+								<a href="shop-single.html" class="thumb">
+									<img src="{% static 'images/speciality-7.png' %}" alt="">
+								</a>
+								<div class="item-info">
+									<h5>
+										<a href="shop-single.html" class="bold-color">Grilled lamb with bean sauce</a>
+									</h5>
+									<div class="change">
+										<div class="buy">
+											<div class="star-rating">
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star-outline"></i>
+											</div>
+											<span class="price bold-color">
+												<span>$</span>21
+											</span>
+										</div>
+										<button class="au-btn btn-cart round has-bd bd-999 au-btn--hover">Add to cart</button>
+									</div>
+								</div>
+							</div>
+					    </div>
+					    <div class="item">
+					    	<div class="special-item item-box">
+								<a href="shop-single.html" class="thumb">
+									<img src="{% static 'images/speciality-8.png' %}" alt="">
+								</a>
+								<div class="item-info">
+									<h5>
+										<a href="shop-single.html" class="bold-color">Chicken tikka masala</a>
+									</h5>
+									<div class="change">
+										<div class="buy">
+											<div class="star-rating">
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star"></i>
+											</div>
+											<span class="price bold-color">
+												<span>$</span>40
+											</span>
+										</div>
+										<button class="au-btn btn-cart round has-bd bd-999 au-btn--hover">Add to cart</button>
+									</div>
+								</div>
+							</div>
+					    </div>
+					    <div class="item">
+					    	<div class="special-item item-box">
+								<a href="shop-single.html" class="thumb">
+									<img src="{% static 'images/speciality-4.png' %}" alt="">
+								</a>
+								<div class="item-info">
+									<h5>
+										<a href="shop-single.html" class="bold-color">Bubble and squeak</a>
+									</h5>
+									<div class="change">
+										<div class="buy">
+											<div class="star-rating">
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star-outline"></i>
+											</div>
+											<span class="price bold-color">
+												<span>$</span>165
+											</span>
+										</div>
+										<button class="au-btn btn-cart round has-bd bd-999 au-btn--hover">Add to cart</button>
+									</div>
+								</div>
+							</div>
+					    </div>
+					    <div class="item">
+					    	<div class="special-item item-box">
+								<a href="shop-single.html" class="thumb">
+									<img src="{% static 'images/speciality-5.png' %}" alt="">
+								</a>
+								<div class="item-info">
+									<h5>
+										<a href="shop-single.html" class="bold-color">Cumberland sausage</a>
+									</h5>
+									<div class="change">
+										<div class="buy">
+											<div class="star-rating">
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star"></i>
+											</div>
+											<span class="price bold-color">
+												<span>$</span>32
+											</span>
+										</div>
+										<button class="au-btn btn-cart round has-bd bd-999 au-btn--hover">Add to cart</button>
+									</div>
+								</div>
+							</div>
+					    </div>
+					    <div class="item">
+					    	<div class="special-item item-box">
+								<a href="shop-single.html" class="thumb">
+									<img src="{% static 'images/speciality-6.png' %}" alt="">
+								</a>
+								<div class="item-info">
+									<h5>
+										<a href="shop-single.html" class="bold-color">Beef steak with red wine sauce</a>
+									</h5>
+									<div class="change">
+										<div class="buy">
+											<div class="star-rating">
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star"></i>
+											</div>
+											<span class="price bold-color">
+												<span>$</span>32
+											</span>
+										</div>
+										<button class="au-btn btn-cart round has-bd bd-999 au-btn--hover">Add to cart</button>
+									</div>
+									
+								</div>
+							</div>
+					    </div>
+					    <div class="item">
+					    	<div class="special-item item-box">
+								<a href="shop-single.html" class="thumb">
+									<img src="{% static 'images/speciality-7.png' %}" alt="">
+								</a>
+								<div class="item-info">
+									<h5>
+										<a href="shop-single.html" class="bold-color">Grilled lamb with bean sauce</a>
+									</h5>
+									<div class="change">
+										<div class="buy">
+											<div class="star-rating">
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star-outline"></i>
+											</div>
+											<span class="price bold-color">
+												<span>$</span>21
+											</span>
+										</div>
+										<button class="au-btn btn-cart round has-bd bd-999 au-btn--hover">Add to cart</button>
+									</div>
+								</div>
+							</div>
+					    </div>
+					    <div class="item">
+					    	<div class="special-item item-box">
+								<a href="shop-single.html" class="thumb">
+									<img src="{% static 'images/speciality-8.png' %}" alt="">
+								</a>
+								<div class="item-info">
+									<h5>
+										<a href="shop-single.html" class="bold-color">Chicken tikka masala</a>
+									</h5>
+									<div class="change">
+										<div class="buy">
+											<div class="star-rating">
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star"></i>
+											</div>
+											<span class="price bold-color">
+												<span>$</span>40
+											</span>
+										</div>
+										<button class="au-btn btn-cart round has-bd bd-999 au-btn--hover">Add to cart</button>
+									</div>
+								</div>
+							</div>
+					    </div>
+					    <div class="item">
+					    	<div class="special-item item-box">
+								<a href="shop-single.html" class="thumb">
+									<img src="{% static 'images/speciality-4.png' %}" alt="">
+								</a>
+								<div class="item-info">
+									<h5>
+										<a href="shop-single.html" class="bold-color">Bubble and squeak</a>
+									</h5>
+									<div class="change">
+										<div class="buy">
+											<div class="star-rating">
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star-outline"></i>
+											</div>
+											<span class="price bold-color">
+												<span>$</span>165
+											</span>
+										</div>
+										<button class="au-btn btn-cart round has-bd bd-999 au-btn--hover">Add to cart</button>
+									</div>
+								</div>
+							</div>
+					    </div>
+					    <div class="item">
+					    	<div class="special-item item-box">
+								<a href="shop-single.html" class="thumb">
+									<img src="{% static 'images/speciality-5.png' %}" alt="">
+								</a>
+								<div class="item-info">
+									<h5>
+										<a href="shop-single.html" class="bold-color">Cumberland sausage</a>
+									</h5>
+									<div class="change">
+										<div class="buy">
+											<div class="star-rating">
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star"></i>
+												<i class="zmdi zmdi-star"></i>
+											</div>
+											<span class="price bold-color">
+												<span>$</span>32
+											</span>
+										</div>
+										<button class="au-btn btn-cart round has-bd bd-999 au-btn--hover">Add to cart</button>
+									</div>
+								</div>
+							</div>
+					    </div>
+					</div>
+		    	</div>
+		    </section>
+			
+			<!-- OUR MENU -->
+		    <section class="section-primary pt-133 pb-0">
+		    	<div class="container">
+		    		<div class="section-header">
+						<h2>Our Food Menu</h2>
+						<span>~ See what we offer ~</span>
+					</div>
+					<div class="our-menu-alternate">
+						<!-- OUR-MENU-BLOCK -->
+						<div class="our-menu-block no-flex">
+							<div class="row align-items-center align-items-xl-start justify-content-between">
+								<div class="col-md-6 col-lg-5 col-xl-6 order-2 order-md-1">
+									<div class="our-menu-col no-style left-70">
+										<div class="heading">
+											<h3 class="bold-color">Main Course</h3>
+											<span class="icon">
+												<img src="{% static 'images/main-course.png' %}" alt="">
+											</span>
+										</div>
+										<div class="body">
+											<div class="menu-item">
+												<h5 class="bold-color">
+													<a href="shop-single.html">Super-delicious zuppa toscana</a>
+													<span class="dots"></span>
+													<span class="price">
+														<span>$</span>
+														40
+													</span>
+												</h5>
+												<ul>
+													<li>
+														<a href="#">Chicken</a>
+													</li>
+													<li>
+														<a href="#">Italian</a>
+													</li>
+													<li>
+														<a href="#">Sausage</a>
+													</li>
+													<li>
+														<a href="#">Spinach</a>
+													</li>
+												</ul>
+											</div>
+											<div class="menu-item">
+												<h5 class="bold-color">
+													<a href="shop-single.html">Bacon coil baked Australian beef</a>
+													<span class="dots"></span>
+													<span class="price">
+														<span>$</span>
+														26
+													</span>
+												</h5>
+												<ul>
+													<li>
+														<a href="#">Mushrooms</a>
+													</li>
+													<li>
+														<a href="#">Chicken</a>
+													</li>
+													<li>
+														<a href="#">Broth Arborio</a>
+													</li>
+													<li>
+														<a href="#">Rice</a>
+													</li>
+												</ul>
+											</div>
+											<div class="menu-item">
+												<h5 class="bold-color">
+													<a href="shop-single.html">Super-delicious zuppa toscana</a>
+													<span class="dots"></span>
+													<span class="price">
+														<span>$</span>
+														40
+													</span>
+												</h5>
+												<ul>
+													<li>
+														<a href="#">Chicken</a>
+													</li>
+													<li>
+														<a href="#">Italian</a>
+													</li>
+													<li>
+														<a href="#">Sausage</a>
+													</li>
+													<li>
+														<a href="#">Spinach</a>
+													</li>
+												</ul>
+											</div>
+											<div class="menu-item">
+												<h5 class="bold-color">
+													<a href="shop-single.html">Bacon coil baked Australian beef</a>
+													<span class="dots"></span>
+													<span class="price">
+														<span>$</span>
+														26
+													</span>
+												</h5>
+												<ul>
+													<li>
+														<a href="#">Mushrooms</a>
+													</li>
+													<li>
+														<a href="#">Chicken</a>
+													</li>
+													<li>
+														<a href="#">Broth Arborio</a>
+													</li>
+													<li>
+														<a href="#">Rice</a>
+													</li>
+												</ul>
+											</div>
+											<div class="menu-item">
+												<h5 class="bold-color">
+													<a href="shop-single.html">Bacon coil baked Australian beef</a>
+													<span class="dots"></span>
+													<span class="price">
+														<span>$</span>
+														26
+													</span>
+												</h5>
+												<ul>
+													<li>
+														<a href="#">Mushrooms</a>
+													</li>
+													<li>
+														<a href="#">Chicken</a>
+													</li>
+													<li>
+														<a href="#">Broth Arborio</a>
+													</li>
+													<li>
+														<a href="#">Rice</a>
+													</li>
+												</ul>
+											</div>
+											<a href="menu.html" class="au-btn__readmore">View more</a>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6 col-lg-6 offset-lg-1 offset-xl-0 order-1 order-md-2 mb-5 mb-md-0">
+									<img src="{% static 'images/main-course-menu-1.png' %}" alt="">
+								</div>
+							</div>
+						</div>
+
+						<!-- OUR-MENU-BLOCK -->
+						<div class="our-menu-block no-flex">
+							<div class="row align-items-center align-items-xl-start justify-content-between">
+								<div class="col-md-6 mb-5 mb-md-0">
+									<img src="{% static 'images/soups-and-salads-menu-1.png' %}" alt="">
+								</div>
+								<div class="col-md-6 col-lg-5 offset-lg-1 col-xl-6 offset-xl-0">
+									<div class="our-menu-col right-70 no-style">
+										<div class="heading">
+											<h3 class="bold-color">Soups & Salads</h3>
+											<span class="icon">
+												<img src="{% static 'images/soups-and-salads.png' %}" alt="">
+											</span>
+										</div>
+										<div class="body">
+											<div class="menu-item">
+												<h5 class="bold-color">
+													<a href="shop-single.html">Salat banana flower</a>
+													<span class="dots"></span>
+													<span class="price">
+														<span>$</span>
+														40
+													</span>
+												</h5>
+												<ul>
+													<li>
+														<a href="#">Italian</a>
+													</li>
+													<li>
+														<a href="#">Sausage</a>
+													</li>
+													<li>
+														<a href="#">Spinach</a>
+													</li>
+												</ul>
+											</div>
+											<div class="menu-item">
+												<h5 class="bold-color">
+													<a href="shop-single.html">Gourmet mushroom risotto</a>
+													<span class="dots"></span>
+													<span class="price">
+														<span>$</span>
+														26
+													</span>
+												</h5>
+												<ul>
+													<li>
+														<a href="#">Mushrooms</a>
+													</li>
+													<li>
+														<a href="#">Chicken</a>
+													</li>
+													<li>
+														<a href="#">Broth Arborio</a>
+													</li>
+													<li>
+														<a href="#">Rice</a>
+													</li>
+												</ul>
+											</div>
+											<div class="menu-item">
+												<h5 class="bold-color">
+													<a href="shop-single.html">Salat banana flower</a>
+													<span class="dots"></span>
+													<span class="price">
+														<span>$</span>
+														40
+													</span>
+												</h5>
+												<ul>
+													<li>
+														<a href="#">Italian</a>
+													</li>
+													<li>
+														<a href="#">Sausage</a>
+													</li>
+													<li>
+														<a href="#">Spinach</a>
+													</li>
+												</ul>
+											</div>
+											<div class="menu-item">
+												<h5 class="bold-color">
+													<a href="shop-single.html">Gourmet mushroom risotto</a>
+													<span class="dots"></span>
+													<span class="price">
+														<span>$</span>
+														26
+													</span>
+												</h5>
+												<ul>
+													<li>
+														<a href="#">Mushrooms</a>
+													</li>
+													<li>
+														<a href="#">Chicken</a>
+													</li>
+													<li>
+														<a href="#">Broth Arborio</a>
+													</li>
+													<li>
+														<a href="#">Rice</a>
+													</li>
+												</ul>
+											</div>
+											<div class="menu-item">
+												<h5 class="bold-color">
+													<a href="shop-single.html">Gourmet mushroom risotto</a>
+													<span class="dots"></span>
+													<span class="price">
+														<span>$</span>
+														26
+													</span>
+												</h5>
+												<ul>
+													<li>
+														<a href="#">Mushrooms</a>
+													</li>
+													<li>
+														<a href="#">Chicken</a>
+													</li>
+													<li>
+														<a href="#">Broth Arborio</a>
+													</li>
+													<li>
+														<a href="#">Rice</a>
+													</li>
+												</ul>
+											</div>
+											<a href="menu.html" class="au-btn__readmore">View more</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- OUR-MENU-BLOCK -->
+						<div class="our-menu-block no-flex">
+							<div class="row align-items-center align-items-xl-start justify-content-between">
+								<div class="col-md-6 col-lg-5 col-xl-6 order-2 order-md-1">
+									<div class="our-menu-col left-70 no-style">
+										<div class="heading">
+											<h3 class="bold-color">Drinks</h3>
+											<span class="icon">
+												<img src="{% static 'images/drinks.png' %}" alt="">
+											</span>
+										</div>
+										<div class="body">
+											<div class="menu-item">
+												<h5 class="bold-color">
+													<a href="shop-single.html">Ice cream tarte apple</a>
+													<span class="dots"></span>
+													<span class="price">
+														<span>$</span>
+														40
+													</span>
+												</h5>
+												<ul>
+													<li>
+														<a href="#">Chicken</a>
+													</li>
+													<li>
+														<a href="#">Italian</a>
+													</li>
+													<li>
+														<a href="#">Sausage</a>
+													</li>
+													<li>
+														<a href="#">Spinach</a>
+													</li>
+												</ul>
+											</div>
+											<div class="menu-item">
+												<h5 class="bold-color">
+													<a href="shop-single.html">Fruit 'Mille feuille'</a>
+													<span class="dots"></span>
+													<span class="price">
+														<span>$</span>
+														26
+													</span>
+												</h5>
+												<ul>
+													<li>
+														<a href="#">Mushrooms</a>
+													</li>
+													<li>
+														<a href="#">Broth Arborio</a>
+													</li>
+													<li>
+														<a href="#">Rice</a>
+													</li>
+												</ul>
+											</div>
+											<div class="menu-item">
+												<h5 class="bold-color">
+													<a href="shop-single.html">Ice cream tarte apple</a>
+													<span class="dots"></span>
+													<span class="price">
+														<span>$</span>
+														40
+													</span>
+												</h5>
+												<ul>
+													<li>
+														<a href="#">Chicken</a>
+													</li>
+													<li>
+														<a href="#">Italian</a>
+													</li>
+													<li>
+														<a href="#">Sausage</a>
+													</li>
+													<li>
+														<a href="#">Spinach</a>
+													</li>
+												</ul>
+											</div>
+											<div class="menu-item">
+												<h5 class="bold-color">
+													<a href="shop-single.html">Fruit 'Mille feuille'</a>
+													<span class="dots"></span>
+													<span class="price">
+														<span>$</span>
+														26
+													</span>
+												</h5>
+												<ul>
+													<li>
+														<a href="#">Mushrooms</a>
+													</li>
+													<li>
+														<a href="#">Broth Arborio</a>
+													</li>
+													<li>
+														<a href="#">Rice</a>
+													</li>
+												</ul>
+											</div>
+											<div class="menu-item">
+												<h5 class="bold-color">
+													<a href="shop-single.html">Fruit 'Mille feuille'</a>
+													<span class="dots"></span>
+													<span class="price">
+														<span>$</span>
+														26
+													</span>
+												</h5>
+												<ul>
+													<li>
+														<a href="#">Mushrooms</a>
+													</li>
+													<li>
+														<a href="#">Broth Arborio</a>
+													</li>
+													<li>
+														<a href="#">Rice</a>
+													</li>
+												</ul>
+											</div>
+											<a href="menu.html" class="au-btn__readmore">View more</a>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6 col-lg-6 offset-lg-1 offset-xl-0 order-1 order-md-2 mb-5 mb-md-0">
+									<img src="{% static 'images/drinks-menu-1.png' %}" alt="">
+								</div>
+							</div>
+						</div>
+
+						<!-- OUR-MENU-BLOCK -->
+						<div class="our-menu-block no-flex">
+							<div class="row align-items-center align-items-xl-start justify-content-between">
+								<div class="col-md-6 mb-5 mb-md-0">
+									<img src="{% static 'images/desserts-menu-1.png' %}" alt="">
+								</div>
+								<div class="col-md-6 col-lg-5 offset-lg-1 col-xl-6 offset-xl-0">
+									<div class="our-menu-col right-70 no-style">
+										<div class="heading">
+											<h3 class="bold-color">Desserts</h3>
+											<span class="icon">
+												<img src="{% static 'images/desserts.png' %}" alt="">
+											</span>
+										</div>
+										<div class="body">
+											<div class="menu-item">
+												<h5 class="bold-color">
+													<a href="shop-single.html">Double Chocolate Mud Pie</a>
+													<span class="dots"></span>
+													<span class="price">
+														<span>$</span>
+														40
+													</span>
+												</h5>
+												<ul>
+													<li>
+														<a href="#">Chicken</a>
+													</li>
+													<li>
+														<a href="#">Italian</a>
+													</li>
+													<li>
+														<a href="#">Sausage</a>
+													</li>
+													<li>
+														<a href="#">Spinach</a>
+													</li>
+												</ul>
+											</div>
+											<div class="menu-item">
+												<h5 class="bold-color">
+													<a href="shop-single.html">Pannacotta cream cake</a>
+													<span class="dots"></span>
+													<span class="price">
+														<span>$</span>
+														26
+													</span>
+												</h5>
+												<ul>
+													<li>
+														<a href="#">Mushrooms</a>
+													</li>
+													<li>
+														<a href="#">Chicken</a>
+													</li>
+													<li>
+														<a href="#">Broth Arborio</a>
+													</li>
+													<li>
+														<a href="#">Rice</a>
+													</li>
+												</ul>
+											</div>
+											<div class="menu-item">
+												<h5 class="bold-color">
+													<a href="shop-single.html">Double Chocolate Mud Pie</a>
+													<span class="dots"></span>
+													<span class="price">
+														<span>$</span>
+														40
+													</span>
+												</h5>
+												<ul>
+													<li>
+														<a href="#">Chicken</a>
+													</li>
+													<li>
+														<a href="#">Italian</a>
+													</li>
+													<li>
+														<a href="#">Sausage</a>
+													</li>
+													<li>
+														<a href="#">Spinach</a>
+													</li>
+												</ul>
+											</div>
+											<div class="menu-item">
+												<h5 class="bold-color">
+													<a href="shop-single.html">Pannacotta cream cake</a>
+													<span class="dots"></span>
+													<span class="price">
+														<span>$</span>
+														26
+													</span>
+												</h5>
+												<ul>
+													<li>
+														<a href="#">Mushrooms</a>
+													</li>
+													<li>
+														<a href="#">Chicken</a>
+													</li>
+													<li>
+														<a href="#">Broth Arborio</a>
+													</li>
+													<li>
+														<a href="#">Rice</a>
+													</li>
+												</ul>
+											</div>
+											<div class="menu-item">
+												<h5 class="bold-color">
+													<a href="shop-single.html">Pannacotta cream cake</a>
+													<span class="dots"></span>
+													<span class="price">
+														<span>$</span>
+														26
+													</span>
+												</h5>
+												<ul>
+													<li>
+														<a href="#">Mushrooms</a>
+													</li>
+													<li>
+														<a href="#">Chicken</a>
+													</li>
+													<li>
+														<a href="#">Broth Arborio</a>
+													</li>
+													<li>
+														<a href="#">Rice</a>
+													</li>
+												</ul>
+											</div>
+											<a href="menu.html" class="au-btn__readmore">View more</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+		    	</div>
+		    </section>
+
+		    <!-- FORM -->
+			<section class="section-primary section-form pb-120 pt-140">
+				<div class="container">
+					<div class="section-header">
+						<h2>Book a table</h2>
+						<span>~ Check out our place ~</span>
+					</div>	
+					<form method="get">
+						<div class="form-inner">
+							<div class="form-col">
+								<div class="select">
+	                                <div class="form-holder">
+	                                    <div class="form-control style">1 people</div>
+	                                    <span class="lnr lnr-chevron-down primary-color"></span>
+	                                </div>
+	                                <ul class="dropdown">
+	                                    <li data-value="1 people">1 people</li>
+	                                    <li data-value="2 people">2 people</li>
+	                                    <li data-value="3 people">3 people</li>
+	                                    <li data-value="4 people">4 people</li>
+	                                    <li data-value="5 people">5 people</li>
+	                                    <li data-value="6 people">6 people</li>
+	                                    <li data-value="7 people">7 people</li>
+	                                    <li data-value="8 people">8 people</li>
+	                                    <li data-value="9 people">9 people</li>
+	                                    <li data-value="10 people">10 people</li>
+	                                </ul>
+	                            </div>
+							</div>
+							<div class="form-col">
+                                <div class="form-holder">
+                                	<input type="text" class="form-control datepicker-here style" data-language='en' data-date-format="dd - mm - yyyy" placeholder="Date">
+                                    <span class="lnr lnr-calendar-full big primary-color"></span>
+                                </div>
+							</div>
+							<div class="form-col">
+                                <div class="form-holder">
+                                	<input type="text" class="form-control time-picker style" placeholder="Time">
+                                    <span class="lnr lnr-clock big primary-color"></span>
+                                </div>
+							</div>
+							<div class="form-col">
+                                <div class="form-holder">
+                                	<input type="text" class="form-control style" placeholder="Name">
+                                </div>
+							</div>
+							<div class="form-col">
+                                <div class="form-holder">
+                                	<input type="text" class="form-control style" placeholder="Phone">
+                                </div>
+							</div>
+							<div class="form-col">
+                                <div class="form-holder">
+                                	<input type="text" class="form-control style" placeholder="Email">
+                                </div>
+							</div>
+						</div>
+						<div class="btn-holder">
+							<button class="au-btn round au-btn--hover has-bg">Book now</button>
+						</div>
+					</form>			
+				</div>
+			</section>
+		</main>
+
+{% endblock %}
+{% block javascript %}
+
+{% endblock %}
