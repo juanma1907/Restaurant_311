@@ -2,12 +2,13 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils.timezone import datetime
 
+
 class Area (models.Model):
-    area = models.CharField(max_length=30)
-    is_delivary_available = models.BooleanField(default=True)
+    area_name = models.CharField(max_length=30)
+    is_delivaryAvailable = models.BooleanField(default=True)
 
     def __str__(self):
-        return self.area
+        return self.area_name
 
 
 class Customer (models.Model):
@@ -21,13 +22,6 @@ class Customer (models.Model):
 
     def __str__(self):
         return self.name.username
-
-
-class Area (models.Model):
-    area_name = models.CharField(db_index=True, max_length=20, unique=True)
-
-    def __str__(self):
-        return self.area_name
 
 
 class About(models.Model):
@@ -131,7 +125,7 @@ class Order(models.Model):
 
 
 class Ordered_food(models.Model):
-    order_id = models.ForeignKey(Menu, on_delete=models.CASCADE)
+    order_id = models.ForeignKey(Order, on_delete=models.CASCADE)
     food_id = models.ForeignKey(Menu, on_delete=None)
     qty = models.IntegerField()
     price = models.IntegerField()
@@ -145,6 +139,7 @@ class Payment_Method(models.Model):
 
     def __str__(self):
         return self.method_name
+
 
 class Payment(models.Model):
     order_id = models.ForeignKey(Menu, on_delete=models.CASCADE)
