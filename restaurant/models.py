@@ -26,6 +26,7 @@ class Customer (models.Model):
 
 class About(models.Model):
     name = models.CharField(max_length=100, primary_key=True)
+    logo = models.ImageField(default='default', upload_to='Others', blank=True)
     mobile = models.CharField(max_length=12)
     address = models.TextField(max_length=70)
     open_time = models.TimeField()
@@ -47,6 +48,7 @@ class Gallary(models.Model):
 
     def __str__(self):
         return self.title
+
 
 class Reservation(models.Model):
     name = models.CharField(max_length=40)
@@ -76,7 +78,7 @@ class Food_Category(models.Model):
 
 class Menu(models.Model):
     name = models.CharField(max_length=30)
-    price = models.IntegerField()
+    price = models.FloatField()
     description = models.TextField(max_length=200)
     is_available = models.BooleanField(db_index=True, default=True)
     rating = models.IntegerField()
@@ -104,7 +106,7 @@ class Coupon(models.Model):
     )
     code = models.CharField(max_length=20, unique=True)
     type = models.CharField(max_length=1, choices=Amount_Type, default=PERCENTAGE)
-    amount = models.IntegerField()
+    amount = models.FloatField()
     expire_date = models.DateTimeField()
     number_of_coupon = models.IntegerField()
 
@@ -128,7 +130,6 @@ class Ordered_food(models.Model):
     order_id = models.ForeignKey(Order, on_delete=models.CASCADE)
     food_id = models.ForeignKey(Menu, on_delete=None)
     qty = models.IntegerField()
-    price = models.IntegerField()
 
     def __str__(self):
         return self.order_id
@@ -144,20 +145,38 @@ class Payment_Method(models.Model):
 class Payment(models.Model):
     order_id = models.ForeignKey(Menu, on_delete=models.CASCADE)
     method_id = models.ForeignKey(Payment_Method, on_delete=None)
-    amount = models.IntegerField()
+    amount = models.FloatField()
     created_on = models.DateField(auto_now=False, auto_now_add=True)
 
     def __str__(self):
         return self.order_id
 
 
+class Position_List(models.Model):
+    position_name = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.position_name
+
+
 class Employee(models.Model):
     name = models.CharField(max_length=35, unique=True)
     phone = models.CharField(db_index=True, max_length=11, unique=True)
     email = models.EmailField(max_length=50)
-    sallary = models.IntegerField()
+    sallary = models.FloatField()
+    position = models.ForeignKey(Position_List, on_delete=None)
     address = models.TextField(max_length=70)
     image = models.ImageField(default='default', upload_to='pro_pics', blank=True)
+    created_on = models.DateField(auto_now=False, auto_now_add=True)
+
+    def __str__(self):
+        return self.name
+
+class Expense(models.Model):
+    item = models.CharField(max_length=100)
+    qty = models.FloatField()
+    cost = models.FloatField()
+    bought_by = models.ForeignKey(Employee, on_delete=None)
     created_on = models.DateField(auto_now=False, auto_now_add=True)
 
     def __str__(self):
