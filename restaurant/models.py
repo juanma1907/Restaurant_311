@@ -160,7 +160,7 @@ class Position_List(models.Model):
 
 
 class Employee(models.Model):
-    name = models.CharField(max_length=35, unique=True)
+    name = models.CharField(max_length=35)
     phone = models.CharField(db_index=True, max_length=11, unique=True)
     email = models.EmailField(max_length=50)
     sallary = models.FloatField()
@@ -172,6 +172,7 @@ class Employee(models.Model):
     def __str__(self):
         return self.name
 
+
 class Expense(models.Model):
     item = models.CharField(max_length=100)
     qty = models.FloatField()
@@ -181,4 +182,3 @@ class Expense(models.Model):
 
     def __str__(self):
         return self.name
-

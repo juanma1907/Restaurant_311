@@ -726,558 +726,88 @@
 						<span>~ See what we offer ~</span>
 					</div>
 					<div class="our-menu-alternate">
+                     {% for c in category %}
+                         {% if forloop.counter|divisibleby:2 %}
+						<!-- OUR-MENU-BLOCK -->
+                        <div class="our-menu-block no-flex">
+							<div class="row align-items-center align-items-xl-start justify-content-between">
+								<div class="col-md-6 mb-5 mb-md-0">
+									<img src="{{ c.image_small.url }}" alt="">
+								</div>
+								<div class="col-md-6 col-lg-5 offset-lg-1 col-xl-6 offset-xl-0">
+									<div class="our-menu-col right-70 no-style">
+										<div class="heading">
+											<h3 class="bold-color">{{ c.name }}</h3>
+											<span class="icon">
+												<img src="{% static 'images/soups-and-salads.png' %}" alt="">
+											</span>
+										</div>
+										<div class="body">
+                                        {% for f in food|slice:":5" %}
+                                            {% if c.id == f.category_id.id %}
+											<div class="menu-item">
+												<h5 class="bold-color">
+													<a href="shop-single.html">{{ f.name}}</a>
+													<span class="dots"></span>
+													<span class="price">
+														<span>৳</span>
+														{{f.price}}
+													</span>
+												</h5>
+                                                <p>{{ f.description|truncatechars:40 }}</p>
+                                            {% if forloop.counter == 5 %}
+                                                <a href="{% url 'menu' %}" class="au-btn__readmore">View more</a>
+                                                {% endif %}
+											</div>
+                                            {% endif %}
+                                        {% endfor %}
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+                             {% else %}
 						<!-- OUR-MENU-BLOCK -->
 						<div class="our-menu-block no-flex">
 							<div class="row align-items-center align-items-xl-start justify-content-between">
 								<div class="col-md-6 col-lg-5 col-xl-6 order-2 order-md-1">
 									<div class="our-menu-col no-style left-70">
 										<div class="heading">
-											<h3 class="bold-color">Main Course</h3>
+											<h3 class="bold-color">{{ c.name }}</h3>
 											<span class="icon">
 												<img src="{% static 'images/main-course.png' %}" alt="">
 											</span>
 										</div>
 										<div class="body">
+                                        {% for f in food|slice:":5" %}
+                                            {% if c.id == f.category_id.id %}
 											<div class="menu-item">
 												<h5 class="bold-color">
-													<a href="shop-single.html">Super-delicious zuppa toscana</a>
+													<a href="shop-single.html">{{ f.name}}</a>
 													<span class="dots"></span>
 													<span class="price">
-														<span>$</span>
-														40
+														<span>৳</span>
+														{{f.price}}
 													</span>
 												</h5>
-												<ul>
-													<li>
-														<a href="#">Chicken</a>
-													</li>
-													<li>
-														<a href="#">Italian</a>
-													</li>
-													<li>
-														<a href="#">Sausage</a>
-													</li>
-													<li>
-														<a href="#">Spinach</a>
-													</li>
-												</ul>
+												<p>{{ f.description|truncatechars:40 }}</p>
+                                            {% if forloop.counter == 5 %}
+                                             <a href="{% url 'menu' %}" class="au-btn__readmore">View more</a>
+                                                {% endif %}
 											</div>
-											<div class="menu-item">
-												<h5 class="bold-color">
-													<a href="shop-single.html">Bacon coil baked Australian beef</a>
-													<span class="dots"></span>
-													<span class="price">
-														<span>$</span>
-														26
-													</span>
-												</h5>
-												<ul>
-													<li>
-														<a href="#">Mushrooms</a>
-													</li>
-													<li>
-														<a href="#">Chicken</a>
-													</li>
-													<li>
-														<a href="#">Broth Arborio</a>
-													</li>
-													<li>
-														<a href="#">Rice</a>
-													</li>
-												</ul>
-											</div>
-											<div class="menu-item">
-												<h5 class="bold-color">
-													<a href="shop-single.html">Super-delicious zuppa toscana</a>
-													<span class="dots"></span>
-													<span class="price">
-														<span>$</span>
-														40
-													</span>
-												</h5>
-												<ul>
-													<li>
-														<a href="#">Chicken</a>
-													</li>
-													<li>
-														<a href="#">Italian</a>
-													</li>
-													<li>
-														<a href="#">Sausage</a>
-													</li>
-													<li>
-														<a href="#">Spinach</a>
-													</li>
-												</ul>
-											</div>
-											<div class="menu-item">
-												<h5 class="bold-color">
-													<a href="shop-single.html">Bacon coil baked Australian beef</a>
-													<span class="dots"></span>
-													<span class="price">
-														<span>$</span>
-														26
-													</span>
-												</h5>
-												<ul>
-													<li>
-														<a href="#">Mushrooms</a>
-													</li>
-													<li>
-														<a href="#">Chicken</a>
-													</li>
-													<li>
-														<a href="#">Broth Arborio</a>
-													</li>
-													<li>
-														<a href="#">Rice</a>
-													</li>
-												</ul>
-											</div>
-											<div class="menu-item">
-												<h5 class="bold-color">
-													<a href="shop-single.html">Bacon coil baked Australian beef</a>
-													<span class="dots"></span>
-													<span class="price">
-														<span>$</span>
-														26
-													</span>
-												</h5>
-												<ul>
-													<li>
-														<a href="#">Mushrooms</a>
-													</li>
-													<li>
-														<a href="#">Chicken</a>
-													</li>
-													<li>
-														<a href="#">Broth Arborio</a>
-													</li>
-													<li>
-														<a href="#">Rice</a>
-													</li>
-												</ul>
-											</div>
-											<a href="menu.html" class="au-btn__readmore">View more</a>
+											{% endif %}
+                                        {% endfor %}
 										</div>
 									</div>
 								</div>
 								<div class="col-md-6 col-lg-6 offset-lg-1 offset-xl-0 order-1 order-md-2 mb-5 mb-md-0">
-									<img src="{% static 'images/main-course-menu-1.png' %}" alt="">
+									<img src="{{ c.image_small.url }}" alt="">
 								</div>
 							</div>
 						</div>
-
-						<!-- OUR-MENU-BLOCK -->
-						<div class="our-menu-block no-flex">
-							<div class="row align-items-center align-items-xl-start justify-content-between">
-								<div class="col-md-6 mb-5 mb-md-0">
-									<img src="{% static 'images/soups-and-salads-menu-1.png' %}" alt="">
-								</div>
-								<div class="col-md-6 col-lg-5 offset-lg-1 col-xl-6 offset-xl-0">
-									<div class="our-menu-col right-70 no-style">
-										<div class="heading">
-											<h3 class="bold-color">Soups & Salads</h3>
-											<span class="icon">
-												<img src="{% static 'images/soups-and-salads.png' %}" alt="">
-											</span>
-										</div>
-										<div class="body">
-											<div class="menu-item">
-												<h5 class="bold-color">
-													<a href="shop-single.html">Salat banana flower</a>
-													<span class="dots"></span>
-													<span class="price">
-														<span>$</span>
-														40
-													</span>
-												</h5>
-												<ul>
-													<li>
-														<a href="#">Italian</a>
-													</li>
-													<li>
-														<a href="#">Sausage</a>
-													</li>
-													<li>
-														<a href="#">Spinach</a>
-													</li>
-												</ul>
-											</div>
-											<div class="menu-item">
-												<h5 class="bold-color">
-													<a href="shop-single.html">Gourmet mushroom risotto</a>
-													<span class="dots"></span>
-													<span class="price">
-														<span>$</span>
-														26
-													</span>
-												</h5>
-												<ul>
-													<li>
-														<a href="#">Mushrooms</a>
-													</li>
-													<li>
-														<a href="#">Chicken</a>
-													</li>
-													<li>
-														<a href="#">Broth Arborio</a>
-													</li>
-													<li>
-														<a href="#">Rice</a>
-													</li>
-												</ul>
-											</div>
-											<div class="menu-item">
-												<h5 class="bold-color">
-													<a href="shop-single.html">Salat banana flower</a>
-													<span class="dots"></span>
-													<span class="price">
-														<span>$</span>
-														40
-													</span>
-												</h5>
-												<ul>
-													<li>
-														<a href="#">Italian</a>
-													</li>
-													<li>
-														<a href="#">Sausage</a>
-													</li>
-													<li>
-														<a href="#">Spinach</a>
-													</li>
-												</ul>
-											</div>
-											<div class="menu-item">
-												<h5 class="bold-color">
-													<a href="shop-single.html">Gourmet mushroom risotto</a>
-													<span class="dots"></span>
-													<span class="price">
-														<span>$</span>
-														26
-													</span>
-												</h5>
-												<ul>
-													<li>
-														<a href="#">Mushrooms</a>
-													</li>
-													<li>
-														<a href="#">Chicken</a>
-													</li>
-													<li>
-														<a href="#">Broth Arborio</a>
-													</li>
-													<li>
-														<a href="#">Rice</a>
-													</li>
-												</ul>
-											</div>
-											<div class="menu-item">
-												<h5 class="bold-color">
-													<a href="shop-single.html">Gourmet mushroom risotto</a>
-													<span class="dots"></span>
-													<span class="price">
-														<span>$</span>
-														26
-													</span>
-												</h5>
-												<ul>
-													<li>
-														<a href="#">Mushrooms</a>
-													</li>
-													<li>
-														<a href="#">Chicken</a>
-													</li>
-													<li>
-														<a href="#">Broth Arborio</a>
-													</li>
-													<li>
-														<a href="#">Rice</a>
-													</li>
-												</ul>
-											</div>
-											<a href="menu.html" class="au-btn__readmore">View more</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- OUR-MENU-BLOCK -->
-						<div class="our-menu-block no-flex">
-							<div class="row align-items-center align-items-xl-start justify-content-between">
-								<div class="col-md-6 col-lg-5 col-xl-6 order-2 order-md-1">
-									<div class="our-menu-col left-70 no-style">
-										<div class="heading">
-											<h3 class="bold-color">Drinks</h3>
-											<span class="icon">
-												<img src="{% static 'images/drinks.png' %}" alt="">
-											</span>
-										</div>
-										<div class="body">
-											<div class="menu-item">
-												<h5 class="bold-color">
-													<a href="shop-single.html">Ice cream tarte apple</a>
-													<span class="dots"></span>
-													<span class="price">
-														<span>$</span>
-														40
-													</span>
-												</h5>
-												<ul>
-													<li>
-														<a href="#">Chicken</a>
-													</li>
-													<li>
-														<a href="#">Italian</a>
-													</li>
-													<li>
-														<a href="#">Sausage</a>
-													</li>
-													<li>
-														<a href="#">Spinach</a>
-													</li>
-												</ul>
-											</div>
-											<div class="menu-item">
-												<h5 class="bold-color">
-													<a href="shop-single.html">Fruit 'Mille feuille'</a>
-													<span class="dots"></span>
-													<span class="price">
-														<span>$</span>
-														26
-													</span>
-												</h5>
-												<ul>
-													<li>
-														<a href="#">Mushrooms</a>
-													</li>
-													<li>
-														<a href="#">Broth Arborio</a>
-													</li>
-													<li>
-														<a href="#">Rice</a>
-													</li>
-												</ul>
-											</div>
-											<div class="menu-item">
-												<h5 class="bold-color">
-													<a href="shop-single.html">Ice cream tarte apple</a>
-													<span class="dots"></span>
-													<span class="price">
-														<span>$</span>
-														40
-													</span>
-												</h5>
-												<ul>
-													<li>
-														<a href="#">Chicken</a>
-													</li>
-													<li>
-														<a href="#">Italian</a>
-													</li>
-													<li>
-														<a href="#">Sausage</a>
-													</li>
-													<li>
-														<a href="#">Spinach</a>
-													</li>
-												</ul>
-											</div>
-											<div class="menu-item">
-												<h5 class="bold-color">
-													<a href="shop-single.html">Fruit 'Mille feuille'</a>
-													<span class="dots"></span>
-													<span class="price">
-														<span>$</span>
-														26
-													</span>
-												</h5>
-												<ul>
-													<li>
-														<a href="#">Mushrooms</a>
-													</li>
-													<li>
-														<a href="#">Broth Arborio</a>
-													</li>
-													<li>
-														<a href="#">Rice</a>
-													</li>
-												</ul>
-											</div>
-											<div class="menu-item">
-												<h5 class="bold-color">
-													<a href="shop-single.html">Fruit 'Mille feuille'</a>
-													<span class="dots"></span>
-													<span class="price">
-														<span>$</span>
-														26
-													</span>
-												</h5>
-												<ul>
-													<li>
-														<a href="#">Mushrooms</a>
-													</li>
-													<li>
-														<a href="#">Broth Arborio</a>
-													</li>
-													<li>
-														<a href="#">Rice</a>
-													</li>
-												</ul>
-											</div>
-											<a href="menu.html" class="au-btn__readmore">View more</a>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-6 col-lg-6 offset-lg-1 offset-xl-0 order-1 order-md-2 mb-5 mb-md-0">
-									<img src="{% static 'images/drinks-menu-1.png' %}" alt="">
-								</div>
-							</div>
-						</div>
-
-						<!-- OUR-MENU-BLOCK -->
-						<div class="our-menu-block no-flex">
-							<div class="row align-items-center align-items-xl-start justify-content-between">
-								<div class="col-md-6 mb-5 mb-md-0">
-									<img src="{% static 'images/desserts-menu-1.png' %}" alt="">
-								</div>
-								<div class="col-md-6 col-lg-5 offset-lg-1 col-xl-6 offset-xl-0">
-									<div class="our-menu-col right-70 no-style">
-										<div class="heading">
-											<h3 class="bold-color">Desserts</h3>
-											<span class="icon">
-												<img src="{% static 'images/desserts.png' %}" alt="">
-											</span>
-										</div>
-										<div class="body">
-											<div class="menu-item">
-												<h5 class="bold-color">
-													<a href="shop-single.html">Double Chocolate Mud Pie</a>
-													<span class="dots"></span>
-													<span class="price">
-														<span>$</span>
-														40
-													</span>
-												</h5>
-												<ul>
-													<li>
-														<a href="#">Chicken</a>
-													</li>
-													<li>
-														<a href="#">Italian</a>
-													</li>
-													<li>
-														<a href="#">Sausage</a>
-													</li>
-													<li>
-														<a href="#">Spinach</a>
-													</li>
-												</ul>
-											</div>
-											<div class="menu-item">
-												<h5 class="bold-color">
-													<a href="shop-single.html">Pannacotta cream cake</a>
-													<span class="dots"></span>
-													<span class="price">
-														<span>$</span>
-														26
-													</span>
-												</h5>
-												<ul>
-													<li>
-														<a href="#">Mushrooms</a>
-													</li>
-													<li>
-														<a href="#">Chicken</a>
-													</li>
-													<li>
-														<a href="#">Broth Arborio</a>
-													</li>
-													<li>
-														<a href="#">Rice</a>
-													</li>
-												</ul>
-											</div>
-											<div class="menu-item">
-												<h5 class="bold-color">
-													<a href="shop-single.html">Double Chocolate Mud Pie</a>
-													<span class="dots"></span>
-													<span class="price">
-														<span>$</span>
-														40
-													</span>
-												</h5>
-												<ul>
-													<li>
-														<a href="#">Chicken</a>
-													</li>
-													<li>
-														<a href="#">Italian</a>
-													</li>
-													<li>
-														<a href="#">Sausage</a>
-													</li>
-													<li>
-														<a href="#">Spinach</a>
-													</li>
-												</ul>
-											</div>
-											<div class="menu-item">
-												<h5 class="bold-color">
-													<a href="shop-single.html">Pannacotta cream cake</a>
-													<span class="dots"></span>
-													<span class="price">
-														<span>$</span>
-														26
-													</span>
-												</h5>
-												<ul>
-													<li>
-														<a href="#">Mushrooms</a>
-													</li>
-													<li>
-														<a href="#">Chicken</a>
-													</li>
-													<li>
-														<a href="#">Broth Arborio</a>
-													</li>
-													<li>
-														<a href="#">Rice</a>
-													</li>
-												</ul>
-											</div>
-											<div class="menu-item">
-												<h5 class="bold-color">
-													<a href="shop-single.html">Pannacotta cream cake</a>
-													<span class="dots"></span>
-													<span class="price">
-														<span>$</span>
-														26
-													</span>
-												</h5>
-												<ul>
-													<li>
-														<a href="#">Mushrooms</a>
-													</li>
-													<li>
-														<a href="#">Chicken</a>
-													</li>
-													<li>
-														<a href="#">Broth Arborio</a>
-													</li>
-													<li>
-														<a href="#">Rice</a>
-													</li>
-												</ul>
-											</div>
-											<a href="menu.html" class="au-btn__readmore">View more</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
+                         {% endif %}
+                     {% endfor %}
 					</div>
 		    	</div>
 		    </section>
