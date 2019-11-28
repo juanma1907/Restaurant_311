@@ -812,69 +812,48 @@
 		    	</div>
 		    </section>
 
-		    <!-- FORM -->
-			<section class="section-primary section-form pb-120 pt-140">
-				<div class="container">
-					<div class="section-header">
-						<h2>Book a table</h2>
-						<span>~ Check out our place ~</span>
-					</div>	
-					<form method="get">
-						<div class="form-inner">
-							<div class="form-col">
-								<div class="select">
-	                                <div class="form-holder">
-	                                    <div class="form-control style">1 people</div>
-	                                    <span class="lnr lnr-chevron-down primary-color"></span>
-	                                </div>
-	                                <ul class="dropdown">
-	                                    <li data-value="1 people">1 people</li>
-	                                    <li data-value="2 people">2 people</li>
-	                                    <li data-value="3 people">3 people</li>
-	                                    <li data-value="4 people">4 people</li>
-	                                    <li data-value="5 people">5 people</li>
-	                                    <li data-value="6 people">6 people</li>
-	                                    <li data-value="7 people">7 people</li>
-	                                    <li data-value="8 people">8 people</li>
-	                                    <li data-value="9 people">9 people</li>
-	                                    <li data-value="10 people">10 people</li>
-	                                </ul>
-	                            </div>
-							</div>
-							<div class="form-col">
-                                <div class="form-holder">
-                                	<input type="text" class="form-control datepicker-here style" data-language='en' data-date-format="dd - mm - yyyy" placeholder="Date">
-                                    <span class="lnr lnr-calendar-full big primary-color"></span>
-                                </div>
-							</div>
-							<div class="form-col">
-                                <div class="form-holder">
-                                	<input type="text" class="form-control time-picker style" placeholder="Time">
-                                    <span class="lnr lnr-clock big primary-color"></span>
-                                </div>
-							</div>
-							<div class="form-col">
-                                <div class="form-holder">
-                                	<input type="text" class="form-control style" placeholder="Name">
-                                </div>
-							</div>
-							<div class="form-col">
-                                <div class="form-holder">
-                                	<input type="text" class="form-control style" placeholder="Phone">
-                                </div>
-							</div>
-							<div class="form-col">
-                                <div class="form-holder">
-                                	<input type="text" class="form-control style" placeholder="Email">
-                                </div>
+		    <!-- EVENT -->
+		    <section class="section-primary event pb-120">
+		    	<div class="container">
+		    		<div class="section-header">
+						<h2>Upcoming events</h2>
+						<span>~ Come and wait with us ~</span>
+					</div>
+					<div class="row">
+
+                        {% for e in event %}
+						<div class="col-md-6">
+							<div class="event-col set-bg" data-bg="{{ e.image.url }}">
+								<div class="interior">
+									<div class="event-date">
+										<div class="inner">
+											<span class="date">{{e.date.day}}</span>
+											<span class="month">{{ e.date|date:'F' }}</span>
+										</div>
+									</div>
+									<h6>
+										<a href="#">{{e.title}}</a>
+									</h6>
+									<div class="event-meta">
+										<div class="event-time">
+											<span class="lnr lnr-clock"></span>
+											{{ e.start_time }} - {{ e.end_time }}
+										</div>
+										<div class="event-address">
+											<span class="lnr lnr-map-marker"></span>
+											No 40 Baria Sreet 133/2
+										</div>
+									</div>
+									<p>{{ e.description|truncatechars:100 }}</p>
+									<a href="#" class="au-btn__readmore color-36">Read more</a>
+								</div>
 							</div>
 						</div>
-						<div class="btn-holder">
-							<button class="au-btn round au-btn--hover has-bg">Book now</button>
-						</div>
-					</form>			
-				</div>
-			</section>
+                        {% endfor %}
+					</div>
+		    	</div>
+		    </section>
+
 		</main>
 
 {% endblock %}

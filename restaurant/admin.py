@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Area, Customer, About, Gallary, Reservation, Food_Category, Menu, Order_Status,Coupon, Order, Ordered_food, Payment_Method, Payment, Position_List, Employee, Expense
+from .models import Events, Area, Customer, About, Gallary, Reservation, Food_Category, Menu, Order_Status,Coupon, Order, Ordered_food, Payment_Method, Payment, Position_List, Employee, Expense
 
 # Register your models here.
 
@@ -187,3 +187,14 @@ class ExpenseModel(admin.ModelAdmin):
 
 
 admin.site.register(Expense, ExpenseModel)
+
+
+class EventModel(admin.ModelAdmin):
+    list_display = ["__str__", "date", "start_time", "end_time"]
+    search_fields = ["__str__","date"]
+
+    class Meta:
+        Model = Events
+
+
+admin.site.register(Events, EventModel)
