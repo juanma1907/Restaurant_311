@@ -15,6 +15,7 @@ def index(request):
     food = Menu.objects.filter(is_available=True).prefetch_related('category_id').order_by('name')
     category = Food_Category.objects.filter().order_by('-created_on')
     event = Events.objects.filter().order_by('-date')[:2]
+    about = About.objects.only('address')[:1]
         # name = request.POST.get('name')
         # phone = request.POST.get('phone')
         # email = request.POST.get('email')
@@ -25,6 +26,7 @@ def index(request):
         # form = form(name=name, phone=phone, email=email, person=person, date=date, time=time )
         # form.save()
     context = {
+        'about' :about,
         'event' : event,
         'food' : food,
         'category' : category
@@ -81,8 +83,14 @@ def shop(request):
     return render(request,'shop.html')
 
 
-def shop_single(request):
-    return render(request,'shop-single.html')
+def shop_single(request, id):
+    food = get_object_or_404(Menu, id=id)
+    related = Menu.objects.filter(category_id=food.category_id).exclude(id=food.id)[:4]
+    context = {
+        'food' : food,
+        'related' :related
+    }
+    return render(request,'shop-single.html', context)
 
 
 def login(request):

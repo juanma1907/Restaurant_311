@@ -388,14 +388,15 @@
 					</div>		
 					<!-- OWL-CAROUSEL -->
 					<div class="owl-carousel owl-theme style" id="special-carousel-fixed">
-					    <div class="item">
+					    {% for fo in food|slice:":8" %}
+                        <div class="item">
 					    	<div class="special-item item-box">
-								<a href="shop-single.html" class="thumb">
-									<img src="{% static 'images/speciality-4.png' %}" alt="">
+								<a href="{% url "shop_single" id=fo.id %}" class="thumb">
+									<img src="{{fo.image.url}}" alt="">
 								</a>
 								<div class="item-info">
 									<h5>
-										<a href="shop-single.html" class="bold-color">Salat banana flower</a>
+										<a href="{% url "shop_single" id=fo.id %}" class="bold-color">{{fo.name}}</a>
 									</h5>
 									<div class="change">
 										<div class="buy">
@@ -407,7 +408,7 @@
 												<i class="zmdi zmdi-star"></i>
 											</div>
 											<span class="price bold-color">
-												<span>$</span>40
+												<span>৳</span>{{fo.price}}
 											</span>
 										</div>
 										<button class="au-btn btn-cart round has-bd bd-999 au-btn--hover">Add to cart</button>
@@ -415,305 +416,7 @@
 								</div>
 							</div>
 					    </div>
-					    <div class="item">
-					    	<div class="special-item item-box">
-								<a href="shop-single.html" class="thumb">
-									<img src="{% static 'images/speciality-5.png' %}" alt="">
-								</a>
-								<div class="item-info">
-									<h5>
-										<a href="shop-single.html" class="bold-color">Bacon coil baked Australian</a>
-									</h5>
-									<div class="change">
-										<div class="buy">
-											<div class="star-rating">
-												<i class="zmdi zmdi-star"></i>
-												<i class="zmdi zmdi-star"></i>
-												<i class="zmdi zmdi-star"></i>
-												<i class="zmdi zmdi-star"></i>
-												<i class="zmdi zmdi-star-outline"></i>
-											</div>
-											<span class="price bold-color">
-												<span>$</span>165
-											</span>
-										</div>
-										<button class="au-btn btn-cart round has-bd bd-999 au-btn--hover">Add to cart</button>
-									</div>
-								</div>
-							</div>
-					    </div>
-					    <div class="item">
-					    	<div class="special-item item-box">
-								<a href="shop-single.html" class="thumb">
-									<img src="{% static 'images/speciality-6.png' %}" alt="">
-								</a>
-								<div class="item-info">
-									<h5>
-										<a href="shop-single.html" class="bold-color">Beef steak with red wine sauce</a>
-									</h5>
-									<div class="change">
-										<div class="buy">
-											<div class="star-rating">
-												<i class="zmdi zmdi-star"></i>
-												<i class="zmdi zmdi-star"></i>
-												<i class="zmdi zmdi-star"></i>
-												<i class="zmdi zmdi-star"></i>
-												<i class="zmdi zmdi-star"></i>
-											</div>
-											<span class="price bold-color">
-												<span>$</span>32
-											</span>
-										</div>
-										<button class="au-btn btn-cart round has-bd bd-999 au-btn--hover">Add to cart</button>
-									</div>
-									
-								</div>
-							</div>
-					    </div>
-					    <div class="item">
-					    	<div class="special-item item-box">
-								<a href="shop-single.html" class="thumb">
-									<img src="{% static 'images/speciality-7.png' %}" alt="">
-								</a>
-								<div class="item-info">
-									<h5>
-										<a href="shop-single.html" class="bold-color">Grilled lamb with bean sauce</a>
-									</h5>
-									<div class="change">
-										<div class="buy">
-											<div class="star-rating">
-												<i class="zmdi zmdi-star"></i>
-												<i class="zmdi zmdi-star"></i>
-												<i class="zmdi zmdi-star"></i>
-												<i class="zmdi zmdi-star"></i>
-												<i class="zmdi zmdi-star-outline"></i>
-											</div>
-											<span class="price bold-color">
-												<span>$</span>21
-											</span>
-										</div>
-										<button class="au-btn btn-cart round has-bd bd-999 au-btn--hover">Add to cart</button>
-									</div>
-								</div>
-							</div>
-					    </div>
-					    <div class="item">
-					    	<div class="special-item item-box">
-								<a href="shop-single.html" class="thumb">
-									<img src="{% static 'images/speciality-8.png' %}" alt="">
-								</a>
-								<div class="item-info">
-									<h5>
-										<a href="shop-single.html" class="bold-color">Chicken tikka masala</a>
-									</h5>
-									<div class="change">
-										<div class="buy">
-											<div class="star-rating">
-												<i class="zmdi zmdi-star"></i>
-												<i class="zmdi zmdi-star"></i>
-												<i class="zmdi zmdi-star"></i>
-												<i class="zmdi zmdi-star"></i>
-												<i class="zmdi zmdi-star"></i>
-											</div>
-											<span class="price bold-color">
-												<span>$</span>40
-											</span>
-										</div>
-										<button class="au-btn btn-cart round has-bd bd-999 au-btn--hover">Add to cart</button>
-									</div>
-								</div>
-							</div>
-					    </div>
-					    <div class="item">
-					    	<div class="special-item item-box">
-								<a href="shop-single.html" class="thumb">
-									<img src="{% static 'images/speciality-4.png' %}" alt="">
-								</a>
-								<div class="item-info">
-									<h5>
-										<a href="shop-single.html" class="bold-color">Bubble and squeak</a>
-									</h5>
-									<div class="change">
-										<div class="buy">
-											<div class="star-rating">
-												<i class="zmdi zmdi-star"></i>
-												<i class="zmdi zmdi-star"></i>
-												<i class="zmdi zmdi-star"></i>
-												<i class="zmdi zmdi-star"></i>
-												<i class="zmdi zmdi-star-outline"></i>
-											</div>
-											<span class="price bold-color">
-												<span>$</span>165
-											</span>
-										</div>
-										<button class="au-btn btn-cart round has-bd bd-999 au-btn--hover">Add to cart</button>
-									</div>
-								</div>
-							</div>
-					    </div>
-					    <div class="item">
-					    	<div class="special-item item-box">
-								<a href="shop-single.html" class="thumb">
-									<img src="{% static 'images/speciality-5.png' %}" alt="">
-								</a>
-								<div class="item-info">
-									<h5>
-										<a href="shop-single.html" class="bold-color">Cumberland sausage</a>
-									</h5>
-									<div class="change">
-										<div class="buy">
-											<div class="star-rating">
-												<i class="zmdi zmdi-star"></i>
-												<i class="zmdi zmdi-star"></i>
-												<i class="zmdi zmdi-star"></i>
-												<i class="zmdi zmdi-star"></i>
-												<i class="zmdi zmdi-star"></i>
-											</div>
-											<span class="price bold-color">
-												<span>$</span>32
-											</span>
-										</div>
-										<button class="au-btn btn-cart round has-bd bd-999 au-btn--hover">Add to cart</button>
-									</div>
-								</div>
-							</div>
-					    </div>
-					    <div class="item">
-					    	<div class="special-item item-box">
-								<a href="shop-single.html" class="thumb">
-									<img src="{% static 'images/speciality-6.png' %}" alt="">
-								</a>
-								<div class="item-info">
-									<h5>
-										<a href="shop-single.html" class="bold-color">Beef steak with red wine sauce</a>
-									</h5>
-									<div class="change">
-										<div class="buy">
-											<div class="star-rating">
-												<i class="zmdi zmdi-star"></i>
-												<i class="zmdi zmdi-star"></i>
-												<i class="zmdi zmdi-star"></i>
-												<i class="zmdi zmdi-star"></i>
-												<i class="zmdi zmdi-star"></i>
-											</div>
-											<span class="price bold-color">
-												<span>$</span>32
-											</span>
-										</div>
-										<button class="au-btn btn-cart round has-bd bd-999 au-btn--hover">Add to cart</button>
-									</div>
-									
-								</div>
-							</div>
-					    </div>
-					    <div class="item">
-					    	<div class="special-item item-box">
-								<a href="shop-single.html" class="thumb">
-									<img src="{% static 'images/speciality-7.png' %}" alt="">
-								</a>
-								<div class="item-info">
-									<h5>
-										<a href="shop-single.html" class="bold-color">Grilled lamb with bean sauce</a>
-									</h5>
-									<div class="change">
-										<div class="buy">
-											<div class="star-rating">
-												<i class="zmdi zmdi-star"></i>
-												<i class="zmdi zmdi-star"></i>
-												<i class="zmdi zmdi-star"></i>
-												<i class="zmdi zmdi-star"></i>
-												<i class="zmdi zmdi-star-outline"></i>
-											</div>
-											<span class="price bold-color">
-												<span>$</span>21
-											</span>
-										</div>
-										<button class="au-btn btn-cart round has-bd bd-999 au-btn--hover">Add to cart</button>
-									</div>
-								</div>
-							</div>
-					    </div>
-					    <div class="item">
-					    	<div class="special-item item-box">
-								<a href="shop-single.html" class="thumb">
-									<img src="{% static 'images/speciality-8.png' %}" alt="">
-								</a>
-								<div class="item-info">
-									<h5>
-										<a href="shop-single.html" class="bold-color">Chicken tikka masala</a>
-									</h5>
-									<div class="change">
-										<div class="buy">
-											<div class="star-rating">
-												<i class="zmdi zmdi-star"></i>
-												<i class="zmdi zmdi-star"></i>
-												<i class="zmdi zmdi-star"></i>
-												<i class="zmdi zmdi-star"></i>
-												<i class="zmdi zmdi-star"></i>
-											</div>
-											<span class="price bold-color">
-												<span>$</span>40
-											</span>
-										</div>
-										<button class="au-btn btn-cart round has-bd bd-999 au-btn--hover">Add to cart</button>
-									</div>
-								</div>
-							</div>
-					    </div>
-					    <div class="item">
-					    	<div class="special-item item-box">
-								<a href="shop-single.html" class="thumb">
-									<img src="{% static 'images/speciality-4.png' %}" alt="">
-								</a>
-								<div class="item-info">
-									<h5>
-										<a href="shop-single.html" class="bold-color">Bubble and squeak</a>
-									</h5>
-									<div class="change">
-										<div class="buy">
-											<div class="star-rating">
-												<i class="zmdi zmdi-star"></i>
-												<i class="zmdi zmdi-star"></i>
-												<i class="zmdi zmdi-star"></i>
-												<i class="zmdi zmdi-star"></i>
-												<i class="zmdi zmdi-star-outline"></i>
-											</div>
-											<span class="price bold-color">
-												<span>$</span>165
-											</span>
-										</div>
-										<button class="au-btn btn-cart round has-bd bd-999 au-btn--hover">Add to cart</button>
-									</div>
-								</div>
-							</div>
-					    </div>
-					    <div class="item">
-					    	<div class="special-item item-box">
-								<a href="shop-single.html" class="thumb">
-									<img src="{% static 'images/speciality-5.png' %}" alt="">
-								</a>
-								<div class="item-info">
-									<h5>
-										<a href="shop-single.html" class="bold-color">Cumberland sausage</a>
-									</h5>
-									<div class="change">
-										<div class="buy">
-											<div class="star-rating">
-												<i class="zmdi zmdi-star"></i>
-												<i class="zmdi zmdi-star"></i>
-												<i class="zmdi zmdi-star"></i>
-												<i class="zmdi zmdi-star"></i>
-												<i class="zmdi zmdi-star"></i>
-											</div>
-											<span class="price bold-color">
-												<span>$</span>32
-											</span>
-										</div>
-										<button class="au-btn btn-cart round has-bd bd-999 au-btn--hover">Add to cart</button>
-									</div>
-								</div>
-							</div>
-					    </div>
+                        {% endfor %}
 					</div>
 		    	</div>
 		    </section>
@@ -747,7 +450,7 @@
                                             {% if c.id == f.category_id.id %}
 											<div class="menu-item">
 												<h5 class="bold-color">
-													<a href="shop-single.html">{{ f.name}}</a>
+													<a href="{% url "shop_single" id=f.id %}">{{ f.name}}</a>
 													<span class="dots"></span>
 													<span class="price">
 														<span>৳</span>
@@ -784,7 +487,7 @@
                                             {% if c.id == f.category_id.id %}
 											<div class="menu-item">
 												<h5 class="bold-color">
-													<a href="shop-single.html">{{ f.name}}</a>
+													<a href="{% url "shop_single" id=f.id %}">{{ f.name}}</a>
 													<span class="dots"></span>
 													<span class="price">
 														<span>৳</span>
@@ -839,10 +542,12 @@
 											<span class="lnr lnr-clock"></span>
 											{{ e.start_time }} - {{ e.end_time }}
 										</div>
+                                        {% for a in about %}
 										<div class="event-address">
 											<span class="lnr lnr-map-marker"></span>
-											No 40 Baria Sreet 133/2
+											{{a.address|truncatechars:23 }}
 										</div>
+                                        {% endfor %}
 									</div>
 									<p>{{ e.description|truncatechars:100 }}</p>
 									<a href="#" class="au-btn__readmore color-36">Read more</a>
@@ -858,5 +563,4 @@
 
 {% endblock %}
 {% block javascript %}
-
 {% endblock %}

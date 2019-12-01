@@ -9617,7 +9617,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 	.navbar-desktop:not(.aside) {
 		top: 20px;
 		.logo {
-			max-width: 32%;
+			max-width: 42%;
 		}
 		> ul {
 	    	& > li.has-children:first-child ul {
@@ -9629,7 +9629,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 				display: flex;
 				flex-wrap: wrap;
 				justify-content: space-between;
-				padding-right: 28px;
+				padding-right: 18px;
 				li {
 					width: 40%;
 				}
@@ -9637,19 +9637,19 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 	    }
 	    &.has-bg {
 	    	top: 0;
-	    	padding: 15px 80px;
+	    	padding: 5px 20px;
 	    }
 		&.fixed {
-			padding: 10px 80px;
+			padding: 5px 20px;
 			top: 0;
 			.logo {
-				max-width: 28%;
+				max-width: 38%;
 			}
 		}
 	}
 	.navbar-desktop.no-float {
 		top: 0;
-		padding: 20px 80px;
+		padding: 5px 20px;
 	}
 	.navbar-desktop.has-bg.middle {
 		height: 88px;
