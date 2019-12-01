@@ -32,55 +32,22 @@
 			<section class="section-primary pt-120 pb-120 gallery">
 				<div class="container">
 					<div class="row">
-						<div class="col-md">
+                        {% for p in pic %}
+						    <div class="col-md">
 							<a href="#" class="image-holder">
-								<img src="{%static 'images/gallery-four-columns-1.jpg'%}" alt="">
+								<img src="{{p.image.url}}" alt="">
 								<div class="frame"></div>
 								<div class="inner">
 									<div class="info">
-										<h6>Nemo enim ipsam</h6>
-										<span>Sea food</span>
+										<h6>{{p.title}}</h6>
 									</div>
 								</div>
 							</a>
 						</div>
-						<div class="col-md">
-							<a href="#" class="image-holder">
-								<img src="{%static 'images/gallery-four-columns-2.jpg'%}" alt="">
-								<div class="frame"></div>
-								<div class="inner">
-									<div class="info">
-										<h6>Quisque sit</h6>
-										<span>Cake</span>
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="col-md">
-							<a href="#" class="image-holder">
-								<img src="{%static 'images/gallery-four-columns-3.jpg'%}" alt="">
-								<div class="frame"></div>
-								<div class="inner">
-									<div class="info">
-										<h6>Nulla facilisi.</h6>
-										<span>Drinks</span>
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="col-md">
-							<a href="#" class="image-holder">
-								<img src="{%static 'images/gallery-four-columns-4.jpg'%}" alt="">
-								<div class="frame"></div>
-								<div class="inner">
-									<div class="info">
-										<h6>Vestibulum eu</h6>
-										<span>Cake</span>
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="w-100"></div>
+                            {% if forloop.counter0|divisibleby:4 and not forloop.first %}
+                            <div class="w-100"></div>
+                            {% endif %}
+                        {% endfor %}
 					</div>				
 				</div>
 			</section>

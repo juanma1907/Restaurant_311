@@ -59,7 +59,8 @@ def contact(request):
 
 
 def gallary(request):
-    return render(request,'gallery.html')
+    pic = Gallary.objects.only("title", "image").order_by('-created_on')
+    return render(request,'gallery.html',{'pic':pic})
 
 
 def menu(request):
@@ -86,7 +87,14 @@ def reservation(request):
     return render(request,'reservation.html', {'form':form})
 
 def shop(request):
-    return render(request,'shop.html')
+    food = Menu.objects.filter(is_available=True).prefetch_related('category_id').order_by('name')
+    category = Food_Category.objects.filter().order_by('-created_on')
+
+    context = {
+        'food': food,
+        'category': category
+    }
+    return render(request,'shop.html', context)
 
 
 def shop_single(request, id):
@@ -110,3 +118,8 @@ def signup(request):
 def logout(request):
     logout(request)
     return redirect('index')
+
+
+# def add_to_cart(request, id):
+#     item = get_object_or_404(Menu, id)
+#

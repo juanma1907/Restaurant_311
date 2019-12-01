@@ -41,8 +41,7 @@ class About(models.Model):
 
 
 class Gallary(models.Model):
-    title = models.CharField(max_length=50)
-    description = models.TextField(max_length=100)
+    title = models.CharField(max_length=70)
     image = models.ImageField(default='default', upload_to='gallary', blank=True)
     created_on = models.DateField(auto_now=False, auto_now_add=True)
 

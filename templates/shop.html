@@ -38,17 +38,18 @@
 								</form>
 							</div>
 							<div class="row products">
+                            {% for f in food|slice:":18" %}
 								<div class="col-md-6 col-lg-4">
 									<div class="item">
 										<div class="thumb">
-											<a href="shop-single.html" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
-												<img src="{%static 'images/shop-list-1.jpg'%}" alt="">
+											<a href="{% url "shop_single" id=f.id %}" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+												<img src="{{f.image.url}}" alt="">
 											</a>
 											<a href="#" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add to cart</a>
 										</div>
 										<div class="info">
 											<h5 class="woocommerce-loop-product__title">
-												<a href="shop-single.html">Bacon coil baked</a>
+												<a href="{% url "shop_single" id=f.id %}">{{f.name}}</a>
 											</h5>
 											<div class="star-rating">
 												<i class="zmdi zmdi-star"></i>
@@ -59,13 +60,15 @@
 											</div>
 											<span class="price">
 												<span class="woocommerce-Price-amount amount">
-													<span class="woocommerce-Price-currencySymbol">৳</span>65
+													<span class="woocommerce-Price-currencySymbol">৳</span>{{f.price}}
 												</span>
 											</span>
 										</div>
 									</div>
 								</div>
+                            {% endfor %}
 							</div>
+
 							<div class="woocommerce-pagination">
 								<ul class="page-numbers">
 									<li>
