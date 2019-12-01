@@ -63,7 +63,13 @@ def gallary(request):
 
 
 def menu(request):
-    return render(request,'menu.html')
+    food = Menu.objects.filter().prefetch_related('category_id').order_by('name')
+    category = Food_Category.objects.filter().order_by('-created_on')
+    context={
+        'food' : food,
+        'category' : category
+    }
+    return render(request,'menu.html',context)
 
 
 def reservation(request):

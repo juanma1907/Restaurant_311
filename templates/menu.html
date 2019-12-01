@@ -15,276 +15,66 @@
 				</div>
 			</section>
 
-			<!-- MAIN COURSE -->
-			<section class="section-primary menu-page pb-120">
-				<div class="container">
-					<div class="section-header">
-						<h2>Main course</h2>
-						<span>~ Qualities in each dish ~</span>
-					</div>
-					<div class="row">
-						<div class="col-md-6 menu-holder left">
-							<a href="shop-single.html" class="menu-thumb">
-								<img src="{%static 'images/menu-thumb-1.png'%}" alt="">
-							</a>
-							<div class="menu-item">
-								<h5 class="bold-color">
-									<a href="shop-single.html">Super-delicious zuppa toscana</a>
-									<span class="dots"></span>
-									<span class="price">
-										<span>৳</span>
-										40
-									</span>
-								</h5>
-								<ul>
-									<li>
-										<a href="">Chicken</a>
-									</li>
-									<li>
-										<a href="">Italian</a>
-									</li>
-									<li>
-										<a href="">Sausage</a>
-									</li>
-									<li>
-										<a href="">Spinach</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-md-6 menu-holder right">
-							<a href="shop-single.html" class="menu-thumb">
-								<img src="{%static 'images/menu-thumb-2.png'%}" alt="">
-							</a>
-							<div class="menu-item">
-								<h5 class="bold-color">
-									<a href="shop-single.html">Thai style grilled chicken</a>
-									<span class="dots"></span>
-									<span class="price">
-										<span>৳</span>
-										69
-									</span>
-								</h5>
-								<ul>
-									<li>
-										<a href="">Chicken</a>
-									</li>
-									<li>
-										<a href="">Italian</a>
-									</li>
-									<li>
-										<a href="">Sausage</a>
-									</li>
-									<li>
-										<a href="">Spinach</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-md-6 menu-holder left mb-md-0">
-							<a href="shop-single.html" class="menu-thumb">
-								<img src="{%static 'images/menu-thumb-7.png'%}" alt="">
-							</a>
-							<div class="menu-item">
-								<h5 class="bold-color">
-									<a href="shop-single.html">Bacon coil baked Australian beef</a>
-									<span class="dots"></span>
-									<span class="price">
-										<span>৳</span>
-										23
-									</span>
-								</h5>
-								<ul>
-									<li>
-										<a href="">Chicken</a>
-									</li>
-									<li>
-										<a href="">Italian</a>
-									</li>
-									<li>
-										<a href="">Sausage</a>
-									</li>
-									<li>
-										<a href="">Spinach</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-md-6 menu-holder right mb-0">
-							<a href="shop-single.html" class="menu-thumb">
-								<img src="{%static 'images/menu-thumb-8.png'%}" alt="">
-							</a>
-							<div class="menu-item">
-								<h5 class="bold-color">
-									<a href="shop-single.html">Chicken wings with pink sauce</a>
-									<span class="dots"></span>
-									<span class="price">
-										<span>৳</span>
-										39
-									</span>
-								</h5>
-								<ul>
-									<li>
-										<a href="">Chicken</a>
-									</li>
-									<li>
-										<a href="">Italian</a>
-									</li>
-									<li>
-										<a href="">Sausage</a>
-									</li>
-									<li>
-										<a href="">Spinach</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<!-- SOUPS AND SALADS -->
-			<section class="menu-block-bg set-bg" data-bg="{% static 'images/menu-block-bg.jpg' %}">
+            {% for c in category %}
+                {% if not forloop.first %}
+			<!-- Category Image -->
+			<section class="menu-block-bg set-bg" data-bg="{{c.image_cover.url}}">
 				<div class="section-header">
-					<h2 class="text-white">Soups & salads</h2>
-					<span>~ Clean vegetables  ~</span>
+					<h2 class="text-white">{{ c.name }}</h2>
 				</div>
 			</section>
-
+                {% endif %}
 			<section class="section-primary menu-page pb-120">
 				<div class="container">
+                    {% if forloop.first %}
+                    <div class="section-header">
+						<h2>{{ c.name }}</h2>
+					</div>
+                    {% endif %}
 					<div class="row">
-						<div class="col-md-6 menu-holder left">
-							<a href="shop-single.html" class="menu-thumb">
-								<img src="{%static 'images/menu-thumb-17.png'%}" alt="">
-							</a>
-							<div class="menu-item">
-								<h5 class="bold-color">
-									<a href="shop-single.html">Grandma's Noodle Soup</a>
-									<span class="dots"></span>
-									<span class="price">
-										<span>৳</span>
-										26
-									</span>
-								</h5>
-								<p>It is a long established fact that a reader will be distracted</p>
-							</div>
-						</div>
-						<div class="col-md-6 menu-holder right">
-							<a href="shop-single.html" class="menu-thumb">
-								<img src="{%static 'images/menu-thumb-18.png'%}" alt="">
-							</a>
-							<div class="menu-item">
-								<h5 class="bold-color">
-									<a href="shop-single.html">Cran-Broccoli Salad</a>
-									<span class="dots"></span>
-									<span class="price">
-										<span>৳</span>
-										28
-									</span>
-								</h5>
-								<p>There are many variations of passages of Lorem Ipsum</p>
-							</div>
-						</div>
-						<div class="col-md-6 menu-holder left">
-							<a href="shop-single.html" class="menu-thumb">
-								<img src="{%static 'images/menu-thumb-19.png'%}" alt="">
-							</a>
-							<div class="menu-item">
-								<h5 class="bold-color">
-									<a href="shop-single.html">Vegan Red Lentil Soup</a>
-									<span class="dots"></span>
-									<span class="price">
-										<span>৳</span>
-										32
-									</span>
-								</h5>
-								<p>The point of using Lorem Ipsum is that it has a more</p>
-							</div>
-						</div>
-						<div class="col-md-6 menu-holder right">
-							<a href="shop-single.html" class="menu-thumb">
-								<img src="{%static 'images/menu-thumb-20.png'%}" alt="">
-							</a>
-							<div class="menu-item">
-								<h5 class="bold-color">
-									<a href="shop-single.html">Spinach and Mushroom Salad</a>
-									<span class="dots"></span>
-									<span class="price">
-										<span>৳</span>
-										17
-									</span>
-								</h5>
-								<p>If you are going to use a passage of Lorem Ipsum</p>
-							</div>
-						</div>
-						<div class="col-md-6 menu-holder left">
-							<a href="shop-single.html" class="menu-thumb">
-								<img src="{%static 'images/menu-thumb-21.png'%}" alt="">
-							</a>
-							<div class="menu-item">
-								<h5 class="bold-color">
-									<a href="shop-single.html">Beef Noodle Soup</a>
-									<span class="dots"></span>
-									<span class="price">
-										<span>৳</span>
-										21
-									</span>
-								</h5>
-								<p>Many desktop publishing packages and web</p>
-							</div>
-						</div>
-						<div class="col-md-6 menu-holder right">
-							<a href="shop-single.html" class="menu-thumb">
-								<img src="{%static 'images/menu-thumb-22.png'%}" alt="">
-							</a>
-							<div class="menu-item">
-								<h5 class="bold-color">
-									<a href="shop-single.html">Holiday Chicken Salad</a>
-									<span class="dots"></span>
-									<span class="price">
-										<span>৳</span>
-										12
-									</span>
-								</h5>
-								<p>All the Lorem Ipsum generators on the Internet tend </p>
-							</div>
-						</div>
-						<div class="col-md-6 menu-holder left mb-md-0">
-							<a href="shop-single.html" class="menu-thumb">
-								<img src="{%static 'images/menu-thumb-23.png'%}" alt="">
-							</a>
-							<div class="menu-item">
-								<h5 class="bold-color">
-									<a href="shop-single.html">Italian Sausage Soup</a>
-									<span class="dots"></span>
-									<span class="price">
-										<span>৳</span>
-										14
-									</span>
-								</h5>
-								<p>Various versions have evolved over the years</p>
-							</div>
-						</div>
-						<div class="col-md-6 menu-holder right mb-0">
-							<a href="shop-single.html" class="menu-thumb">
-								<img src="{%static 'images/menu-thumb-24.png'%}" alt="">
-							</a>
-							<div class="menu-item">
-								<h5 class="bold-color">
-									<a href="shop-single.html">Kale and Feta Salad</a>
-									<span class="dots"></span>
-									<span class="price">
-										<span>৳</span>
-										30
-									</span>
-								</h5>
-								<p>It uses a dictionary of over 200 Latin words, combined</p>
-							</div>
-						</div>
+                        {% for f in food %}
+                            {% if c.id == f.category_id.id %}
+                                {% if forloop.counter0|divisibleby:2 %}
+                                    <div class="col-md-6 menu-holder left">
+                                        <a href="{% url "shop_single" id=f.id %}" class="menu-thumb">
+                                            <img src="{{ f.image.url}}" width="120" alt="">
+                                        </a>
+                                        <div class="menu-item">
+                                            <h5 class="bold-color">
+                                                <a href="{% url "shop_single" id=f.id %}">{{f.name}}</a>
+                                                <span class="dots"></span>
+                                                <span class="price">
+                                                    <span>৳</span>
+                                                    {{f.price}}
+                                                </span>
+                                            </h5>
+                                            <p>{{ f.description|truncatechars:40 }}</p>
+                                        </div>
+                                    </div>
+                                {% else %}
+                                    <div class="col-md-6 menu-holder right">
+                                        <a href="{% url "shop_single" id=f.id %}" class="menu-thumb">
+                                            <img src="{{ f.image.url}}"width="120" alt="">
+                                        </a>
+                                        <div class="menu-item">
+                                            <h5 class="bold-color">
+                                                <a href="{% url "shop_single" id=f.id %}">{{f.name}}</a>
+                                                <span class="dots"></span>
+                                                <span class="price">
+                                                    <span>৳</span>
+                                                    {{f.price}}
+                                                </span>
+                                            </h5>
+                                            <p>{{ f.description|truncatechars:40 }}</p>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
 					</div>	
 				</div>
 			</section>
+            {% endfor %}
 		</main>
 
 {% endblock %}
