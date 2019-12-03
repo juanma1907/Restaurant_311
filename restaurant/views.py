@@ -86,10 +86,27 @@ def reservation(request):
 def shop(request):
     food = Menu.objects.filter(is_available=True).prefetch_related('category_id').order_by('name')
     category = Food_Category.objects.filter().order_by('-created_on')
-
+    # ==========Search==========
+    search = request.GET.get('q')
+    if search:
+        food = food.filter(
+            Q(name__icontains=search) |
+            Q(description__icontains=search)
+        )
     context = {
         'food': food,
         'category': category
+    }
+    return render(request,'shop.html', context)
+
+
+def shop_category(request, name):
+    getcategory = get_object_or_404(Food_Category, name=name)
+    food = Menu.objects.filter(category_id=getcategory.id)
+    category = Food_Category.objects.filter().order_by('-created_on')
+    context = {
+        'food' : food,
+        'category' :category
     }
     return render(request,'shop.html', context)
 
@@ -155,6 +172,9 @@ def getlogout(request):
     logout(request)
     return redirect('index')
 
+
+def lostpass(request):
+    return render(request,'lost-password.html')
 
 # def add_to_cart(request, id):
 #     item = get_object_or_404(Menu, id)

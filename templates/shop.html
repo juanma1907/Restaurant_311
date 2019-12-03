@@ -4,16 +4,9 @@
 {% block stylesheet %}{% endblock %}
 {% block content %}
 
-	<body class="preload">
+	<body>
 
 		<main>
-			<!-- PAGE INFO -->
-			<section class="page-info set-bg" data-bg="{% static '৳' %}">
-				<div class="section-header">
-					<h1 class="text-white">Shop list</h1>
-					<span>~ Delicious food ~</span>
-				</div>
-			</section>
 			
 			<!-- SHOP LIST -->
 			<section class="section-primary pt-150 pb-113 shop-list">
@@ -23,7 +16,7 @@
 							<div class="sorting">
 								<form method="get" class="woocommerce-ordering">
 									<p class="woocommerce-result-count">
-										Showing 1–15 of 27 results
+
 									</p>
 									<div class="form-holder">
 										<select name="orderby" class="orderby form-control">
@@ -101,8 +94,8 @@
 							<div class="sidebar">
 								<!-- SEARCH -->
 								<div class="widgets widget_search">
-									<form method="get" class="search-form">
-										<input class="form-control" type="text" name="s" id="s" placeholder="Search">
+									<form method="GET" class="search-form">
+										<input class="form-control" type="text" name="q" id="q" placeholder="Search" value="{{ request.GET.q }}">
 										<button class="search-icon">
 											<span class="lnr lnr-magnifier"></span>
 										</button>
@@ -137,21 +130,11 @@
 										<h5>Categories</h5>
 									</div>
 									<ul>
+                                        {% for c in category %}
 										<li>
-											<a href="#">Seafood (<span>2</span>)</a>
+											<a href="{% url "shop_category" name=c.name %}">{{c.name}}</a>
 										</li>
-										<li>
-											<a href="#">Coffee (<span>5</span>)</a>
-										</li>
-										<li>
-											<a href="#">Restaurant (<span>18</span>)</a>
-										</li>
-										<li>
-											<a href="#">Cupcake (<span>22</span>)</a>
-										</li>
-										<li>
-											<a href="#">Lunch (<span>19</span>)</a>
-										</li>
+                                        {% endfor %}
 									</ul>
 								</div>
 								<!-- FEATURED PRODUCT -->
