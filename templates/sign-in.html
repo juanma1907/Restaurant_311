@@ -33,10 +33,20 @@
 				<div class="container">
 					<div class="woocommerce">
 						<h4>Login</h4>
-						<form action="#" class="woocommerce-form woocommerce-form-login login">
+                        <!--Error Notification start-->
+                                        {% if messages %}
+                                        <div class="messages">
+                                            {% for message in messages %}
+                                            <div {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+                                            {% endfor %}
+                                        </div>
+                                        {% endif %}
+                                        <!--Error Notification End-->
+						<form action="#" method="POST" class="woocommerce-form woocommerce-form-login login">
+                            {% csrf_token %}
 							<div class="form-holder">
 								<label for="username">Username or email address <span class="required">*</span></label>
-								<input type="text" class="woocommerce-Input woocommerce-Input--text input-text form-control" name="username" id="username" value="">
+								<input type="text" class="woocommerce-Input woocommerce-Input--text input-text form-control" name="user" id="user" value="">
 							</div>
 							<div class="form-holder">
 								<label for="password">Password <span class="required">*</span></label>

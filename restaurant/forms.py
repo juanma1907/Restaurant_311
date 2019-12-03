@@ -14,3 +14,25 @@ class ReserveForm(forms.ModelForm):
     class Meta:
         model = Reservation
         fields = ['name', 'phone', 'email', 'person','date','time',]
+
+
+class SignUpForm(UserCreationForm):
+    first_name = forms.CharField(max_length=30, required=True, widget=forms.TextInput(attrs={"class":"form-control","placeholder":"Enter first name"}))
+    last_name = forms.CharField(max_length=30, required=True,  widget=forms.TextInput(attrs={"class":"form-control","placeholder":"Enter last name"}))
+    email = forms.EmailField(max_length=254,required=True,  widget=forms.TextInput(attrs={"class":"form-control","placeholder":"Enter Email"}))
+    password1 = forms.CharField(max_length=20,required=True, label='Password', widget=forms.PasswordInput(attrs={"class":"form-control","placeholder":"Enter Password"}))
+    password2 = forms.CharField(max_length=20, required=True, label='Repeat password', widget=forms.PasswordInput(attrs={"class": "form-control", "placeholder": "Re-enter password"}))
+
+
+    class Meta:
+        model = User
+        fields = ('first_name', 'last_name', 'email', 'password1', 'password2')
+
+    def save(self, commit=True):
+        user = super(SignUpForm, self).save(commit=False)
+        user.first_name = self.cleaned_data['first_name']
+        user.last_name = self.cleaned_data['last_name']
+        user.email = self.cleaned_data['email']
+        if commit:
+            user.save()
+        return user

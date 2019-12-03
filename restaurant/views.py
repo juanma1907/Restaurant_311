@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse, get_object_or_404, redirect
+from django.shortcuts import render, HttpResponseRedirect, HttpResponse, get_object_or_404, redirect
 from .models import Events, Area, Customer, About, Gallary, Reservation, Food_Category, Menu, Order_Status,Coupon, Order, Ordered_food, Payment_Method, Payment, Position_List, Employee, Expense
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
@@ -7,7 +7,7 @@ from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.contrib.auth.models import User
 from django.db.models import Q
 from django.urls import resolve
-from .forms import ReserveForm
+from .forms import ReserveForm, SignUpForm
 
 
 # views function that will interact with frontend
@@ -104,15 +104,54 @@ def shop_single(request, id):
     return render(request,'shop-single.html', context)
 
 
-def login(request):
+def getlogin(request):
+    if request.user.is_authenticated:
+        return redirect('index')
+    else:
+        if request.method == "POST":
+            user = request.POST.get('user')
+            password = request.POST.get('password')
+            auth = authenticate(request, username=user, password=password)
+            if auth is not None:
+                login(request, auth)
+                return redirect('index')
+            else:
+                messages.add_message(request, messages.ERROR, "Username or Password Mismatch")
+
     return render(request,'sign-in.html')
 
 
-def signup(request):
-    return render(request,'sign-up.html')
+def getsignup(request):
+    if request.method == "GET":
+        form = SignUpForm(request.POST or None)
+        return render(request, "sign-up.html", {"form": form})
+    else:
+        form = SignUpForm(request.POST)
+        first_name = request.POST.get("first_name")
+
+        first_name = first_name.lower()
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.is_active = True
+            usr = User.objects.all()
+            newFirstName = first_name.replace(" ", "")
+            i = 0
+            for u in usr:
+                if u.username == newFirstName or u.username == newFirstName + str(i):
+                    i = i + 1
+                else:
+                    pass
+            if i == 0:
+                instance.username = newFirstName
+            else:
+                instance.username = newFirstName + str(i)
+            instance.save()
+            return HttpResponse("<h1>Congratulations! You are registered.</h1> <br> <h2>Your username is: <b>"+newFirstName+"</b></h2><br> <a href='/login'><button type='button'>Login</button><a>")
+        else:
+            return redirect("signup")
 
 
-def logout(request):
+def getlogout(request):
     logout(request)
     return redirect('index')
 

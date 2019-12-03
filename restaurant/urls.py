@@ -16,8 +16,8 @@ urlpatterns = [
     path('reservation/', views.reservation, name='reservation'),
     path('shop/', views.shop, name='shop'),
     path('shop/<int:id>', views.shop_single, name='shop_single'),
-    path('login/', views.login, name='login'),
-    path('logout/', views.logout, name='logout'),
-    path('signup/', views.signup, name='signup'),
+    path('login/', views.getlogin, name='login'),
+    path('logout/', views.getlogout, name='logout'),
+    path('signup/', views.getsignup, name='signup'),
 
 ]

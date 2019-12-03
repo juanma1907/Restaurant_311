@@ -132,3 +132,5 @@ MESSAGE_TAGS = {
     messages.ERROR: 'alert alert-danger',
     messages.DEBUG: 'alert alert-info',
 }
+
+#AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend',)
