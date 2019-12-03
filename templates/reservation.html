@@ -29,48 +29,11 @@
                             </ul>
                         {% endif %}
 					</div>
-					<form action="" method="POST">
+					<form action="" method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
                         {{ form.as_p }}
                         <button type="submit">Submit</button>
-						<div class="form-inner">
 
-							<div class="form-col">
-								<div class="form-holder">
-                                	<input type="text" name="person" id="person" class="form-control style" placeholder="People">
-                                </div>
-							</div>
-							<div class="form-col">
-                                <div class="form-holder">
-                                	<input type="text" name="date" id="date" class="form-control datepicker-here style" data-language='en' data-date-format="dd - mm - yyyy" placeholder="Date">
-                                    <span class="lnr lnr-calendar-full big primary-color"></span>
-                                </div>
-							</div>
-							<div class="form-col">
-                                <div class="form-holder">
-                                	<input type="text" name="time" id="time" class="form-control time-picker style" placeholder="Time">
-                                    <span class="lnr lnr-clock big primary-color"></span>
-                                </div>
-							</div>
-							<div class="form-col">
-                                <div class="form-holder">
-                                	<input type="text" name="name" id="name" class="form-control style" placeholder="Name">
-                                </div>
-							</div>
-							<div class="form-col">
-                                <div class="form-holder">
-                                	<input type="text" name="phone" id="phone" class="form-control style" placeholder="Phone">
-                                </div>
-							</div>
-							<div class="form-col">
-                                <div class="form-holder">
-                                	<input type="text" name="email" id="email" class="form-control style" placeholder="Email">
-                                </div>
-							</div>
-						</div>
-						<div class="btn-holder">
-							<button class="au-btn round au-btn--hover has-bg">Book now</button>
-						</div>
 					</form>			
 				</div>
 			</section>

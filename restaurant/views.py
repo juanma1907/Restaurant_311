@@ -76,15 +76,12 @@ def menu(request):
 def reservation(request):
     form = ReserveForm(request.POST or None)
     if form.is_valid():
-        instance = form.save(commit=False)
+        instance =form.save(commit=False)
         instance.save()
-        messages.success(request, "Successfully submitted reservation request.")
-        return redirect('index')
-    else:
-        messages.error(request, "Sorry. Reservation request failed. Try again")
-        return  redirect('reservation')
+        messages.add_message(request, messages.SUCCESS, "Your Reservation request submit successfully.")
+        return redirect('reservation')
+    return render(request,'reservation.html', {"form":form})
 
-    return render(request,'reservation.html', {'form':form})
 
 def shop(request):
     food = Menu.objects.filter(is_available=True).prefetch_related('category_id').order_by('name')

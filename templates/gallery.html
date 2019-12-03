@@ -34,7 +34,7 @@
 					<div class="row">
                         {% for p in pic %}
 						    <div class="col-md">
-							<a href="#" class="image-holder">
+							<a href="{{ p.image.url }}" target="_blank" class="image-holder">
 								<img src="{{p.image.url}}" alt="">
 								<div class="frame"></div>
 								<div class="inner">
