@@ -125,6 +125,16 @@ class Order(models.Model):
         return self.id
 
 
+class Order_cart(models.Model):
+    customer_id = models.ForeignKey(Customer, on_delete=None)
+    food_id = models.ForeignKey(Menu, on_delete=None)
+    qty = models.IntegerField()
+    created_on = models.DateField(auto_now=False, auto_now_add=True)
+
+    def __str__(self):
+        return self.customer_id
+
+
 class Ordered_food(models.Model):
     order_id = models.ForeignKey(Order, on_delete=models.CASCADE)
     food_id = models.ForeignKey(Menu, on_delete=None)

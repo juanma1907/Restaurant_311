@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Events, Area, Customer, About, Gallary, Reservation, Food_Category, Menu, Order_Status,Coupon, Order, Ordered_food, Payment_Method, Payment, Position_List, Employee, Expense
+from .models import Events, Area, Customer, About, Gallary, Reservation, Food_Category, Menu, Order_Status,Coupon, Order, Ordered_food, Payment_Method, Payment, Position_List, Employee, Expense, Order_cart
 
 # Register your models here.
 
@@ -129,6 +129,16 @@ class Ordered_foodModel(admin.ModelAdmin):
 
 admin.site.register(Ordered_food, Ordered_foodModel)
 
+
+
+class Order_cartModel(admin.ModelAdmin):
+    list_display = ["__str__","food_id","qty"]
+    search_fields = ["__str__"]
+
+    class Meta:
+        Model = Order_cart
+
+admin.site.register(Order_cart, Order_cartModel)
 
 
 class Payment_MethodModel(admin.ModelAdmin):
