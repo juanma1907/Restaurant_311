@@ -48,7 +48,7 @@
                                 {% for i in cart_item %}
 									<tr class="woocommerce-cart-form__cart-item cart_item">
 										<td class="product-remove">
-											<a href="#" class="remove" aria-label="Remove this item">
+											<a href="{% url "add_to_cart_Delete" fid=i.food_id.id %}" class="remove" aria-label="Remove this item">
 												<span class="lnr lnr-cross-circle"></span>
 											</a>		
 										</td>
@@ -60,23 +60,34 @@
 										</td>
 
 										<td class="product-name" data-title="Product">
-											<a href="shop-single.html">{{i.food_id.name}}</a>
+											<a href="{% url "shop_single" id=i.food_id.id %}">{{i.food_id.name}}</a>
 										</td>
 
 										<td class="product-price" data-title="Price">
 											<span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">৳</span>{{i.food_id.price}}</span>
 										</td>
-                                        <form action="" method="post">
-										<td class="product-quantity" data-title="Quantity">
-											<div class="quantity">
-												<input type="number" class="input-text qty text input-quantity" step="1" min="1" name="cartnum" value="{{i.qty}}" title="Qty" size="4">
+										<td class="">
+											<div class="">
+                                                    <!--Error Notification start-->
+                                                    {% if messages %}
+                                                    <div class="messages">
+                                                        {% for message in messages %}
+                                                        <div {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+                                                        {% endfor %}
+                                                    </div>
+                                                    {% endif %}
+                                                    <!--Error Notification End-->
+												<h5>{{i.qty}}</h5>
 												<div class="icon">
-													<a href="{% url "cart_Update_increase" fid=i.food_id.id %}" class="number-button plus">+</a>
-													<a href="#" class="number-button minus">-</a>
+                                                    <a href="{% url "cart_Update_increase" fid=i.food_id.id %}">
+                                                        <span class="lnr lnr-plus-circle"></span>
+                                                    </a>
+													<a href="{% url "cart_Update_decrease" fid=i.food_id.id %}">
+                                                        <span class="lnr lnr-circle-minus"></span>
+                                                    </a>
 												</div>
 											</div>
 										</td>
-                                        </form>
 										<td class="product-subtotal" data-title="Total">
 											<span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">৳</span>{% widthratio i.food_id.price 1 i.qty %}</span>
 										</td>
@@ -85,11 +96,7 @@
 									<tr>
 										<td class="product-remove none">&nbsp;</td>
 										<td colspan="3" class="actions">
-											<div class="coupon">
-												<input type="text" name="coupon_code" class="input-text form-control" id="coupon_code" value="" placeholder="coupon code" /> 
-												<input type="submit" class="button au-btn" name="apply_coupon" value="Apply" />
-											</div>
-											<input type="hidden" id="_wpnonce" name="_wpnonce" value="54045be64c" />
+
 										</td>
 										<td colspan="2" class="cart-subtotal">
 											<label>Subtotal:</label>
@@ -102,8 +109,8 @@
 								</tbody>
 							</table>
 							<div class="bottom">
-								<input type="submit" class="button au-btn update-btn has-bd bd-999 round" name="update_cart" value="Update cart" />
-								<a href="shop-list.html" class=" au-btn go-shopping round has-bg au-btn--hover">Go shopping</a>
+                                <a></a>
+								<a href="{% url 'shop' %}" class=" au-btn go-shopping round has-bg au-btn--hover">Go shopping</a>
 							</div>
 						</form>
 					</div>

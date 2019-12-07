@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponseRedirect, HttpResponse, get_object_or_404, redirect
 from .models import Events, Area, Customer, About, Gallary, Reservation, Food_Category, Menu, Order_cart, Order_Status,Coupon, Order, Ordered_food, Payment_Method, Payment, Position_List, Employee, Expense
 from django.contrib.auth import authenticate, login, logout
-from django.db.models import Max,Count, Sum
+from django.db.models import Max,Count, Sum, F
 from django.contrib import messages
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 #from .forms import ContactForm, SignUpForm, PostForm, CouponForm, FeaturedPostForm
@@ -218,12 +218,23 @@ def cart_Update_increase(request, fid):
         added_food = get_object_or_404(Menu, id=fid)
         item = get_object_or_404(Order_cart, customer_id=Reguser.id, food_id__id=fid)
 
-        #if item.qty==1:
-        obj_instance = Order_cart.objects.update(
-            customer_id=Reguser,
-            food_id=added_food,
-            qty=item.qty+1
-        )
+        item.qty=F('qty')+1
+        item.save(update_fields=['qty'])
+        return redirect('cart')
+    else:
+        return redirect('login')
+
+
+def cart_Update_decrease(request, fid):
+    if request.user.is_authenticated:
+        Reguser = get_object_or_404(User, id=request.user.id)
+        added_food = get_object_or_404(Menu, id=fid)
+        item = get_object_or_404(Order_cart, customer_id=Reguser.id, food_id__id=fid)
+        if item.qty>1:
+            item.qty=F('qty')-1
+            item.save(update_fields=['qty'])
+        else:
+            messages.add_message(request, messages.ERROR, "To delete, click the cross button from left.")
         return redirect('cart')
     else:
         return redirect('login')
