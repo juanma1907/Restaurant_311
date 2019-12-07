@@ -101,43 +101,25 @@
 					<div class="action">
 						<div class="notify">
 							<img src="{% static 'images/notify-black.png' %}" alt="">
-							<span class="notify-amount">0</span>
+							<span class="notify-amount">{% block cartNumber %}{% endblock %}</span>
 
 							<!-- WIDGET SHOPPING -->
 							<div id="woocommerce_widget_cart-2" class="widget woocommerce widget_shopping_cart">
 								<div class="widget_shopping_cart_content">
-									<ul class="woocommerce-mini-cart cart_list product_list_widget ">
-										<li class="woocommerce-mini-cart-item mini_cart_item clearfix">
-											<a href="#" class="remove remove_from_cart_button" aria-label="Remove this item">
-												<span class="lnr lnr-cross-circle"></span>
-											</a>
-											<a href="#" class="image-holder">
-												<img src="{% static 'images/widget-cart-thumb-1.jpg' %}" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="">
-												<span class="product-name">Best Brownies</span>
-											</a>
-											<span class="quantity">
-												<span class="woocommerce-Price-amount amount">
-													<span class="woocommerce-Price-currencySymbol">$</span>18
-												</span>
-												x1
-											</span>
-										</li>
-									</ul>
-									<p class="woocommerce-mini-cart__total total">
-										<strong>Subtotal:</strong>
-										<span class="woocommerce-Price-amount amount">
-											<span class="woocommerce-Price-currencySymbol">$</span>102
-										</span>
-									</p>
+
+
+                                        {% block cartItem %}{% endblock %}
+
 									<p class="woocommerce-mini-cart__total total">
 										<strong>Total:</strong>
 										<span class="woocommerce-Price-amount amount color-cdaa7c">
-											<span class="woocommerce-Price-currencySymbol">$</span>102
+											<span class="woocommerce-Price-currencySymbol">৳</span>{% block cartTotal %}{% endblock %}
 										</span>
 									</p>
+
 									<p class="woocommerce-mini-cart__buttons buttons">
-										<a href="#" class="button wc-forward view-cart">View cart</a>
-										<a href="#" class="button checkout wc-forward">Checkout</a>
+										<a href="{% url "cart"%}" class="button wc-forward view-cart">View cart</a>
+										<a href="{% url "checkout"%}" class="button checkout wc-forward">Checkout</a>
 									</p>
 								</div>
 							</div>
@@ -165,38 +147,19 @@
 							<div class="action">
 								<div class="notify">
 									<img src="{% static 'images/notify.png' %}" alt="">
-									<span class="notify-amount">0</span>
+									<span class="notify-amount">{% block cartNumberMob %}{% endblock %}</span>
 
 									<!-- WIDGET SHOPPING -->
 									<div class="widget woocommerce widget_shopping_cart">
 										<div class="widget_shopping_cart_content">
 											<ul class="woocommerce-mini-cart cart_list product_list_widget ">
-												<li class="woocommerce-mini-cart-item mini_cart_item clearfix">
-													<a href="#" class="remove remove_from_cart_button" aria-label="Remove this item">
-														<span class="lnr lnr-cross-circle"></span>
-													</a>
-													<a href="#" class="image-holder">
-														<img src="{% static 'images/widget-cart-thumb-1.jpg' %}" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="">
-														<span class="product-name">Best Brownies</span>
-													</a>
-													<span class="quantity">
-														<span class="woocommerce-Price-amount amount">
-															<span class="woocommerce-Price-currencySymbol">$</span>18
-														</span>
-														x1
-													</span>
-												</li>
+                                                {% block cartItemMob %}{% endblock %}
 											</ul>
-											<p class="woocommerce-mini-cart__total total">
-												<strong>Subtotal:</strong>
-												<span class="woocommerce-Price-amount amount">
-													<span class="woocommerce-Price-currencySymbol">$</span>102
-												</span>
-											</p>
+
 											<p class="woocommerce-mini-cart__total total">
 												<strong>Total:</strong>
 												<span class="woocommerce-Price-amount amount color-#cdaa7c">
-													<span class="woocommerce-Price-currencySymbol">$</span>102
+													<span class="woocommerce-Price-currencySymbol">৳</span>{% block cartTotalMob %}{% endblock %}
 												</span>
 											</p>
 											<p class="woocommerce-mini-cart__buttons buttons">

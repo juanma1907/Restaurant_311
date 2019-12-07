@@ -122,17 +122,17 @@ class Order(models.Model):
     created_on = models.DateField(auto_now=False, auto_now_add=True)
 
     def __str__(self):
-        return self.id
+        return self.customer_id.id
 
 
 class Order_cart(models.Model):
-    customer_id = models.ForeignKey(Customer, on_delete=None)
+    customer_id = models.ForeignKey(User, on_delete=None)
     food_id = models.ForeignKey(Menu, on_delete=None)
     qty = models.IntegerField()
     created_on = models.DateField(auto_now=False, auto_now_add=True)
 
     def __str__(self):
-        return self.customer_id
+        return self.customer_id.username
 
 
 class Ordered_food(models.Model):
@@ -141,7 +141,7 @@ class Ordered_food(models.Model):
     qty = models.IntegerField()
 
     def __str__(self):
-        return self.order_id
+        return self.order_id.id
 
 
 class Payment_Method(models.Model):
@@ -190,7 +190,7 @@ class Expense(models.Model):
     created_on = models.DateField(auto_now=False, auto_now_add=True)
 
     def __str__(self):
-        return self.name
+        return self.item
 
 
 class Events(models.Model):

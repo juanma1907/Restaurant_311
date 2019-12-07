@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponseRedirect, HttpResponse, get_object_or_404, redirect
-from .models import Events, Area, Customer, About, Gallary, Reservation, Food_Category, Menu, Order_Status,Coupon, Order, Ordered_food, Payment_Method, Payment, Position_List, Employee, Expense
+from .models import Events, Area, Customer, About, Gallary, Reservation, Food_Category, Menu, Order_cart, Order_Status,Coupon, Order, Ordered_food, Payment_Method, Payment, Position_List, Employee, Expense
 from django.contrib.auth import authenticate, login, logout
+from django.db.models import Max,Count, Sum
 from django.contrib import messages
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 #from .forms import ContactForm, SignUpForm, PostForm, CouponForm, FeaturedPostForm
@@ -8,6 +9,8 @@ from django.contrib.auth.models import User
 from django.db.models import Q
 from django.urls import resolve
 from .forms import ReserveForm, SignUpForm
+from django.core import serializers
+from django.http import JsonResponse
 
 
 # views function that will interact with frontend
@@ -16,16 +19,16 @@ def index(request):
     category = Food_Category.objects.filter().order_by('-created_on')
     event = Events.objects.filter().order_by('-date')[:2]
     about = About.objects.only('address')[:1]
-        # name = request.POST.get('name')
-        # phone = request.POST.get('phone')
-        # email = request.POST.get('email')
-        # person = request.POST.get('person')
-        # date = request.POST.get('date')
-        # time = request.POST.get('time')
-        #
-        # form = form(name=name, phone=phone, email=email, person=person, date=date, time=time )
-        # form.save()
+    #cart widget
+    if request.user.is_authenticated:
+        user = get_object_or_404(User, id=request.user.id)
+        cart_item = Order_cart.objects.filter(customer_id=user.id).prefetch_related('food_id').order_by('-created_on')
+    totalBill=sum(i.food_id.price*i.qty for i in cart_item)
+    itemCount = Order_cart.objects.filter(customer_id=user.id).aggregate(no_of_item=Count('food_id'))
     context = {
+        'totalBill':totalBill,
+        'itemCount':itemCount,
+        'cart_item': cart_item,
         'about' :about,
         'event' : event,
         'food' : food,
@@ -53,6 +56,16 @@ def blog_single(request):
 def checkout(request):
     return render(request,'checkout.html')
 
+def cart(request):
+    if request.user.is_authenticated:
+        user = get_object_or_404(User, id=request.user.id)
+        cart_item = Order_cart.objects.filter(customer_id=user.id).prefetch_related('food_id').order_by('-created_on')
+    totalBill=sum(i.food_id.price*i.qty for i in cart_item)
+    context = {
+        'totalBill':totalBill,
+        'cart_item': cart_item,
+    }
+    return render(request,'shop-cart.html', context)
 
 def contact(request):
     return render(request,'contact-us.html')
@@ -121,6 +134,7 @@ def shop_single(request, id):
     return render(request,'shop-single.html', context)
 
 
+
 def getlogin(request):
     if request.user.is_authenticated:
         return redirect('index')
@@ -176,6 +190,49 @@ def getlogout(request):
 def lostpass(request):
     return render(request,'lost-password.html')
 
-# def add_to_cart(request, id):
-#     item = get_object_or_404(Menu, id)
-#
+
+def add_to_cart(request, fid):
+    if request.user.is_authenticated:
+        Reguser = get_object_or_404(User, id=request.user.id)
+        added_food = get_object_or_404(Menu, id=fid)
+        userCart = Order_cart.objects.filter(customer_id=Reguser.id)
+        isExists=False;
+        for i in userCart:
+            if i.food_id.id == fid:
+                isExists=True
+                break
+        if not isExists:
+            obj_instance = Order_cart.objects.create(
+                customer_id=Reguser,
+                food_id=added_food,
+                qty=1
+            )
+        return redirect('index')
+    else:
+        return redirect('login')
+
+
+def cart_Update_increase(request, fid):
+    if request.user.is_authenticated:
+        Reguser = get_object_or_404(User, id=request.user.id)
+        added_food = get_object_or_404(Menu, id=fid)
+        item = get_object_or_404(Order_cart, customer_id=Reguser.id, food_id__id=fid)
+
+        #if item.qty==1:
+        obj_instance = Order_cart.objects.update(
+            customer_id=Reguser,
+            food_id=added_food,
+            qty=item.qty+1
+        )
+        return redirect('cart')
+    else:
+        return redirect('login')
+
+def add_to_cart_Delete(request, fid):
+    if request.user.is_authenticated:
+        Reguser = get_object_or_404(User, id=request.user.id)
+        item = get_object_or_404(Order_cart, food_id=fid)
+        item.delete()
+        return redirect('index')
+    else:
+        return redirect('login')
