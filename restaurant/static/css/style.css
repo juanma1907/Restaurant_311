@@ -229,7 +229,7 @@ select {
   .section-primary.pt-112 {
     padding-top: 112px; }
   .section-primary.pt-120 {
-    padding-top: 120px; }
+    padding-top: 30px; }
   .section-primary.pt-133 {
     padding-top: 133px; }
   .section-primary.pt-140 {
@@ -345,7 +345,7 @@ select {
 
 .page-breadcrumb {
   background: #f2f2f2;
-  padding: 76px 0; }
+  padding: 76px 0 20px 0; }
   .page-breadcrumb h3 {
     font-size: 30px;
     text-transform: uppercase;
@@ -6751,8 +6751,8 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
     text-align: left;
     padding-left: 4px; }
 .woocommerce-cart-form table tbody td {
-  padding-top: 36px;
-  padding-bottom: 36px; }
+  padding-top: 6px;
+  padding-bottom: 6px; }
   .woocommerce-cart-form table tbody td.product-name {
     text-align: left;
     padding-left: 19px; }

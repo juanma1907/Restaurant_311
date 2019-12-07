@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load mathfilters %}
 {% block title %}Home {% endblock %}
 {% block stylesheet %}{% endblock %}
 
@@ -36,41 +37,24 @@
 					<div class="woocommerce">
 						<div class="woocommerce-info-wrapper">
 							<div id="accordion">
-								<div class="woocommerce-info">
-									<img src="{%static 'images/returning-customer.png'%}" alt="">
-									Returning customer?
-									<a href="#" data-toggle="collapse" data-target="#collapseOne" id="headingOne"> Click here to login</a>
-								</div>
-								<div id="collapseOne" class="collapse" data-parent="#accordion">
-									<form method="get" class="woocommerce-form woocommerce-form-login login">
-										<div class="form-holder">
-											<label for="username">Username or email address <span class="required">*</span></label>
-											<input type="text" class="woocommerce-Input woocommerce-Input--text input-text form-control" name="username" id="username" value="">
-										</div>
-										<div class="form-holder">
-											<label for="password">Password <span class="required">*</span></label>
-											<input class="woocommerce-Input woocommerce-Input--text input-text form-control" type="password" name="password" id="password">
-										</div>
-										<div class="form-holder last">
-											<input type="submit" class="woocommerce-Button button au-btn round has-bg" name="login" value="Login">
-											<label class="woocommerce-form__label woocommerce-form__label-for-checkbox inline">
-												<input class="woocommerce-form__input woocommerce-form__input-checkbox" name="rememberme" type="checkbox" id="rememberme" value="forever"> 
-												Remember me
-												<span class="checkmark"></span>
-											</label>
-										</div>
-										<p class="woocommerce-LostPassword lost_password">
-											<a href="#">Lost your password?</a>
-										</p>
-									</form>
-								</div>
+
 								<div class="woocommerce-info">
 									<img src="{%static 'images/have-a-coupon.png'%}" alt="">
 									Have a coupon?
 									<a href="#" data-toggle="collapse" data-target="#collapseTwo" id="headingTwo"> Click here to enter your code</a>
-								</div>
+								    <!--Error Notification start-->
+                                        {% if messages %}
+                                        <div class="messages">
+                                            {% for message in messages %}
+                                            <div {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+                                            {% endfor %}
+                                        </div>
+                                        {% endif %}
+                                        <!--Error Notification End-->
+                                </div>
 								<div id="collapseTwo" class="collapse" data-parent="#accordion">
-									<form class="checkout_coupon" method="post">
+									<form class="checkout_coupon" method="post" action="">
+                                        {% csrf_token %}
 										<p class="form-row form-row-first">
 											<input type="text" name="coupon_code" class="form-control" placeholder="Coupon code" id="coupon_code" value="">
 										</p>
@@ -78,6 +62,7 @@
 											<input type="submit" class="button au-btn has-bg round" name="apply_coupon" value="Apply coupon">
 										</p>
 									</form>
+
 								</div>
 							</div>
 						</div>
@@ -94,7 +79,7 @@
 														<label for="billing_first_name">First Name 
 															<span  class="required" title="required">*</span>
 														</label>
-														<input class="form-control" type="text" name="billing_first_name" id="billing_first_name">
+														<input class="form-control" type="text" name="billing_first_name" value="{{ customer.name.first_name }}" id="billing_first_name">
 													</p>
 												</div>
 												<div class="col-md-6">
@@ -102,72 +87,36 @@
 														<label for="billing_last_name">Last Name 
 															<span  class="required" title="required">*</span>
 														</label>
-														<input class="form-control" type="text" name="billing_last_name" id="billing_last_name">
+														<input class="form-control" type="text" name="billing_last_name" value="{{ customer.name.last_name }}" id="billing_last_name">
 													</p>
 												</div>
 											</div>
-											<p class="form-row form-row-wide" id="billing_company_field">
-												<label for="billing_company" class="">Company name</label>
-												<input type="text" class="form-control" name="billing_company" id="billing_company" autocomplete="organization">
-											</p>
+											<p class="form-row form-row-first validate-required validate-phone" id="billing_phone_field" data-priority="100">
+														<label for="billing_phone" class="">Phone
+															<span class="required" title="required">*</span>
+														</label>
+														<input type="tel" class="form-control" name="billing_phone" id="billing_phone" placeholder="" value="{{ customer.phn }}" autocomplete="tel">
+                                            </p>
 											<p class="form-row form-row-wide address-field update_totals_on_change validate-required woocommerce-validated" id="billing_country_field">
-												<label for="billing_country">Country 
+												<label for="billing_country">Area
 													<span class="required" title="required">*</span>
 												</label>
 												<select class="form-control country_to_state country_select select2-hidden-accessible" id="billing_country" name="billing_country" aria-hidden="true" tabindex="-1" autocomplete="country">
-													<option value="">Vietnam</option>
-													<option value="">United States (US)</option>
-													<option value="">England</option>
+													{% for a in area_list %}
+                                                    <option value="{{ a.area_name }}">{{a.area_name}}</option>
+                                                    {% endfor %}
 												</select>
 													
 											</p>
 											<p class="form-row form-row-wide address-field validate-required" id="billing_address_1_field" data-priority="50">
-												<label for="billing_address_1" class="">Address 
+												<label for="billing_address_1" class="">Address
 													<span class="required" title="required">*</span>
 												</label>
-												<input type="text" class="form-control" name="billing_address_1" id="billing_address_1" placeholder="Street Address" value="" autocomplete="address-line1">
-												<input type="text" class="form-control" name="billing_address_2" id="billing_address_2" placeholder="Apartment, suite, unit etc. (optional)" value="" autocomplete="address-line1">
-											</p>
-											<p class="form-row form-row-wide address-field validate-required" id="billing_city_field" data-priority="70" data-o_class="form-row form-row-wide address-field validate-required">
-												<label for="billing_city" class="">Town / City 
-													<span class="required" title="required">*</span></label>
-												<input type="text" class="form-control" name="billing_city" id="billing_city" placeholder="" value="" autocomplete="address-level2">
-											</p>
-											<p class="form-row form-row-wide address-field validate-postcode" id="billing_postcode_field" data-priority="65" data-o_class="form-row form-row-wide address-field validate-postcode">
-												<label for="billing_postcode" class="">Postcode / ZIP 
-													<span class="required" title="required">*</span>
-												</label>
-												<input type="text" class="form-control" name="billing_postcode" id="billing_postcode" placeholder="" value="" autocomplete="postal-code">
+												<input type="text" class="form-control" name="billing_address_1" id="billing_address_1" placeholder="Street Address" value="{{ customer.location }}" autocomplete="address-line1">
 											</p>
 
-											<div class="row">
-												<div class="col-md-6">
-													<p class="form-row form-row-first validate-required validate-phone" id="billing_phone_field" data-priority="100">
-														<label for="billing_phone" class="">Phone 
-															<span class="required" title="required">*</span>
-														</label>
-														<input type="tel" class="form-control" name="billing_phone" id="billing_phone" placeholder="" value="" autocomplete="tel">
-													</p>
-												</div>
-												<div class="col-md-6">
-													<p class="form-row form-row-last validate-required validate-email" id="billing_email_field" data-priority="110">
-														<label for="billing_email" class="">Email address 
-															<span class="required" title="required">*</span>
-														</label>
-														<input type="email" class="form-control" name="billing_email" id="billing_email" placeholder="" value="">
-													</p>
-												</div>
-											</div>
-											
-											<div class="woocommerce-account-fields">
-												<p class="form-row form-row-wide create-account woocommerce-validated">
-													<label class="woocommerce-form__label woocommerce-form__label-for-checkbox checkbox">
-														<input class="woocommerce-form__input woocommerce-form__input-checkbox input-checkbox" id="createaccount" type="checkbox" name="createaccount" value="1"> 
-														<span>Create an account?</span>
-														<span class="checkmark"></span>
-													</label>
-												</p>
-											</div>
+
+
 
 											<div class="woocommerce-additional-fields">
 												<h5>Additional information</h5>
@@ -188,34 +137,22 @@
 										<div id="order_review" class="woocommerce-checkout-review-order">
 											<table class="shop_table woocommerce-checkout-review-order-table">
 											    <tbody>
+                                                {% for i in cart_item %}
 											        <tr class="cart_item">
 											            <td class="product-name">
-											                <img src="{%static 'images/check-out-1.jpg'%}" alt="">
+											                <img src="{{i.food_id.image.url}}" width="80" alt="">
 											                <div class="review-wrap">
-											                	<span class="rv-titel">Best Brownies</span>
-															 	<span class="product-quantity">x1</span>
+											                	<span class="rv-titel">{{i.food_id.name}}</span>
+															 	<span class="product-quantity">x{{i.qty}}</span>
 															</div>
 											            </td>
 											            <td class="product-total">
 															<span class="woocommerce-Price-amount amount">
-																<span class="woocommerce-Price-currencySymbol">$</span>18
+																<span class="woocommerce-Price-currencySymbol">৳</span>{% widthratio i.food_id.price 1 i.qty %}
 															</span>                
 														</td>
 											    	</tr>
-											        <tr class="cart_item">
-											            <td class="product-name">
-											                <img src="{%static 'images/check-out-2.jpg'%}" alt="">
-											                <div class="review-wrap">
-											                	<span class="rv-titel">Angela's Awesome</span>
-															 	<span class="product-quantity">x3</span>
-															 </div>
-											            </td>
-											            <td class="product-total">
-															<span class="woocommerce-Price-amount amount">
-																<span class="woocommerce-Price-currencySymbol">$</span>84
-															</span>                
-														</td>
-													</tr>
+                                                {% endfor %}
 											    </tbody>
 										   	</table>
 										   	<div class="cart-total">
@@ -223,21 +160,15 @@
 										        	<p>
 										        		<span class="title">Subtotal</span>
 										        		<span class="woocommerce-Price-amount amount">
-											        		<span class="woocommerce-Price-currencySymbol">$</span>102
+											        		<span class="woocommerce-Price-currencySymbol">৳</span>{{totalBill}}
 												        </span>
 										        	</p>
 											    </div>
-											    <div class="shipping">
-													<p>
-														<span class="title">Shipping</span>
-							                       		there are no shipping methods available. please double check your address, or contact us if you need any help.
-													</p>
-												</div>
 											    <div class="order-total">
 											        <p>
 											        	<span class="title">Total</span>
 											        	<span class="woocommerce-Price-amount amount">
-										        			<span class="woocommerce-Price-currencySymbol">$</span>102
+										        			<span class="woocommerce-Price-currencySymbol">৳</span>102
 										        		</span>
 											        </p>
 											    </div>

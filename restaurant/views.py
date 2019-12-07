@@ -9,8 +9,7 @@ from django.contrib.auth.models import User
 from django.db.models import Q
 from django.urls import resolve
 from .forms import ReserveForm, SignUpForm
-from django.core import serializers
-from django.http import JsonResponse
+from django.utils.timezone import datetime
 
 
 # views function that will interact with frontend
@@ -54,7 +53,50 @@ def blog_single(request):
 
 
 def checkout(request):
-    return render(request,'checkout.html')
+    if request.user.is_authenticated:
+        user = get_object_or_404(User, id=request.user.id)
+        customer = get_object_or_404(Customer, name=user)
+        cart_item = Order_cart.objects.filter(customer_id=user.id).prefetch_related('food_id').order_by('-created_on')
+        totalBill = sum(i.food_id.price * i.qty for i in cart_item)
+        area_list=Area.objects.filter(is_delivaryAvailable=True).order_by('area_name')
+        context = {
+            'totalBill': totalBill,
+            'cart_item': cart_item,
+            'area_list': area_list,
+            'customer':customer
+        }
+        return render(request,'checkout.html', context)
+    else:
+        return render(request, 'sign-in.html')
+
+
+def coupon(request):
+    if request.user.is_authenticated:
+        activeCoupon = Coupon.objects.filter(number_of_coupon__gt=0, expire_date__gt=datetime.now())
+        if request.method == "POST":
+            user_coupon = request.POST.get('coupon_code')
+            is_valid = False
+            usedCoupon =0
+            usedCouponPercnt=0.00
+            for i in activeCoupon:
+                if i.code==user_coupon:
+                    if i.Amount_Type == "F":
+                        usedCoupon=i.amount
+                    else:
+                        usedCouponPercnt=i.amount/100
+                    is_valid=True
+                    break
+            if is_valid:
+                context={
+                    'usedCoupon':usedCoupon,
+                    'usedCouponPercnt':usedCouponPercnt
+                }
+                return render(request, 'checkout2.html',context)
+            else:
+                messages.add_message(request, messages.ERROR, "Wrong/Expired Coupon code")
+        return render(request, 'checkout.html')
+    else:
+        return render(request, 'sign-in.html')
 
 def cart(request):
     if request.user.is_authenticated:
