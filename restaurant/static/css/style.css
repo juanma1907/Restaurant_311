@@ -227,7 +227,7 @@ select {
   .section-primary.pt-100 {
     padding-top: 100px; }
   .section-primary.pt-112 {
-    padding-top: 112px; }
+    padding-top: 30px; }
   .section-primary.pt-120 {
     padding-top: 30px; }
   .section-primary.pt-133 {
@@ -7897,8 +7897,8 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
   .section-primary.pb-110,
   .section-primary.pb-113,
   .section-primary.pb-120 {
-    padding-top: 110px;
-    padding-bottom: 90px; }
+    padding-top: 30px;
+    padding-bottom: 70px; }
 
   .tp-bullets {
     transform: matrix(1, 0, 0, 1, -25, -30) !important;
@@ -8344,7 +8344,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
   .section-primary.pb-110,
   .section-primary.pb-113,
   .section-primary.pb-120 {
-    padding-top: 90px;
+    padding-top: 30px;
     padding-bottom: 80px; }
 
   .section-header {

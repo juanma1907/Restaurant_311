@@ -17,11 +17,11 @@ class ReserveForm(forms.ModelForm):
 
 
 class SignUpForm(UserCreationForm):
-    first_name = forms.CharField(max_length=30, required=True, widget=forms.TextInput(attrs={"class":"form-control","placeholder":"Enter first name"}))
-    last_name = forms.CharField(max_length=30, required=True,  widget=forms.TextInput(attrs={"class":"form-control","placeholder":"Enter last name"}))
-    email = forms.EmailField(max_length=254,required=True,  widget=forms.TextInput(attrs={"class":"form-control","placeholder":"Enter Email"}))
-    password1 = forms.CharField(max_length=20,required=True, label='Password', widget=forms.PasswordInput(attrs={"class":"form-control","placeholder":"Enter Password"}))
-    password2 = forms.CharField(max_length=20, required=True, label='Repeat password', widget=forms.PasswordInput(attrs={"class": "form-control", "placeholder": "Re-enter password"}))
+    first_name = forms.CharField(max_length=30, required=True, widget=forms.TextInput(attrs={"class":"form-control","placeholder":""}))
+    last_name = forms.CharField(max_length=30, required=True,  widget=forms.TextInput(attrs={"class":"form-control","placeholder":""}))
+    email = forms.EmailField(max_length=254,required=True,  widget=forms.TextInput(attrs={"class":"form-control","placeholder":""}))
+    #password1 = forms.CharField(max_length=20,required=True, label='Password', widget=forms.PasswordInput(attrs={"class":"form-control","placeholder":""}))
+    #password2 = forms.CharField(max_length=20, required=True, label='Repeat password', widget=forms.PasswordInput(attrs={"class": "form-control", "placeholder": ""}))
 
 
     class Meta:
@@ -36,3 +36,5 @@ class SignUpForm(UserCreationForm):
         if commit:
             user.save()
         return user
+
+

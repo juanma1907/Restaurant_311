@@ -18,12 +18,15 @@ def index(request):
     category = Food_Category.objects.filter().order_by('-created_on')
     event = Events.objects.filter().order_by('-date')[:2]
     about = About.objects.only('address')[:1]
+    totalBill=None
+    itemCount=None
+    cart_item=None
     #cart widget
     if request.user.is_authenticated:
         user = get_object_or_404(User, id=request.user.id)
         cart_item = Order_cart.objects.filter(customer_id=user.id).prefetch_related('food_id').order_by('-created_on')
-    totalBill=sum(i.food_id.price*i.qty for i in cart_item)
-    itemCount = Order_cart.objects.filter(customer_id=user.id).aggregate(no_of_item=Count('food_id'))
+        totalBill=sum(i.food_id.price*i.qty for i in cart_item)
+        itemCount = Order_cart.objects.filter(customer_id=user.id).aggregate(no_of_item=Count('food_id'))
     context = {
         'totalBill':totalBill,
         'itemCount':itemCount,
@@ -63,7 +66,9 @@ def checkout(request):
             'totalBill': totalBill,
             'cart_item': cart_item,
             'area_list': area_list,
-            'customer':customer
+            'customer':customer,
+            'coupon_flat':0,
+            'coupon_per':0
         }
         return render(request,'checkout.html', context)
     else:
@@ -80,7 +85,7 @@ def coupon(request):
             usedCouponPercnt=0.00
             for i in activeCoupon:
                 if i.code==user_coupon:
-                    if i.Amount_Type == "F":
+                    if i.Amount_Type == 'F':
                         usedCoupon=i.amount
                     else:
                         usedCouponPercnt=i.amount/100
@@ -91,7 +96,7 @@ def coupon(request):
                     'usedCoupon':usedCoupon,
                     'usedCouponPercnt':usedCouponPercnt
                 }
-                return render(request, 'checkout2.html',context)
+                return render(request, 'blog.html.html',context)
             else:
                 messages.add_message(request, messages.ERROR, "Wrong/Expired Coupon code")
         return render(request, 'checkout.html')
@@ -99,15 +104,18 @@ def coupon(request):
         return render(request, 'sign-in.html')
 
 def cart(request):
+    cart_item=None
     if request.user.is_authenticated:
         user = get_object_or_404(User, id=request.user.id)
         cart_item = Order_cart.objects.filter(customer_id=user.id).prefetch_related('food_id').order_by('-created_on')
-    totalBill=sum(i.food_id.price*i.qty for i in cart_item)
-    context = {
-        'totalBill':totalBill,
-        'cart_item': cart_item,
-    }
-    return render(request,'shop-cart.html', context)
+        totalBill=sum(i.food_id.price*i.qty for i in cart_item)
+        context = {
+            'totalBill':totalBill,
+            'cart_item': cart_item,
+        }
+        return render(request,'shop-cart.html', context)
+    else:
+        return render(request, 'sign-in.html')
 
 def contact(request):
     return render(request,'contact-us.html')
@@ -190,7 +198,6 @@ def getlogin(request):
                 return redirect('index')
             else:
                 messages.add_message(request, messages.ERROR, "Username or Password Mismatch")
-
     return render(request,'sign-in.html')
 
 
@@ -201,7 +208,6 @@ def getsignup(request):
     else:
         form = SignUpForm(request.POST)
         first_name = request.POST.get("first_name")
-
         first_name = first_name.lower()
         if form.is_valid():
             instance = form.save(commit=False)
@@ -219,9 +225,13 @@ def getsignup(request):
             else:
                 instance.username = newFirstName + str(i)
             instance.save()
-            return HttpResponse("<h1>Congratulations! You are registered.</h1> <br> <h2>Your username is: <b>"+newFirstName+"</b></h2><br> <a href='/login'><button type='button'>Login</button><a>")
+            return HttpResponse(
+                "<h1>Congratulations! You are registered.</h1> <br> <h2>Your username is: <b>" + newFirstName + "</b></h2><br> <a href='/login'><button type='button'>Login</button><a>")
         else:
             return redirect("signup")
+        #     return HttpResponse("<h1>Congratulations! You are registered.</h1> <br> <h2>Your username is: <b>"+newFirstName+"</b></h2><br> <a href='/login'><button type='button'>Login</button><a>")
+        # else:
+        #     return redirect("signup")
 
 
 def getlogout(request):

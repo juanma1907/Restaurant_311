@@ -30,13 +30,13 @@
 			
 			<!-- SIGN UP -->
 			<section class="section-primary sign-up pt-112 pb-90">
-				<div class="container">
-					<h4>Create an account</h4>
-				  	<form action="#" method="post">
+				<div style="margin-left: 25%" class="container">
+
+				  	<form class="col-md-6" action="" method="post">
 					    {% csrf_token %}
                         {{ form.as_p }}
-					    <input class="au-btn round has-bg" type="submit" name="submit" value="Sign in"/>
-					    <a href="{% url 'shop' %}" class="return-link">Return to Store</a>
+					    <input class="au-btn round has-bg" type="submit" name="submit" value="Sign Up"/>
+                        Already have account? <h6><b><a href="{% url 'login' %}">Click here Login</a></b></h6>
 				    </form>
 				</div>
 			</section>

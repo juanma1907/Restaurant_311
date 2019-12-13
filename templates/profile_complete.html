@@ -12,7 +12,7 @@
 				<div class="container">
 					<div class="row justify-content-between align-content-center">
 						<div class="col-md-auto">
-							<h3>Create an account</h3>
+							<h3>COmplete your profile</h3>
 						</div>
 						<div class="col-md-auto">
 							<ul class="au-breadcrumb">
@@ -27,16 +27,16 @@
 					</div>
 				</div>
 			</section>
-			
-			<!-- SIGN UP -->
+
+			<!-- Completing Profile -->
 			<section class="section-primary sign-up pt-112 pb-90">
-				<div class="container">
-					<h4>Create an account</h4>
-				  	<form action="#" method="post">
+				<div style="margin-left: 25%" class="container col-md-6">
+
+				  	<form class="col-md-6" action="" method="post">
 					    {% csrf_token %}
                         {{ form.as_p }}
-					    <input class="au-btn round has-bg" type="submit" name="submit" value="Sign in"/>
-					    <a href="{% url 'shop' %}" class="return-link">Return to Store</a>
+					    <input class="au-btn round has-bg" type="submit" name="submit" value="Submit"/>
+                        <a href="{% url 'shop' %}" class="return-link">Return to Store</a>
 				    </form>
 				</div>
 			</section>

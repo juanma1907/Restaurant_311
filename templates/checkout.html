@@ -53,10 +53,10 @@
                                         <!--Error Notification End-->
                                 </div>
 								<div id="collapseTwo" class="collapse" data-parent="#accordion">
-									<form class="checkout_coupon" method="post" action="">
+									<form class="checkout_coupon" method="POST" action="#">
                                         {% csrf_token %}
 										<p class="form-row form-row-first">
-											<input type="text" name="coupon_code" class="form-control" placeholder="Coupon code" id="coupon_code" value="">
+											<input type="text" name="coupon_code" id="coupon_code" class="form-control" placeholder="Coupon code" value="">
 										</p>
 										<p class="form-row form-row-last">
 											<input type="submit" class="button au-btn has-bg round" name="apply_coupon" value="Apply coupon">

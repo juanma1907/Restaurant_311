@@ -110,6 +110,12 @@
 
                                         {% block cartItem %}{% endblock %}
 
+                                {% if not request.user.is_authenticated %}
+                                <p class="woocommerce-mini-cart__buttons buttons">
+										<a href="{% url "signup"%}" class="button wc-forward view-cart">Register</a>
+										<a href="{% url "login"%}" class="button checkout wc-forward">Login</a>
+                                </p>
+                                {% else %}
 									<p class="woocommerce-mini-cart__total total">
 										<strong>Total:</strong>
 										<span class="woocommerce-Price-amount amount color-cdaa7c">
@@ -121,6 +127,7 @@
 										<a href="{% url "cart"%}" class="button wc-forward view-cart">View cart</a>
 										<a href="{% url "checkout"%}" class="button checkout wc-forward">Checkout</a>
 									</p>
+                                {% endif %}
 								</div>
 							</div>
 						</div>
