@@ -142,6 +142,16 @@ def reservation(request):
 def shop(request):
     food = Menu.objects.filter(is_available=True).prefetch_related('category_id').order_by('name')
     category = Food_Category.objects.filter().order_by('-created_on')
+    totalBill = None
+    itemCount = None
+    cart_item = None
+    # cart widget
+    if request.user.is_authenticated:
+        user = get_object_or_404(User, id=request.user.id)
+        cart_item = Order_cart.objects.filter(customer_id=user.id).prefetch_related('food_id').order_by('-created_on')
+        totalBill = sum(i.food_id.price * i.qty for i in cart_item)
+        itemCount = Order_cart.objects.filter(customer_id=user.id).aggregate(no_of_item=Count('food_id'))
+
     # ==========Search==========
     search = request.GET.get('q')
     if search:
@@ -150,6 +160,9 @@ def shop(request):
             Q(description__icontains=search)
         )
     context = {
+        'totalBill': totalBill,
+        'itemCount': itemCount,
+        'cart_item': cart_item,
         'food': food,
         'category': category
     }

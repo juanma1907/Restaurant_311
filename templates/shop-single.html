@@ -72,27 +72,12 @@
 											<span class="woocommerce-Price-currencySymbol">৳</span>{{food.price}}
 										</span>
 									</span>
-									<span class="star-rating">
-										<i class="zmdi zmdi-star"></i>
-										<i class="zmdi zmdi-star"></i>
-										<i class="zmdi zmdi-star"></i>
-										<i class="zmdi zmdi-star"></i>
-										<i class="zmdi zmdi-star"></i>
-									</span>
+
 								</div>
 								<div class="woocommerce-product-details__short-description">
 								    <p>{{food.description|truncatechars:200}}</p>
 								</div>
-								<form class="cart" method="post" enctype="multipart/form-data">
-									<div class="quantity">
-										<input type="number" class="input-text qty text" step="1" min="0" name="cart[5934c1ec0cd31e12bd9084d106bc2e32][qty]" value="1" title="Qty" size="4" id="input-quantity">
-										<div class="icon">
-											<a href="#" class="number-button plus">+</a>
-											<a href="#" class="number-button minus">-</a>
-										</div>
-									</div>
-									<button type="submit" name="add-to-cart" value="" class="single_add_to_cart_button button alt au-btn round has-bg au-btn--hover">Add to cart</button>
-								</form>
+								<a href="{% url "add_to_cart" fid=food.id %}" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add to cart</a>
 								<div class="social">
 									<a href="#">
 										<i class="zmdi zmdi-twitter"></i>
@@ -117,67 +102,17 @@
 								<li class="description_tab">
 									<a href="#description">Description</a>
 								</li>
-								<li class="additional_information_tab">
-									<a href="#add-info">Additional Information</a>
-								</li>
-								<li class="reviews_tab">
-									<a href="#review">Reviews (0)</a>
-								</li>
+
+								<
 							</ul>
 							<div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content wc-tab" id="description">
                             <p>{{food.description}}</p>
                             </div>
-							<div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--additional_information panel entry-content wc-tab" id="add-info">
-								<table class="shop_attributes">
-									<tbody>
-										<tr>
-											<th>Weight</th>
-											<td class="product_weight">2kg</td>
-										</tr>
-										<tr>
-											<th>Dimensions</th>
-											<td class="product_dimensions">15 x 20 x 15 cm</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
 							<div id="review" class="woocommerce-Reviews">
 								<div id="comments">
-									<h6 class="woocommerce-noreviews">
-										BE THE FIRST TO REVIEW
-									</h6>
+
 								</div>
-								<div id="review_form_wrapper">
-									<div id="review_form">
-										<div id="respond" class="comment-respond">
-											<form method="get" id="comments-form" class="comments-form">
-												<p class="comment-notes">Your email address will not be published. Required fields are marked.</p>
-												<div class="comment-form-rating">
-													<label>Your rating</label>
-													<span class="star-rating">
-														<i class="zmdi zmdi-star"></i>
-														<i class="zmdi zmdi-star"></i>
-														<i class="zmdi zmdi-star"></i>
-														<i class="zmdi zmdi-star"></i>
-														<i class="zmdi zmdi-star"></i>
-													</span>
-												</div>
-												<p class="comment-form-comment">
-													<textarea id="comment" name="comment" class="form-control" required placeholder="Your Message"></textarea>
-												</p>
-												<p class="comment-form-author">
-													<input id="author" name="author" type="text" value="" class="form-control" aria-required="true" required="" placeholder="Your Name">
-												</p>
-												<p class="comment-form-email">
-													<input id="email" name="email" type="email" value="" class="form-control" aria-required="true" required="" placeholder="Your Mail">
-												</p>
-												<p class="form-submit">
-													<input name="submit" type="submit" id="submit" class="submit au-btn round has-bg" value="Submit"> 
-												</p>
-											</form>
-										</div>
-									</div>
-								</div>
+
 							</div>
 						</div>
 					</div>
@@ -198,13 +133,7 @@
 										<h5 class="woocommerce-loop-product__title">
 											<a href="{% url "shop_single" id=r.id %}">{{r.name}}</a>
 										</h5>
-										<div class="star-rating">
-											<i class="zmdi zmdi-star"></i>
-											<i class="zmdi zmdi-star"></i>
-											<i class="zmdi zmdi-star"></i>
-											<i class="zmdi zmdi-star"></i>
-											<i class="zmdi zmdi-star-outline"></i>
-										</div>
+
 										<span class="price">
 											<span class="woocommerce-Price-amount amount">
 												<span class="woocommerce-Price-currencySymbol">৳</span>{{r.price}}
