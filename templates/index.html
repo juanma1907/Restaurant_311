@@ -322,9 +322,7 @@
 													</span>
 												</h5>
                                                 <p>{{ f.description|truncatechars:40 }}</p>
-                                            {% if forloop.counter == 5 %}
-                                                <a href="{% url 'menu' %}" class="au-btn__readmore">View more</a>
-                                                {% endif %}
+
 											</div>
                                             {% endif %}
                                         {% endfor %}
@@ -412,7 +410,6 @@
                                         {% endfor %}
 									</div>
 									<p>{{ e.description|truncatechars:100 }}</p>
-									<a href="#" class="au-btn__readmore color-36">Read more</a>
 								</div>
 							</div>
 						</div>

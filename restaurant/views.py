@@ -15,9 +15,11 @@ from django.utils.timezone import datetime
 # views function that will interact with frontend
 def index(request):
     food = Menu.objects.filter(is_available=True).prefetch_related('category_id').order_by('name')
-    category = Food_Category.objects.filter().order_by('-created_on')
-    event = Events.objects.filter().order_by('-date')[:2]
-    about = About.objects.only('address')[:1]
+    category = Food_Category.objects.raw('SELECT * FROM restaurant_Food_Category ORDER BY created_on DESC ')
+    #category = Food_Category.objects.filter().order_by('-created_on')
+    event = Events.objects.raw('SELECT * FROM restaurant_events ORDER BY date DESC LIMIT 2')
+    #event = Events.objects.filter().order_by('-date')[:2]
+    #about = About.objects.only('address')[:1]
     totalBill=None
     itemCount=None
     cart_item=None
