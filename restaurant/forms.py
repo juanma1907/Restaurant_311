@@ -1,5 +1,5 @@
 from django import forms
-from .models import Area, Customer, About, Gallary, Reservation
+from .models import Area, Customer, About, Gallary, Reservation, Coupon
 from django.contrib.auth.forms import UserCreationForm  # Form for signup
 from django.contrib.auth.models import User  # Django default user table
 
@@ -15,26 +15,55 @@ class ReserveForm(forms.ModelForm):
         model = Reservation
         fields = ['name', 'phone', 'email', 'person','date','time',]
 
+class CouponForm(forms.ModelForm):
+    code = forms.CharField( required=True, label='',widget=forms.TextInput(attrs={"class": "form-control", "placeholder": ""}))
+
+    class Meta:
+        model = Coupon
+        fields = ['code',]
+
+class CustomerForm(forms.ModelForm):
+    phn = forms.CharField(max_length=11, required=True,label='Phone Number', widget=forms.TextInput(attrs={"class": "form-control", "placeholder": ""}))
+    location = forms.CharField(max_length=100, required=True,widget=forms.TextInput(attrs={"class": "form-control", "placeholder": ""}))
+    area_id = forms.ModelChoiceField(queryset=Area.objects.all().order_by('area_name'), required=False, label='Area')
+    image = forms.ImageField(required=False)
+
+    class Meta:
+        model = Customer
+        fields = ['phn', 'location', 'area_id','image']
+
 
 class SignUpForm(UserCreationForm):
     first_name = forms.CharField(max_length=30, required=True, widget=forms.TextInput(attrs={"class":"form-control","placeholder":""}))
     last_name = forms.CharField(max_length=30, required=True,  widget=forms.TextInput(attrs={"class":"form-control","placeholder":""}))
-    email = forms.EmailField(max_length=254,required=True,  widget=forms.TextInput(attrs={"class":"form-control","placeholder":""}))
-    #password1 = forms.CharField(max_length=20,required=True, label='Password', widget=forms.PasswordInput(attrs={"class":"form-control","placeholder":""}))
-    #password2 = forms.CharField(max_length=20, required=True, label='Repeat password', widget=forms.PasswordInput(attrs={"class": "form-control", "placeholder": ""}))
-
+    username = forms.CharField(max_length=30, required=True, widget=forms.TextInput(attrs={"class": "form-control", "placeholder": ""}))
+    email = forms.EmailField(max_length=80,required=True,  widget=forms.TextInput(attrs={"class":"form-control","placeholder":""}))
+    password1 = forms.CharField(max_length=20,required=True, label='Password', widget=forms.PasswordInput(attrs={"class":"form-control","placeholder":""}))
+    password2 = forms.CharField(max_length=20, required=True, label='Repeat password', widget=forms.PasswordInput(attrs={"class": "form-control", "placeholder": ""}))
 
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'email', 'password1', 'password2')
+        fields = ('first_name', 'last_name','username', 'email', 'password1', 'password2')
 
-    def save(self, commit=True):
-        user = super(SignUpForm, self).save(commit=False)
-        user.first_name = self.cleaned_data['first_name']
-        user.last_name = self.cleaned_data['last_name']
-        user.email = self.cleaned_data['email']
-        if commit:
-            user.save()
-        return user
+    def clean_username(self):
+        username = self.cleaned_data.get('username')
+        username_qs = User.objects.filter(username=username)
+        if username_qs.exists():
+            raise forms.ValidationError("Username already exists")
+        return username
+
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        email_qs = User.objects.filter(email=email)
+        if email_qs.exists():
+            raise forms.ValidationError("Email already exists")
+        return email
+
+    def clean_password1(self):
+        password = self.cleaned_data.get('password')
+        password1 = self.cleaned_data.get('password1')
+        if password and password1 and password != password1:
+            raise forms.ValidationError("Password did n't match")
+        return password1
 
 

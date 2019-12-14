@@ -2,6 +2,48 @@
 {% load static %}
 {% block title %}Home {% endblock %}
 {% block stylesheet %}{% endblock %}
+<!--cart for Desktop-->
+    {% block cartNumber %}{{ itemCount.no_of_item}}{% endblock %}
+{% block cartItem %}
+{% for i in cart_item|slice:5 %}
+    <li class="woocommerce-mini-cart-item mini_cart_item clearfix">
+        <a href="{% url "add_to_cart_Delete" fid=i.food_id.id %}" class="remove remove_from_cart_button" aria-label="Remove this item">
+            <span class="lnr lnr-cross-circle"></span>
+        </a>
+        <a href="{% url "shop_single" id=i.food_id.id %}" class="image-holder">
+            <img src="{{i.food_id.image.url}}" width="40" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="">
+            <span class="product-name">{{i.food_id.name}}</span>
+        </a>
+        <span class="quantity">
+            <span class="woocommerce-Price-amount amount">
+                <span class="woocommerce-Price-currencySymbol">৳</span>{{i.food_id.price}}
+            </span>
+            x{{ i.qty }}
+        </span>
+    </li>
+{% endfor %}
+{% endblock %}
+{% block cartTotal %}{{ totalBill }}{% endblock %}
+<!--cart for Mobile-->
+{% block cartNumberMob %}{% endblock %}
+{% block cartItemMob %}
+    <li class="woocommerce-mini-cart-item mini_cart_item clearfix">
+        <a href="#" class="remove remove_from_cart_button" aria-label="Remove this item">
+            <span class="lnr lnr-cross-circle"></span>
+        </a>
+        <a href="#" class="image-holder">
+            <img src="{% static 'images/widget-cart-thumb-1.jpg' %}" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="">
+            <span class="product-name">Best Brownies</span>
+        </a>
+        <span class="quantity">
+            <span class="woocommerce-Price-amount amount">
+                <span class="woocommerce-Price-currencySymbol">৳</span>18
+            </span>
+            x1
+        </span>
+    </li>
+{% endblock %}
+{% block cartTotalMob %}{% endblock %}
 {% block content %}
 
 	<body>
@@ -61,7 +103,7 @@
 					<div class="row">
 						<div class="col-md-6 pr-md-0">
 							<div class="image-holder">
-								<img src="{%static 'images/about-us-3.jpg'%}" alt="">
+								<img src="{%static 'images/page-info-bg.jpg'%}" alt="">
 							</div>
 						</div>
 						<div class="col-md-6 pl-md-0">
@@ -71,40 +113,14 @@
 									<span class="fifth-color">~ For more add ~</span>
 								</div>
 								<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum.</p>
-								<a href="about-us.html" class="au-btn__readmore">Read more</a>
+
 							</div>
 						</div>
 					</div>
 				</div>
 			</section>
 
-			<!-- PARTNER -->
-		    <div class="container">
-		    	<div class="partner has-bd">
-					<div class="row justify-content-between">
-			    		<div class="col-6 col-lg-auto text-center">
-			    			<a href="#" class="image-holder">
-					    		<img src="{%static 'images/partner-2.png'%}" alt="" class="wow zoomIn" data-wow-delay="0.3s">
-					    	</a>
-			    		</div>
-			    		<div class="col-6 col-lg-auto text-center">
-			    			<a href="#" class="image-holder">
-					    		<img src="{%static 'images/partner-3.png'%}" alt="" class="wow zoomIn" data-wow-delay="0.5s">
-					    	</a>
-			    		</div>
-			    		<div class="col-6 col-lg-auto text-center">
-			    			<a href="#" class="image-holder">
-					    		<img src="{%static 'images/partner-4.png'%}" alt="" class="wow zoomIn" data-wow-delay="0.7s">
-					    	</a>
-			    		</div>
-			    		<div class="col-6 col-lg-auto text-center">
-			    			<a href="#" class="image-holder">
-					    		<img src="{%static 'images/partner-5.png'%}" alt="" class="wow zoomIn" data-wow-delay="0.9s">
-					    	</a>
-			    		</div>
-			    	</div>		
-		    	</div>
-		    </div>
+
 
 		</main>
 

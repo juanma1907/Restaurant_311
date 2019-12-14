@@ -27,5 +27,8 @@ urlpatterns = [
     path('lostPassword/', views.lostpass, name='lostpass'),
     path('logout/', views.getlogout, name='logout'),
     path('signup/', views.getsignup, name='signup'),
+    path('customerReg/', views.customerReg, name='customerReg'),
+    path('customerReg/update', views.customerRegUpdate, name='customerRegUpdate'),
+    path('place_order/', views.place_order, name='place_order'),
 
 ]

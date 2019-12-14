@@ -17,7 +17,6 @@ class Customer (models.Model):
     location = models.TextField(max_length=50)
     area_id = models.ForeignKey(Area, on_delete=None)
     image = models.ImageField(default='default', upload_to='pro_pics', blank=True)
-    rating = models.IntegerField()
     created_on = models.DateField(auto_now=False, auto_now_add=True)
 
     def __str__(self):
@@ -117,12 +116,12 @@ class Order(models.Model):
     customer_id = models.ForeignKey(Customer, on_delete=None)
     delivary_address = models.TextField(max_length=70)
     note = models.TextField(max_length=100)
-    coupon_id = models.OneToOneField(Coupon, on_delete=models.CASCADE)
+    #coupon_id = models.OneToOneField(Coupon, on_delete=models.CASCADE)
     order_status_id = models.ForeignKey(Order_Status, on_delete=None)
     created_on = models.DateField(auto_now=False, auto_now_add=True)
 
     def __str__(self):
-        return self.customer_id.id
+        return self.id
 
 
 class Order_cart(models.Model):
@@ -132,7 +131,7 @@ class Order_cart(models.Model):
     created_on = models.DateField(auto_now=False, auto_now_add=True)
 
     def __str__(self):
-        return self.customer_id.username
+        return self.id
 
 
 class Ordered_food(models.Model):
@@ -141,7 +140,7 @@ class Ordered_food(models.Model):
     qty = models.IntegerField()
 
     def __str__(self):
-        return self.order_id.id
+        return self.id
 
 
 class Payment_Method(models.Model):

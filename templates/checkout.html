@@ -38,25 +38,11 @@
 						<div class="woocommerce-info-wrapper">
 							<div id="accordion">
 
-								<div class="woocommerce-info">
-									<img src="{%static 'images/have-a-coupon.png'%}" alt="">
-									Have a coupon?
-									<a href="#" data-toggle="collapse" data-target="#collapseTwo" id="headingTwo"> Click here to enter your code</a>
-								    <!--Error Notification start-->
-                                        {% if messages %}
-                                        <div class="messages">
-                                            {% for message in messages %}
-                                            <div {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
-                                            {% endfor %}
-                                        </div>
-                                        {% endif %}
-                                        <!--Error Notification End-->
-                                </div>
 								<div id="collapseTwo" class="collapse" data-parent="#accordion">
 									<form class="checkout_coupon" method="POST" action="#">
                                         {% csrf_token %}
 										<p class="form-row form-row-first">
-											<input type="text" name="coupon_code" id="coupon_code" class="form-control" placeholder="Coupon code" value="">
+											{{ form.as_p }}
 										</p>
 										<p class="form-row form-row-last">
 											<input type="submit" class="button au-btn has-bg round" name="apply_coupon" value="Apply coupon">
@@ -73,60 +59,23 @@
 									<div class="woocommerce-billing-fields">
 										<h5>Billing Details</h5>
 										<div class="woocommerce-billing-fields__field-wrapper">
-											<div class="row">
-												<div class="col-md-6">
-													<p class="form-row form-row-first validate-required woocommerce-invalid woocommerce-invalid-required-field" id="billing_first_name_field">
-														<label for="billing_first_name">First Name 
-															<span  class="required" title="required">*</span>
-														</label>
-														<input class="form-control" type="text" name="billing_first_name" value="{{ customer.name.first_name }}" id="billing_first_name">
-													</p>
-												</div>
-												<div class="col-md-6">
-													<p class="form-row form-row-last validate-required" id="billing_last_name_field">
-														<label for="billing_last_name">Last Name 
-															<span  class="required" title="required">*</span>
-														</label>
-														<input class="form-control" type="text" name="billing_last_name" value="{{ customer.name.last_name }}" id="billing_last_name">
-													</p>
-												</div>
-											</div>
 											<p class="form-row form-row-first validate-required validate-phone" id="billing_phone_field" data-priority="100">
-														<label for="billing_phone" class="">Phone
-															<span class="required" title="required">*</span>
+														<label for="billing_phone" class=""><b>Phone:</b> {{ customer.phn }}
 														</label>
-														<input type="tel" class="form-control" name="billing_phone" id="billing_phone" placeholder="" value="{{ customer.phn }}" autocomplete="tel">
                                             </p>
 											<p class="form-row form-row-wide address-field update_totals_on_change validate-required woocommerce-validated" id="billing_country_field">
-												<label for="billing_country">Area
-													<span class="required" title="required">*</span>
+												<label for="billing_country"><b>Area:</b> {{ customer.area_id.area_name }}
 												</label>
-												<select class="form-control country_to_state country_select select2-hidden-accessible" id="billing_country" name="billing_country" aria-hidden="true" tabindex="-1" autocomplete="country">
-													{% for a in area_list %}
-                                                    <option value="{{ a.area_name }}">{{a.area_name}}</option>
-                                                    {% endfor %}
-												</select>
 													
 											</p>
 											<p class="form-row form-row-wide address-field validate-required" id="billing_address_1_field" data-priority="50">
-												<label for="billing_address_1" class="">Address
-													<span class="required" title="required">*</span>
+												<label for="billing_address_1" class=""><b>Address:</b> {{ customer.location }}
 												</label>
-												<input type="text" class="form-control" name="billing_address_1" id="billing_address_1" placeholder="Street Address" value="{{ customer.location }}" autocomplete="address-line1">
-											</p>
+                                            </p>
+                                            <div class="bottom">
+                                                <a href="{% url 'customerRegUpdate' %}" class=" au-btn go-shopping round has-bg au-btn--hover">Change</a>
+                                            </div>
 
-
-
-
-											<div class="woocommerce-additional-fields">
-												<h5>Additional information</h5>
-												<div class="woocommerce-additional-fields__field-wrapper">
-													<p class="form-row notes" id="order_comments_field" data-priority="">
-														<label for="order_comments" class="">Order notes</label>
-														<textarea name="order_comments" class="form-control" id="order_comments" placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
-													</p>						
-												</div>
-											</div>
 										</div>
 									</div>
 								</div>
@@ -168,7 +117,7 @@
 											        <p>
 											        	<span class="title">Total</span>
 											        	<span class="woocommerce-Price-amount amount">
-										        			<span class="woocommerce-Price-currencySymbol">৳</span>102
+										        			<span class="woocommerce-Price-currencySymbol">৳</span>{{totalBill}}
 										        		</span>
 											        </p>
 											    </div>
@@ -179,35 +128,28 @@
 													<li class="wc_payment_method payment_method_cheque">
 														<label for="payment_method_cheque"  data-toggle="collapse" data-target="#collapseOne-1" id="headingOne-1">
 															<input id="payment_method_cheque" type="radio" class="input-radio" name="payment_method" value="cheque" data-order_button_text="" checked>
-															Check payments
+															Cash On Delivery
 															<span class="checkmark"></span>
 														</label>
-														<div id="collapseOne-1" class="collapse show" data-parent="#accordion-1">
-															<div class="payment_box payment_method_cheque">
-																<p>Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</p>
-															</div>
-														</div>
+
 													</li>
 													<li class="wc_payment_method payment_method_cod">
 														<div class="paypal">
 															<label for="payment_method_cod"  data-toggle="collapse" data-target="#collapseTwo-1" id="headingTwo-1">
 																<input id="payment_method_cod" type="radio" class="input-radio" name="payment_method" value="cod" data-order_button_text="">
-																Paypal
+																Bkash
 																<span class="checkmark"></span>
 															</label>
-															<div class="payment_box payment_method_cod">
-																<img src="{%static 'images/paypal.png'%}" alt="">
-																<a href="#">What is paypal?</a>
-															</div>
+
 														</div>
 														<div id="collapseTwo-1" class="collapse" data-parent="#accordion-1">
-															<p>Pay via PayPal; you can pay with your credit card if you don’t have a PayPal account.</p>
+															<p>Coming Soon</p>
 														</div>
 													</li>
 												</ul>
-												<div class="form-row place-order">
-													<input type="submit" class="button alt au-btn round has-bg" name="woocommerce_checkout_place_order" id="place_order" value="Poceed to paypal" data-value="Place order">
-												</div>
+												<div class="bottom">
+                                                <a href="{% url 'place_order' %}" class=" au-btn go-shopping round has-bg au-btn--hover">Place Order</a>
+                                            </div>
 											</div>
 										</div>
 									</div>

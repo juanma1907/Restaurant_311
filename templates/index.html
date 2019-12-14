@@ -59,22 +59,6 @@
 		            <ul> 
 		                <li data-transition="">
 		                    <img src="{% static 'images/slideshow-12.jpg' %}" class="rev-slidebg" alt="">
-							
-							<div class="tp-caption tp-resizeme caption-1" 
-					        data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"y:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-					        data-x="left" 
-					        data-y="middle" 
-					        data-voffset="['-50', '-33', '-33', '-153', '-205']"
-					        data-hoffset="['349','233', '213', '108', '38']" 
-					        data-width="['auto']"
-     						data-height="['auto']"
-     						data-type="image"
-					        >
-								<img src="{% static 'images/cooking.png' %}" alt=""
-								data-ww="['409px', '273px', '273px', '273px', '355px']"
-				        		data-hh="['176px', '117px', '117px', '117px', '152px']"
-								>
-							</div>
 
 							<div class="tp-caption tp-resizeme caption-2"
 					        data-frames='[{"delay":2000,"speed":2000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
@@ -108,7 +92,7 @@
 					        	Book your table to enjoy great food
 							</div>
 
-							<a href="reservation_v1.html" class="tp-caption tp-resizeme caption-4 au-btn au-btn--hover round" 
+							<a href="{% url 'reservation' %}" class="tp-caption tp-resizeme caption-4 au-btn au-btn--hover round"
 							data-frames='[{"delay":3800,"speed":2000,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
 							data-x="left"
 							data-y="middle"
@@ -168,21 +152,7 @@
 		                    <img src="{% static 'images/slideshow-16.jpg' %}" class="rev-slidebg" alt=""
 		                    >
 
-		                    <div class="tp-caption tp-resizeme caption-1" 
-					        data-frames='[{"delay":1000,"speed":1000,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-					        data-x="left" 
-					        data-y="middle" 
-					        data-voffset="['-95', '-100', '-87', '-100', '-227']"
-					        data-hoffset="['308','180', '150', '113', '100']" 
-					        data-width="['auto']"
-     						data-height="['auto']"
-     						data-type="image"
-					        >
-								<img src="{% static 'images/taste-of-nature.png' %}" alt=""
-								data-ww="['327px', '297px', '297px', '223px', '297px']"
-				        		data-hh="['51px', '46px', '46px', '35px', '46px']"
-								>
-							</div>
+		                    <
 
 							<div class="tp-caption tp-resizeme caption-2"
 					        data-frames='[{"delay":2000,"speed":1500,"frame":"0","from":"z:0;rX:0;rY:0;rZ:0;sX:0.8;sY:0.8;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
@@ -197,21 +167,7 @@
 					        	since
 							</div>
 
-							<div class="tp-caption tp-resizeme" 
-					        data-frames='[{"delay":2500,"speed":1500,"frame":"0","from":"z:0;rX:0;rY:0;rZ:0;sX:0.8;sY:0.8;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-					        data-x="left" 
-					        data-y="middle" 
-					        data-voffset="['-36', '-47', '-34', '-61', '-174']"
-					        data-hoffset="['459','317', '287', '216', '245']" 
-					        data-width="['auto']"
-     						data-height="['auto']"
-     						data-type="image"
-					        >
-								<img src="{% static 'images/coffee.png' %}" alt=""
-								data-ww="['26px', '24px', '24px', '18px', '24px']"
-				        		data-hh="['49px', '45px', '45px', '34px', '45px']"
-								>
-							</div>
+
 
 							<div class="tp-caption tp-resizeme caption-2"
 					        data-frames='[{"delay":3000,"speed":1500,"frame":"0","from":"z:0;rX:0;rY:0;rZ:0;sX:0.8;sY:0.8;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
@@ -223,39 +179,9 @@
 			                data-lineheight="inherit" 
 			                data-color="#333"
 					        >
-					        	1974
+					        	2018
 							</div>
 
-							<div class="tp-caption tp-resizeme" 
-					        data-frames='[{"delay":3200,"speed":1500,"frame":"0","from":"z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-					        data-x="left" 
-					        data-y="middle" 
-					        data-voffset="['84', '62', '75', '21', '-65']"
-					        data-hoffset="['218','98', '68', '51', '18']" 
-					        data-width="['auto']"
-     						data-height="['auto']"
-     						data-type="image"
-					        >
-								<img src="{% static 'images/coffee-brek.png' %}" alt=""
-								data-ww="['500px', '455px', '455px', '342px', '455px']"
-				        		data-hh="['119px', '108px', '108px', '81px', '108px']"
-								>
-							</div>
-
-							<div class="tp-caption tp-resizeme caption-3"
-					        data-frames='[{"delay":3800,"speed":1500,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
-					        data-x="left" 
-				            data-y="middle" 
-			                data-fontsize="['30', '25', '25', '19', '30']" 
-					        data-voffset="['178','148', '161', '86', '21']"
-					        data-hoffset="['281','155', '125', '94', '75']"
-			                data-lineheight="inherit" 
-			                data-color="#666"
-					        >	
-					        	<img src="{% static 'images/muffins-before.png' %}" alt="">
-					        	<span>muffins & coffee</span>
-					        	<img src="{% static 'images/muffins-after.png' %}" alt="">
-							</div>
 
 							<div class="tp-caption tp-resizeme" 
 					        data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"y:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
@@ -300,113 +226,6 @@
 			                data-fontsize="['25', '25', '25', '22', '22']" 
 			                data-hoffset="['80','40', '20', '40', '80']"
 			                data-voffset="['75','50', '50', '40', '80']"
-			                data-lineheight="inherit" 
-			                data-color="#cdaa7c"
-			                data-visibility='["on", "on", "on", "off"]'
-			                data-actions='[{
-								"event": "click", 
-								"action": "jumptoslide", 
-								"slide": "next", 
-								"delay": "0"
-							}]'
-					        >
-				        		<span class="lnr lnr-arrow-right"></span>
-							</div>
-		                </li>
-
-		                <li data-transition="">
-		                    <img src="{% static 'images/slideshow-16.jpg' %}" class="rev-slidebg" alt="">
-							
-		                    <div class="tp-caption tp-resizeme caption-1" 
-				       		data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"y:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-					        data-x="left" 
-					        data-y="middle" 
-					        data-voffset="['-36', '-66', '-86', '-131', '-146']"
-					        data-hoffset="['269','109', '109', '54', '44']" 
-					        data-width="['auto']"
-     						data-height="['auto']"
-     						data-type="image"
-					        >
-								<img src="{% static 'images/stacked-chocolate.png' %}" alt=""
-								data-ww="['473px', '473px', '400px', '400px', '473px']"
-				        		data-hh="['60px', '60px', '50.7px', '50.7px', '60px']"
-								>
-							</div>
-
-							<div class="tp-caption tp-resizeme caption-2"
-					        data-frames='[{"delay":2000,"speed":1500,"frame":"0","from":"x:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-					        data-x="left" 
-				            data-y="middle" 
-			                data-fontsize="['15', '14', '14', '14', '25']" 
-					        data-voffset="['80','50', '30', '-15', '-30']"
-					        data-hoffset="['271','111', '111', '56', '46']"
-					        data-width="['605', '525', '490', '400', '350']"
-					        data-height="['auto', 'auto', 'auto', 'auto', '124']" 
-					        data-whitespace="normal" 
-			                data-lineheight="['inherit', 'inherit', 'inherit', 'inherit', '31']" 
-			                data-color="#666"
-					        >
-					        	At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occae-cati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. 
-							</div>
-
-							<a href="#" class="tp-caption tp-resizeme caption-3 au-btn au-btn--hover round" 
-							data-frames='[{"delay":3000,"speed":2000,"frame":"0","from":"z:0;rX:0;rY:0;rZ:0;sX:0.8;sY:0.8;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-							data-x="left"
-							data-y="middle"
-							data-voffset="['206', '176', '156', '111', '100']"
-							data-hoffset="['271','111', '111', '56', '46']"
-							data-fontsize="['15', '15', '15',  '15', '20']" 
-							data-lineheight="inherit"
-							data-width="['152', '152', '152', '152', '165']" 
-							data-height="['42', '42', '42', '42', '55']" 
-						    data-color="#666"
-					        >
-								Read more
-							</a>
-
-							<div class="tp-caption tp-resizeme" 
-					        data-frames='[{"delay":500,"speed":1500,"frame":"0","from":"y:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-					        data-x="right" 
-					        data-y="bottom" 
-					        data-hoffset="['61', '61', '41', '11', '11']"
-					        data-voffset="['42', '42', '102', '102', '122']"
-					        data-width="['auto']"
-     						data-height="['auto']"
-     						data-type="image"
-					        >
-								<img src="{% static 'images/slideshow-24.png' %}" alt=""
-								data-ww="['1082', '682', '532', '532', '432']"
-				        		data-hh="['622', '392', '305.8', '305.8', '248.3']"
-								>
-							</div>
-
-							<div class="tp-caption tp-resizeme caption-pointer"
-					        data-frames='[{"delay":0,"speed":300,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]' 
-					        data-x="left" 
-				            data-y="middle" 
-			                data-fontsize="['25', '25', '25', '22', '22']" 
-			                data-hoffset="['80','40', '20', '40', '80']"
-			                data-voffset="['75','40', '20', '40', '80']"
-			                data-lineheight="inherit" 
-			                data-color="#cdaa7c"
-			                data-visibility='["on", "on", "on", "off"]'
-			                data-actions='[{
-								"event": "click", 
-								"action": "jumptoslide", 
-								"slide": "previous", 
-								"delay": "0"
-							}]'
-					        >
-				        		<span class="lnr lnr-arrow-left"></span>
-							</div>
-
-							<div class="tp-caption tp-resizeme caption-pointer"
-					        data-frames='[{"delay":0,"speed":300,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]' 
-					        data-x="right" 
-				            data-y="middle" 
-			                data-fontsize="['25', '25', '25', '22', '22']" 
-			                data-hoffset="['80','40', '20', '40', '80']"
-			                data-voffset="['75','40', '20', '40', '80']"
 			                data-lineheight="inherit" 
 			                data-color="#cdaa7c"
 			                data-visibility='["on", "on", "on", "off"]'
@@ -491,7 +310,7 @@
 											</span>
 										</div>
 										<div class="body">
-                                        {% for f in food|slice:":5" %}
+                                        {% for f in food %}
                                             {% if c.id == f.category_id.id %}
 											<div class="menu-item">
 												<h5 class="bold-color">
@@ -528,7 +347,7 @@
 											</span>
 										</div>
 										<div class="body">
-                                        {% for f in food|slice:":5" %}
+                                        {% for f in food %}
                                             {% if c.id == f.category_id.id %}
 											<div class="menu-item">
 												<h5 class="bold-color">
@@ -540,9 +359,7 @@
 													</span>
 												</h5>
 												<p>{{ f.description|truncatechars:40 }}</p>
-                                            {% if forloop.counter == 5 %}
-                                             <a href="{% url 'menu' %}" class="au-btn__readmore">View more</a>
-                                                {% endif %}
+
 											</div>
 											{% endif %}
                                         {% endfor %}

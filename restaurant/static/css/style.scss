@@ -12296,4 +12296,11 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 	    background: rgba(0,0,0,0.4);
 	}
 }
+.error input, .error select {
+border: 2px red solid;
+}
+.errorlist
+    {
+        color: red;
+    }
 

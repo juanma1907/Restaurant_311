@@ -8,7 +8,7 @@ from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.contrib.auth.models import User
 from django.db.models import Q
 from django.urls import resolve
-from .forms import ReserveForm, SignUpForm
+from .forms import ReserveForm, SignUpForm, CustomerForm, CouponForm
 from django.utils.timezone import datetime
 
 
@@ -68,7 +68,8 @@ def checkout(request):
             'area_list': area_list,
             'customer':customer,
             'coupon_flat':0,
-            'coupon_per':0
+            'coupon_per':0,
+            'customer':customer
         }
         return render(request,'checkout.html', context)
     else:
@@ -76,32 +77,22 @@ def checkout(request):
 
 
 def coupon(request):
-    if request.user.is_authenticated:
-        activeCoupon = Coupon.objects.filter(number_of_coupon__gt=0, expire_date__gt=datetime.now())
-        if request.method == "POST":
-            user_coupon = request.POST.get('coupon_code')
-            is_valid = False
-            usedCoupon =0
-            usedCouponPercnt=0.00
-            for i in activeCoupon:
-                if i.code==user_coupon:
-                    if i.Amount_Type == 'F':
-                        usedCoupon=i.amount
-                    else:
-                        usedCouponPercnt=i.amount/100
-                    is_valid=True
-                    break
-            if is_valid:
-                context={
-                    'usedCoupon':usedCoupon,
-                    'usedCouponPercnt':usedCouponPercnt
-                }
-                return render(request, 'blog.html.html',context)
-            else:
-                messages.add_message(request, messages.ERROR, "Wrong/Expired Coupon code")
-        return render(request, 'checkout.html')
+    form = CouponForm(request.POST or None)
+    coupon = Coupon.objects.all()
+    is_correct=False
+    if form.is_valid():
+        Coupon_code = form.cleaned_data['code']
+        for c in coupon:
+            if c.code==Coupon_code:
+                is_correct=True
+                break
+        if not is_correct:
+            messages.add_message(request, messages.SUCCESS, "Your Coupon added successfully.")
+            return redirect('checkout')
     else:
-        return render(request, 'sign-in.html')
+        messages.add_message(request, messages.ERROR, "Sorry. Wrong Coupon Code")
+        return redirect('checkout')
+
 
 def cart(request):
     cart_item=None
@@ -202,36 +193,19 @@ def getlogin(request):
 
 
 def getsignup(request):
-    if request.method == "GET":
-        form = SignUpForm(request.POST or None)
-        return render(request, "sign-up.html", {"form": form})
-    else:
-        form = SignUpForm(request.POST)
-        first_name = request.POST.get("first_name")
-        first_name = first_name.lower()
-        if form.is_valid():
-            instance = form.save(commit=False)
-            instance.is_active = True
-            usr = User.objects.all()
-            newFirstName = first_name.replace(" ", "")
-            i = 0
-            for u in usr:
-                if u.username == newFirstName or u.username == newFirstName + str(i):
-                    i = i + 1
-                else:
-                    pass
-            if i == 0:
-                instance.username = newFirstName
-            else:
-                instance.username = newFirstName + str(i)
-            instance.save()
-            return HttpResponse(
-                "<h1>Congratulations! You are registered.</h1> <br> <h2>Your username is: <b>" + newFirstName + "</b></h2><br> <a href='/login'><button type='button'>Login</button><a>")
-        else:
-            return redirect("signup")
-        #     return HttpResponse("<h1>Congratulations! You are registered.</h1> <br> <h2>Your username is: <b>"+newFirstName+"</b></h2><br> <a href='/login'><button type='button'>Login</button><a>")
-        # else:
-        #     return redirect("signup")
+    form = SignUpForm(request.POST or None)
+    if form.is_valid():
+        username = form.cleaned_data['username']
+        password = form.cleaned_data['password1']
+        instance = form.save(commit=False)
+        instance.save()
+        messages.success(request, 'Registration successfully completed')
+        new_user = authenticate(username=username,password=password)
+        if new_user is not None:
+            if new_user.is_active:
+                login(request, new_user)
+        return redirect('customerReg')
+    return render(request, 'sign-up.html', {"form": form})
 
 
 def getlogout(request):
@@ -299,3 +273,60 @@ def add_to_cart_Delete(request, fid):
         return redirect('index')
     else:
         return redirect('login')
+
+
+def customerReg(request):
+    if request.user.is_authenticated:
+        form = CustomerForm(request.POST or None, request.FILES or None)
+        customer = get_object_or_404(User,id=request.user.id)
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.name=customer
+            instance.save()
+            return redirect('index')
+        return render(request, 'profile_complete.html', {"form": form})
+    else:
+        return render(request, '404.html')
+
+
+def customerRegUpdate(request):
+    if request.user.is_authenticated:
+        instance = get_object_or_404(Customer, id=request.user.id)
+        form = CustomerForm(request.POST or None, request.FILES or None, instance=instance)
+
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.save()
+            return redirect('checkout')
+        return render(request, 'profile_complete.html', {"form": form})
+    else:
+        return render(request, '404.html')
+
+
+def place_order(request):
+    customer = get_object_or_404(Customer, id=request.user.id)
+    orderId=0
+    user = get_object_or_404(User, id=request.user.id)
+    customer = get_object_or_404(Customer, name=user)
+    cart_item = Order_cart.objects.filter(customer_id=user.id).prefetch_related('food_id').order_by('-created_on')
+    totalBill = sum(i.food_id.price * i.qty for i in cart_item)
+    if totalBill>0:
+        obj_instance = Order.objects.create(
+            customer_id=customer,
+            delivary_address=customer.location,
+            order_status_id=get_object_or_404(Order_Status,id=1)
+        )
+        orderId=obj_instance.id
+        customerUser = get_object_or_404(User, id=request.user.id)
+        items=Order_cart.objects.filter(id=customerUser.id)
+        getOrder=get_object_or_404(Order, id=orderId)
+        for i in items:
+            obj_instance2 = Ordered_food.objects.create(
+                order_id=getOrder,
+                food_id=i.food_id,
+                qty=i.qty
+            )
+            i.delete()
+        return render(request, 'orderSuccess.html')
+    else:
+        return redirect('checkout')

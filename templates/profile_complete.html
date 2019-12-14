@@ -12,18 +12,9 @@
 				<div class="container">
 					<div class="row justify-content-between align-content-center">
 						<div class="col-md-auto">
-							<h3>COmplete your profile</h3>
+							<h3>Congratulations! Complete your profile to place order</h3>
 						</div>
-						<div class="col-md-auto">
-							<ul class="au-breadcrumb">
-								<li>
-									<a href="{% url 'index' %}">Home</a>
-								</li>
-								<li>
-									<a href="shop-cart.html">My Account</a>
-								</li>
-							</ul>
-						</div>
+
 					</div>
 				</div>
 			</section>
@@ -32,7 +23,7 @@
 			<section class="section-primary sign-up pt-112 pb-90">
 				<div style="margin-left: 25%" class="container col-md-6">
 
-				  	<form class="col-md-6" action="" method="post">
+				  	<form class="col-md-6" action="" method="post" enctype="multipart/form-data">
 					    {% csrf_token %}
                         {{ form.as_p }}
 					    <input class="au-btn round has-bg" type="submit" name="submit" value="Submit"/>

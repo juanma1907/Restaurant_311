@@ -2,13 +2,55 @@
 {% load static %}
 {% block title %}Home {% endblock %}
 {% block stylesheet %}{% endblock %}
+<!--cart for Desktop-->
+    {% block cartNumber %}{{ itemCount.no_of_item}}{% endblock %}
+{% block cartItem %}
+{% for i in cart_item|slice:5 %}
+    <li class="woocommerce-mini-cart-item mini_cart_item clearfix">
+        <a href="{% url "add_to_cart_Delete" fid=i.food_id.id %}" class="remove remove_from_cart_button" aria-label="Remove this item">
+            <span class="lnr lnr-cross-circle"></span>
+        </a>
+        <a href="{% url "shop_single" id=i.food_id.id %}" class="image-holder">
+            <img src="{{i.food_id.image.url}}" width="40" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="">
+            <span class="product-name">{{i.food_id.name}}</span>
+        </a>
+        <span class="quantity">
+            <span class="woocommerce-Price-amount amount">
+                <span class="woocommerce-Price-currencySymbol">৳</span>{{i.food_id.price}}
+            </span>
+            x{{ i.qty }}
+        </span>
+    </li>
+{% endfor %}
+{% endblock %}
+{% block cartTotal %}{{ totalBill }}{% endblock %}
+<!--cart for Mobile-->
+{% block cartNumberMob %}{% endblock %}
+{% block cartItemMob %}
+    <li class="woocommerce-mini-cart-item mini_cart_item clearfix">
+        <a href="#" class="remove remove_from_cart_button" aria-label="Remove this item">
+            <span class="lnr lnr-cross-circle"></span>
+        </a>
+        <a href="#" class="image-holder">
+            <img src="{% static 'images/widget-cart-thumb-1.jpg' %}" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="">
+            <span class="product-name">Best Brownies</span>
+        </a>
+        <span class="quantity">
+            <span class="woocommerce-Price-amount amount">
+                <span class="woocommerce-Price-currencySymbol">৳</span>18
+            </span>
+            x1
+        </span>
+    </li>
+{% endblock %}
+{% block cartTotalMob %}{% endblock %}
 {% block content %}
 	
 	<body>
 
 		<main>
 			<!-- PAGE INFO -->
-			<section class="page-info set-bg" data-bg="{% static 'images/page-info-bg-3.jpg' %}">
+			<section class="page-info set-bg" data-bg="{% static 'images/page-info-bg.jpg' %}">
 				<div class="section-header">
 					<h1 class="text-white">Our menu</h1>
 					<span>~ See what we offe ~</span>
